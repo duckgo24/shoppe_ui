@@ -1,101 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="keyframe.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="header__nav">
-                <div class="header__nav-left">
-                    <a href="#">Kênh người bán</a>
-                    <a href="#">Trở thành Người dùng Shoppe</a>
-                    <a href="#">Tải ứng dụng</a>
-                    <div class="contact">
-                        <a href="#" class="fb icon">
-                            <i class="fa-brands fa-facebook-f"></i>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="stylesheet" href="./assets/css/keyframe.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <!-- start header -->
+            <div class="header">
+                <div class="header__nav">
+                    <div class="header__nav-left">
+                        <a href="#">Kênh người bán</a>
+                        <a href="#">Trở thành Người dùng Shoppe</a>
+                        <a href="#">Tải ứng dụng</a>
+                        <div class="contact">
+                            <a href="#" class="fb icon">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="ins icon">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header__nav-right">
+                        <a href="#" class="notify">
+                            <i class="fa-regular fa-bell"></i>
+                            <span>Thông báo</span>
+                            <span class="num-notify"></span>
+                            <div class="list-notify">
+                                <img src="./assets/image/none.png" alt="" sizes="" srcset="" height="100px" />
+                                <p class="notify-desc">Không có thông báo</p>
+                            </div>
                         </a>
-                        <a href="#" class="ins icon">
-                            <i class="fa-brands fa-instagram"></i>
+                        <a href="#" class="help-user">
+                            <i class="fa-regular fa-circle-question"></i>
+                            <span>Hỗ trợ</span>
+                        </a>
+                        <div class="language">
+                            <i class="fa-solid fa-globe"></i>
+                            <span class="language-selected">Tiếng việt</span>
+                            <i class="fa-solid fa-chevron-down btn-down"></i>
+                            <div class="list-language">
+                                <span class="text-primary">Tiếng việt</span>
+                                <span>Tiếng anh</span>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <a href="./pages/AuthenForm/login.html" id="sign-up">Đăng kí</a>
+                            <a href="./pages/AuthenForm/register.html" id="sign-in">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__main">
+                    <div class="header__main-logo">
+                        <a href="/">
+                            <img src="./assets/image/shoppe-logo.png" alt="" id="logo-main" />
                         </a>
                     </div>
-                    
-                </div>
-                <div class="header__nav-right">
-                    <a href="#" class="notify">
-                        <i class="fa-regular fa-bell"></i>
-                        <span>Thông báo</span>    
-                        <span class="num-notify"></span>
-                        <div class="list-notify">
-                            <img src="./assets/image/none.png" alt="" sizes="" srcset="" height="100px">
-                            <p class="notify-desc">Không có thông báo</p>
+                    <div class="header__main-search">
+                        <input type="text" placeholder="Tìm kiếm trên Shopee" />
+                        <button class="btn-search">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+
+                        <div class="search-result">
+                            <div class="search-result__item">
+                                <span>Shopee bao ship 0Đ - Đăng kí ngay!</span>
+                                <img src="./assets/image/free-ship.png" alt="" height="30px" />
+                            </div>
                         </div>
 
-                    </a>
-                    <a href="#" class="help-user">
-                        <i class="fa-regular fa-circle-question"></i>
-                        <span>Hỗ trợ</span>
-                    </a>
-                    <div class="language">
-                        <i class="fa-solid fa-globe"></i>
-                        <span class="language-selected">Tiếng việt</span>
-                        <i class="fa-solid fa-chevron-down btn-down"></i>
-                        <div class="list-language">
-                            <span class="text-primary">Tiếng việt</span>
-                            <span>Tiếng anh</span>
+                        <div class="search-suggestion">
+                            <span>Áo phông</span>
+                            <span>Săn iPhone 15 Pro Max 1k</span>
+                            <span>Set đồ nam</span>
+                            <span>Đồ trang trí</span>
+                            <span>Dép 0đ</span>
+                            <span>Gấu bông</span>
+                            <span>Áo Thun Local Brand</span>
+                            <span>Apple Watch</span>
+                            <span>Đồ ăn vặt</span>
                         </div>
                     </div>
-                    <div class="user">
-                        <a href="./pages/AuthenForm/login.html" id="sign-up">Đăng kí</a>
-                        <a href="./pages/AuthenForm/register.html" id="sign-in">Đăng nhập</a>
+                    <div class="header__main-cart">
+                        <a href="#" class="cart">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                        </a>
+
+                        <div class="list-cart">
+                            <div class="cart-item">
+                                <img src="./assets/image/none.png" alt="" height="60px" />
+                                <p>Không có sản phẩm nào</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="header__main">
-                <div class="header__main-logo">
-                    <a href="/">
-                        <img src="./assets/image/shoppe-logo.png" alt="" id="logo-main">
-                    </a>              
+            <!-- end header -->
+
+            <!-- start banner -->
+            <div class="banner">
+                <div class="promotion_1">
+                    <div class="promotion_1-main">
+                        <div class="promotion-1-wrapper">
+                            <img src="./assets/image/Banner/promotion-1.jpg" alt="" class="banner-1" />
+                            <img src="./assets/image/Banner/promotion-2.jpg" alt="" class="banner-1" />
+                            <img src="./assets/image/Banner/promotion-3.jpg" alt="" class="banner-1" />
+                            <img src="./assets/image/Banner/promotion-4.jpg" alt="" class="banner-1" />
+                            <img src="./assets/image/Banner/promotion-5.jpg" alt="" class="banner-1" />
+                            <img src="./assets/image/Banner/promotion-6.png" alt="" class="banner-1" />
+                            <img src="./assets/image/Banner/promotion-7.jpg" alt="" class="banner-1" />
+                        </div>
+                        <div class="promotion-1-btn list-btn">
+                            <button class="btn-promotion-1 bg-primary btn-item"></button>
+                            <button class="btn-promotion-1 btn-item"></button>
+                            <button class="btn-promotion-1 btn-item"></button>
+                            <button class="btn-promotion-1 btn-item"></button>
+                            <button class="btn-promotion-1 btn-item"></button>
+                            <button class="btn-promotion-1 btn-item"></button>
+                            <button class="btn-promotion-1 btn-item"></button>
+                        </div>
+                        <button class="btn-control btn-control-prev">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="btn-control btn-control-next">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="promotion_1-sub">
+                        <img src="./assets/image/Banner/promotion-6.png" alt="" class="banner-sub-1" />
+                        <img src="./assets/image/Banner/promotion-7.jpg" alt="" class="banner-sub-1" />
+                    </div>
                 </div>
-                <div class="header__main-search">
-                    <input type="text" placeholder="Tìm kiếm trên Shopee">
-                    <button class="btn-search">
-                        <i class="fa-solid fa-search"></i>
+                <div class="promotion_2">
+                    <div class="wrapper">
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-1.png" alt="" class="banner-2" />
+                            <p>Voucher giảm giá đến 1 Triệu</p>
+                        </div>
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-2.png" alt="" class="banner-2" />
+                            <p>Miễn phí ship - Có freeship</p>
+                        </div>
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-3.png" alt="" class="banner-2" />
+                            <p>Khung giờ săn sale</p>
+                        </div>
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-4.png" alt="" class="banner-2" />
+                            <p>Mã giảm giá</p>
+                        </div>
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-5.png" alt="" class="banner-2" />
+                            <p>Shoppe siêu rẻ</p>
+                        </div>
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-6.png" alt="" class="banner-2" />
+                            <p>Shoppe style voucher 40%</p>
+                        </div>
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-7.png" alt="" class="banner-2" />
+                            <p>Hàng quốc tế</p>
+                        </div>
+                        <div class="promotion_2-item">
+                            <img src="./assets/image/Banner/promotion-2-8.png" alt="" class="banner-2" />
+                            <p>Nạp thẻ, dịch vụ & VinWonders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end banner -->
+
+            <!-- start new  -->
+            <div class="new">
+                <div class="new__header">
+                    <img src="./assets/image/New/new-1.jpg" alt="" class="new__header-img" />
+                    <div class="new__header-col col-1">
+                        <span>ĐỒ BẠN THÍCH Ở ĐÂY</span>
+                        <button>
+                            Xem thêm
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="new__header-col col-2">
+                        <span>HÀNG HIỆU OUTLET</span>
+                        <button>
+                            Xem thêm
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="new__header-countdown">
+                        Còn 3 ngày
+                        <span class="hour new-hour text-primary">03</span>
+                        <span>:</span>
+                        <span class="minute new-minute text-primary">40</span>
+                        <span>:</span>
+                        <span class="second new-second text-primary">30</span>
+                    </div>
+                </div>
+                <div class="new__main">
+                    <div class="new__main-col">
+                        <div class="new__main-col-item">
+                            <img src="./assets/image/New/new-2.jpg" alt="" class="new-img" />
+                            <p class="price text-primary">₫69.520</p>
+                        </div>
+                        <div class="new__main-col-item">
+                            <img src="./assets/image/New/new-3.jpg" alt="" class="new-img" />
+                            <p class="price text-primary">₫69.520</p>
+                        </div>
+                        <div class="new__main-col-item">
+                            <img src="./assets/image/New/new-4.jpg" alt="" class="new-img" />
+                            <p class="price text-primary">₫69.520</p>
+                        </div>
+                    </div>
+                    <div class="new__main-col">
+                        <div class="new__main-col-item">
+                            <img src="./assets/image/New/new-2.jpg" alt="" class="new-img" />
+                            <p class="price text-primary">₫69.520</p>
+                        </div>
+                        <div class="new__main-col-item">
+                            <img src="./assets/image/New/new-3.jpg" alt="" class="new-img" />
+                            <p class="price text-primary">₫69.520</p>
+                        </div>
+                        <div class="new__main-col-item">
+                            <img src="./assets/image/New/new-4.jpg" alt="" class="new-img" />
+                            <p class="price text-primary">₫69.520</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end new -->
+
+            <!-- start category -->
+            <div class="category">
+                <div class="category-title">DANH MỤC</div>
+                <div class="category__list">
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-1.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-2.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-3.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-4.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-5.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-6.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-7.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-8.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-9.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-10.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-11.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-12.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-13.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-14.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-15.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-16.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-17.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-18.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-19.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                    <div class="category__list-item">
+                        <img src="./assets/image/Category/cg-20.png" alt="" class="category-img" />
+                        <p>Thời Gian Nam</p>
+                    </div>
+                </div>
+            </div>
+            <!-- end category -->
+
+            <!-- start flash sale -->
+            <div class="flash-sale">
+                <div class="flash-sale__title">
+                    <img src="./assets/image/FlashSale/f-s-1.png" alt="" class="flash-sale-logo" />
+                    <span class="hour flash-sale-hour">00</span>
+                    <span class="minute flash-sale-minute">50</span>
+                    <span class="second flash-sale-second">60</span>
+                </div>
+                <div class="flash-sale__list">
+                    <div class="flast-sale__list-item">
+                        <img src="./assets/image/FlashSale/f-s-2.jpg" alt="" class="flash-sale-img" />
+                        <p class="price text-primary">₫69.520</p>
+                        <div class="info-sale">đang bán chạy</div>
+                        <div class="expiry">
+                            <img src="./assets/image/sgv/flash.svg" alt="" class="expiry-img" />
+                            <span class="text-primary">-32 %</span>
+                        </div>
+                    </div>
+                    <div class="flast-sale__list-item">
+                        <img src="./assets/image/FlashSale/f-s-3.jpg" alt="" class="flash-sale-img" />
+                        <p class="price text-primary">₫199.520</p>
+                        <div class="info-sale">đang bán chạy</div>
+                        <div class="expiry">
+                            <img src="./assets/image/sgv/flash.svg" alt="" class="expiry-img" />
+                            <span class="text-primary">-33 %</span>
+                        </div>
+                    </div>
+                    <div class="flast-sale__list-item">
+                        <img src="./assets/image/FlashSale/f-s-4.png" alt="" class="flash-sale-img" />
+                        <p class="price text-primary">₫120.520</p>
+                        <div class="info-sale">đang bán chạy</div>
+                        <div class="expiry">
+                            <img src="./assets/image/sgv/flash.svg" alt="" class="expiry-img" />
+                            <span class="text-primary">-34 %</span>
+                        </div>
+                    </div>
+                    <div class="flast-sale__list-item">
+                        <img src="./assets/image/FlashSale/f-s-5.png" alt="" class="flash-sale-img" />
+                        <p class="price text-primary">₫99.520</p>
+                        <div class="info-sale">đang bán chạy</div>
+                        <div class="expiry">
+                            <img src="./assets/image/sgv/flash.svg" alt="" class="expiry-img" />
+                            <span class="text-primary">-35 %</span>
+                        </div>
+                    </div>
+                    <div class="flast-sale__list-item">
+                        <img src="./assets/image/FlashSale/f-s-6.jpg" alt="" class="flash-sale-img" />
+                        <p class="price text-primary">₫76.520</p>
+                        <div class="info-sale">đang bán chạy</div>
+                        <div class="expiry">
+                            <img src="./assets/image/sgv/flash.svg" alt="" class="expiry-img" />
+                            <span class="text-primary">-36 %</span>
+                        </div>
+                    </div>
+                    <div class="flast-sale__list-item">
+                        <img src="./assets/image/FlashSale/f-s-7.png" alt="" class="flash-sale-img" />
+                        <p class="price text-primary">₫221.520</p>
+                        <div class="info-sale">đang bán chạy</div>
+                        <div class="expiry">
+                            <img src="./assets/image/sgv/flash.svg" alt="" class="expiry-img" />
+                            <span class="text-primary">-37 %</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end falsh sale -->
+
+            <!-- start banner-2 -->
+            <div class="banner-2">
+                <a href="#" class="baner-2__link">
+                    <img src="./assets/image/Banner/promotion-3-1.png" alt="" class="banner-2-img" />
+                </a>
+            </div>
+            <!-- end banner-2 -->
+
+            <!-- start shoppe-mall -->
+            <div class="shoppe-mall">
+                <div class="shoppe-main__title">
+                    <span class="title">SHOPPE MALL</span>
+                    <span>
+                        <img src="./assets/image/back.png" alt="" class="shoppe-main-icon">
+                        <span>7 Ngày Miễn Phí Trả Hàng</span>
+                    </span>
+                    <span>
+                        <img src="./assets/image/safe.png" alt="" class="shoppe-main-icon">
+                        <span>Hàng Chính Hãng 100%</span>
+                    </span>
+                    <span>
+                        <img src="./assets/image/deliver.png" alt="" class="shoppe-main-icon">
+                        <span>Miễn Phí Vận Chuyển</span>
+                    </span>
+
+                    <button>
+                        Xem tất cả
+                        <i class="fa-solid fa-chevron-right cus-icon"></i>
                     </button>
-
-                    <div class="search-result">
-                        <div class="search-result__item">
-                            <span>Shopee bao ship 0Đ - Đăng kí ngay!</span>
-                            <img src="./assets/image/free-ship.png" alt="" height="30px">
+                </div>
+                <div class="shoppe-mall__main">
+                    <div class="shoppe-main__main-left">
+                        <div class="left__carousel">
+                            <img src="./assets/image/ShoppeMall/s-m-1.png" alt="" class="shoppe-mall-img" />
+                            <img src="./assets/image/ShoppeMall/s-m-2.jpg" alt="" class="shoppe-mall-img" />
+                            <img src="./assets/image/ShoppeMall/s-m-3.jpg" alt="" class="shoppe-mall-img" />
+                            <img src="./assets/image/ShoppeMall/s-m-4.png" alt="" class="shoppe-mall-img" />
+                            <img src="./assets/image/ShoppeMall/s-m-5.png" alt="" class="shoppe-mall-img" />
+                            <img src="./assets/image/ShoppeMall/s-m-6.png" alt="" class="shoppe-mall-img" />
+                        </div>
+    
+                        <div class="left__btns list-btn">
+                            <button class="left__btns-item btn-item bg-primary"></button>
+                            <button class="left__btns-item btn-item"></button>
+                            <button class="left__btns-item btn-item"></button>
+                            <button class="left__btns-item btn-item"></button>
+                            <button class="left__btns-item btn-item"></button>
+                            <button class="left__btns-item btn-item"></button>
+                        </div>
+    
+                        <div class="btn-control left-btnPrev">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </div>
+                        <div class="btn-control left-btnNext">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </div>
                     </div>
-
-                    <div class="search-suggestion">
-                        <span>Áo phông</span>
-                        <span>Săn iPhone 15 Pro Max 1k</span>
-                        <span>Set đồ nam</span>
-                        <span>Đồ trang trí</span>
-                        <span>Dép 0đ</span>
-                        <span>Gấu bông</span>
-                        <span>Áo Thun Local Brand</span>
-                        <span>Apple Watch</span>
-                        <span>Đồ ăn vặt</span>
+    
+                    <div class="shoppe-main__right">
+                        
                     </div>
-
-                </div>  
-                <div class="header__main-cart">
-                    <a href="#" class="cart">
-                        <i class="fa-solid fa-shopping-cart"></i>
-                    </a>
                 </div>
             </div>
+            <!-- end shoppe-mall -->
         </div>
-    </div>
-</body>
+
+        <script src="./assets/js/script.js"></script>
+    </body>
 </html>
