@@ -1,0 +1,113 @@
+
+html {
+    font-family: Helvetica, sans-serif;
+}
+:root {
+    --default-layout-height-header: 120px;
+    --default-layout-width: 1440px;
+    --primary-color: #fb5533;
+    --linear-gradient: linear-gradient(-180deg,#f53d2d,#f63);
+    --secondary-color: #f53d2d;
+    --white-color: #fff; 
+}
+
+a {
+    color: var(--white-color);
+}
+
+
+.container {
+
+}
+
+/* Header */
+
+.header {
+    height: var(--default-layout-height-header);
+    min-width: var(--default-layout-width);
+    background-image: var(--linear-gradient); ;
+}
+
+
+.header .header__nav {
+    height: calc(var(--default-layout-height-header) - 86px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header .header__nav .header__nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.header .header__nav .header__nav-left::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 23%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.header .header__nav .header__nav-left::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 33%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 70%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+ 
+.header .header__nav .header__nav-left a{
+    font-size: 14px;
+    color: var(--white-color);
+}
+
+.header .header__nav .header__nav-left .contact {
+    display: flex;
+}
+
+.icon {
+    color: var(--white-color);
+}
+
+.fb {
+    width: 22px;
+    height: 20px;
+    border: 1px solid var(--white-color);
+    border-radius: 50%;
+    background-color: var(--white-color);
+    color: var(--primary-color) !important;
+    display: grid;
+    place-items: center;
+    font-size: 12px !important;
+}
+
+.ins {
+    font-size: 20px !important;
+    margin-left: 10px;
+}
+
+.header .header__nav .header__nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header .header__nav .header__nav-right {
+    font-size: 14px;
+    color: var(--white-color);
+}
+
+
+
+
