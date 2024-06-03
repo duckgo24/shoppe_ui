@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./fontawesome/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="keyframe.css">
     <title>Document</title>
 </head>
 <body>
@@ -30,11 +31,12 @@
                     <a href="#" class="notify">
                         <i class="fa-regular fa-bell"></i>
                         <span>Thông báo</span>    
-                        <span class="num-notify">4</span>
-
+                        <span class="num-notify"></span>
                         <div class="list-notify">
-                            
+                            <img src="./assets/image/none.png" alt="" sizes="" srcset="" height="100px">
+                            <p class="notify-desc">Không có thông báo</p>
                         </div>
+
                     </a>
                     <a href="#" class="help-user">
                         <i class="fa-regular fa-circle-question"></i>
@@ -43,32 +45,53 @@
                     <div class="language">
                         <i class="fa-solid fa-globe"></i>
                         <span class="language-selected">Tiếng việt</span>
-                        <i class="fa-solid fa-chevron-down"></i>
+                        <i class="fa-solid fa-chevron-down btn-down"></i>
                         <div class="list-language">
-                            <span class="selected">Tiếng việt</span>
+                            <span class="text-primary">Tiếng việt</span>
                             <span>Tiếng anh</span>
                         </div>
                     </div>
                     <div class="user">
-                        <a href="#" id="sign-up">Đăng kí</a>
-                        <a href="#" id="sign-in">Đăng nhập</a>
+                        <a href="./pages/AuthenForm/login.html" id="sign-up">Đăng kí</a>
+                        <a href="./pages/AuthenForm/register.html" id="sign-in">Đăng nhập</a>
                     </div>
                 </div>
             </div>
             <div class="header__main">
-                <div class="header__main-login">
-                    <img src="./assets/image/shoppe-logo.png" alt="" id="logo-main">              
+                <div class="header__main-logo">
+                    <a href="/">
+                        <img src="./assets/image/shoppe-logo.png" alt="" id="logo-main">
+                    </a>              
                 </div>
                 <div class="header__main-search">
                     <input type="text" placeholder="Tìm kiếm trên Shopee">
                     <button class="btn-search">
                         <i class="fa-solid fa-search"></i>
                     </button>
+
+                    <div class="search-result">
+                        <div class="search-result__item">
+                            <span>Shopee bao ship 0Đ - Đăng kí ngay!</span>
+                            <img src="./assets/image/free-ship.png" alt="" height="30px">
+                        </div>
+                    </div>
+
+                    <div class="search-suggestion">
+                        <span>Áo phông</span>
+                        <span>Săn iPhone 15 Pro Max 1k</span>
+                        <span>Set đồ nam</span>
+                        <span>Đồ trang trí</span>
+                        <span>Dép 0đ</span>
+                        <span>Gấu bông</span>
+                        <span>Áo Thun Local Brand</span>
+                        <span>Apple Watch</span>
+                        <span>Đồ ăn vặt</span>
+                    </div>
+
                 </div>  
                 <div class="header__main-cart">
                     <a href="#" class="cart">
                         <i class="fa-solid fa-shopping-cart"></i>
-                        <span>Giỏ hàng</span>
                     </a>
                 </div>
             </div>
