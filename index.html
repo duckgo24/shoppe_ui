@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./assets/css/style.css" />
         <link rel="stylesheet" href="./assets/css/reset.css" />
         <link rel="stylesheet" href="./assets/css/keyframe.css" />
+        <link rel="shortcut icon" href="./assets/image/icon.png" type="image/x-icon">
         <title>Document</title>
     </head>
     <body>
@@ -20,11 +21,11 @@
                         <a href="#" id="qr">
                             Tải ứng dụng
                             <div class="show-qr">
-                                <img src="./assets/image/Install/qr.png" alt="" width="120px" height="120px">
-                                <div style="margin-left: 13px;">
-                                    <img src="./assets/image/Install/iphone.png" alt="">
-                                    <img src="./assets/image/Install/adr.png" alt="">
-                                    <img src="./assets/image/Install/gallery.png" alt="">
+                                <img src="./assets/image/Install/qr.png" alt="" width="120px" height="120px" />
+                                <div style="margin-left: 13px">
+                                    <img src="./assets/image/Install/iphone.png" alt="" />
+                                    <img src="./assets/image/Install/adr.png" alt="" />
+                                    <img src="./assets/image/Install/gallery.png" alt="" />
                                 </div>
                             </div>
                         </a>
@@ -61,13 +62,15 @@
                             </div>
                         </div>
                         <div class="user">
-                            <!-- <a href="./pages/AuthenForm/login.html" id="sign-up">Đăng kí</a>
-                            <a href="./pages/AuthenForm/register.html" id="sign-in">Đăng nhập</a> -->
+                            <div class="choose">
+                                <a href="./pages/AuthenForm/./Register/register.html" id="sign-up">Đăng kí</a>
+                                <a href="./pages/AuthenForm/./Login/login.html" id="sign-in">Đăng nhập</a>
+                            </div>
                             <div class="user-info">
                                 <img src="" alt="" id="user-image" >
                                 <span id="user-name">Cao việt</span>
                                 <div class="option-list">
-                                    <a href="#" class="option-item">Tài khoản của tôi</a>
+                                    <a href="././pages/Profile/profile.html" class="option-item">Tài khoản của tôi</a>
                                     <a href="#" class="option-item">Đơn hàng</a>
                                     <button class="btn-signout option-item">Đăng xuất</button>
                                 </div>
@@ -793,26 +796,65 @@
                     </p>
                 </div>
                 <div class="more-info">
-                    <p>Chính sách bảo mật     |     Quy Chế Hoạt Động     |     Chính Sách Vận Chuyển     |      Chính Sách Trả Hàng và Hoàn Tiền     </p>
+                    <p>
+                        Chính sách bảo mật | Quy Chế Hoạt Động | Chính Sách Vận Chuyển | Chính Sách Trả Hàng và Hoàn
+                        Tiền
+                    </p>
                     <div class="register">
                         <div class="register-img">
-                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img">
-                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img">
-                            <img src="./assets/image/Footer/f-2.png" alt="" class="r-img">
+                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-2.png" alt="" class="r-img" />
                         </div>
                         <p>Công Ty TNH Shoppe</p>
                     </div>
-                    <p>Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba Đình, Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn</p>
+                    <p>
+                        Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba
+                        Đình, Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn
+                    </p>
                     <p>Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Bùi Anh Tuấn - Điện thoại liên hệ: 0974181435</p>
                     <p>Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</p>
                     <p>© 2015 - Bản quyền thuộc về Công ty TNHH Shopee</p>
                 </div>
-            </div>          
+            </div>
             <!-- end footer -->
 
             <div class="chat-with-me">
                 <div class="btn-chat">
+                    <img src="./assets/image/Chat-With-Me/chat-with-me.png" alt="">
+                </div>
+                <div class="windown-chat">
+                    <div class="windown-chat__header">
+                        <span class="text-primary">Chat</span>
+                        <span>
+                            <i class="fa-solid fa-arrow-right chat-icon chat-btn-hide"></i>
+                            <i class="fa-solid fa-chevron-down chat-icon chat-btn-close"></i>
+                        </span>
+                    </div>
+                    <div class="windown-chat__main">
+                        <div class="left">
+                            <div class="top">
+                                <input type="text" placeholder="Tìm kiếm">
+                                <p>Tất cả</p>
+                                <i class="fa-solid fa-chevron-down"></i>  
+                            </div>
+                            <div class="main">
+                                <div>Không tìm thấy cuộc hội thoại nào</div>
+                            </div>
+                        </div>
+                        <div class="right list-message">
+                            <img src="./assets/image/Chat-With-Me/welcome.png" alt="" height="200px" width="300px">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="hot">
+                <div class="wrapper">
+                    <img src="./assets/image/hot.png" alt="" class="img-hot" />
+                    <button class="btn-hot-close">
+                        <i class="fa-solid fa-x"></i>
+                    </button>
                 </div>
             </div>
         </div>

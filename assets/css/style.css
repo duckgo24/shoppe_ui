@@ -11,10 +11,12 @@ html {
     --new-bg-color: #ee4e2e;
     --white-color: #fff;
     --black-color: #000;
-    --yellow-color: #FFE97A;
+    --yellow-color: #ffe97a;
+    --orange-color: #FFBF00;
     --red-color: #D0011B;
     --white-color-2: #FEEEEA;
     --gray-color: #F5F5F5;
+    --disable: 0.6;
 }
 
 a {
@@ -22,7 +24,7 @@ a {
 }
 
 .text-primary {
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
 }
 
 .bg-primary {
@@ -38,6 +40,7 @@ a {
 }
 
 .container {
+    position: relative;
 }
 
 /* Header */
@@ -272,7 +275,13 @@ a {
     position: relative;
 }
 
-/* .header__nav .header__nav-right .user::before {
+.header__nav .header__nav-right .user .choose {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.header__nav .header__nav-right .user .choose::before {
     content: '';
     position: absolute;
     top: 0px;
@@ -280,10 +289,10 @@ a {
     width: 2px;
     height: 90%;
     background-color: rgba(255, 255, 255, 0.3);
-} */
+}
 
 .header__nav-right .user .user-info {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     gap: 10px;
@@ -1168,7 +1177,7 @@ a {
 }
 
 .footer .wrapper {
-    width: 84%;
+    width: calc(var(--default-layout-width) - 100px);
     margin: auto;
     display: flex;
 }
@@ -1247,4 +1256,144 @@ a {
     text-align: center;
     font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
+}
+
+/* Chat with me */
+
+.chat-with-me {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    cursor: pointer;
+}
+
+.chat-with-me .btn-chat {
+    display: block;
+}
+
+.chat-with-me .windown-chat {
+    display: none;
+    min-height: 450px;
+    width: 630px;
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+    flex-direction: column;
+}
+
+.chat-with-me .windown-chat .windown-chat__header {
+    height: 40px;
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.windown-chat .windown-chat__header span {
+    font-size: 18px;
+    margin-left: 10px;
+
+}
+.windown-chat .windown-chat__header .chat-icon {
+    padding: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    font-size: 10px;
+    color:rgba(0, 0, 0, 0.6); 
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.windown-chat .windown-chat__main {
+    display: flex;
+    height: 500px
+}
+.windown-chat .windown-chat__main .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(0, 0, 0, 0.7);
+}
+.windown-chat .windown-chat__main .left .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    margin: 10px 10px 0 10px;
+    position: relative;
+}
+
+.windown-chat .windown-chat__main .left .top input {
+    width: 70%;
+    height: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.windown-chat .windown-chat__main .left .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    flex-direction: column;
+}
+
+.a {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.windown-chat .windown-chat__main .list-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #F3F3F3;
+    overflow: hidden;
+}
+
+
+
+/* hot */
+
+.hot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hot .wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-hot {
+    height: 540px;
+    width: 440px;
+}
+
+.hot .btn-hot-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    height: 30px;
+    width: 30px;
+    background-color: var(--white-color);
+    font-size: 18px;
+    border-radius: 50%;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }

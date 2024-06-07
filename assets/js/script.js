@@ -80,12 +80,101 @@ function ShoppeMall() {
     });
 }
 
+function Hot() {
+    const hot = document.querySelector('.hot');
+    const btnClose = document.querySelector('.btn-hot-close');
+    btnClose.addEventListener('click', () => {
+        hot.style.display = 'none';
+    });
+}
+
+function ChatWithMe() {
+    const windownChat = document.querySelector('.windown-chat');
+    const listMessage = document.querySelector('.list-message');
+    const btnClose = document.querySelector('.chat-btn-close');
+    const btnOpen = document.querySelector('.btn-chat');
+    const btnHide = document.querySelector('.chat-btn-hide');
+    let countClickHide = 0;
+    btnOpen.addEventListener('click', () => {
+        windownChat.style.animation = 'big 0.5s ease-in-out';
+        windownChat.style.display = 'flex';
+        btnOpen.style.display = 'none';
+        setTimeout(() => {
+            windownChat.style.animation = '';
+        }, 1000);
+    });
+
+    btnClose.addEventListener('click', () => {
+        windownChat.style.animation = 'small 0.5s ease-in-out';           
+        setTimeout(() => {
+            windownChat.style.display = 'none';
+            btnOpen.style.display = 'block';
+        },500)      
+    });
+
+    btnHide.addEventListener('click', () => {
+        countClickHide++;
+        if(countClickHide % 2 == 1) {
+            listMessage.style.animation = 'reduceWidth 0.7s ease-in-out';   
+            setTimeout(() => {
+                listMessage.style.width = '0';
+                listMessage.style.animation = '';
+            }, 700);
+        } else {
+            listMessage.style.animation = 'increaseWidth 0.7s ease-in-out';   
+            setTimeout(() => {
+                listMessage.style.width = '100%';
+                listMessage.style.animation = '';
+            }, 700);
+        }
+        
+
+        if(btnHide.classList.contains('fa-arrow-right')) {
+            btnHide.classList.remove('fa-arrow-right')
+            btnHide.classList.add('fa-arrow-left')
+        }
+        else {
+            btnHide.classList.remove('fa-arrow-left')
+            btnHide.classList.add('fa-arrow-right')
+        }
+    })
+
+}
+
+function User() {
+    const chooseAuth = document.querySelector('.user .choose');
+    const userInfo = document.querySelector('.user .user-info');    
+
+    const username = document.getElementById('user-name');
+
+    const data = localStorage.getItem('user');
+
+    if(data) {
+        const user = JSON.parse(data);
+        username.textContent = user?.username;
+        chooseAuth.style.display = 'none';
+        userInfo.style.display = 'flex';
+    }
+
+    const btnSignout = document.querySelector('.btn-signout');
+    btnSignout.addEventListener('click', () => {
+        localStorage.removeItem('user');
+        window.location.href = '/index.html';
+        hooseAuth.style.display = 'flex';
+        userInfo.style.display = 'none';
+    });
+}
+
+
 // Start
 function Start() {
     Promotion();
     New();
     FlashSale();
     ShoppeMall();
+    Hot();
+    ChatWithMe();
+    User();
 }
 
 Start();
@@ -144,4 +233,45 @@ function AutoSlide(listImage, boxWrapper, index, width) {
     setInterval(() => {
         index = NextSlide(listImage, boxWrapper, index, width);
     }, 3000);
+}
+
+function Toast(type, title, message, countdown) {
+    const toast = document.querySelector('.toast');
+    const toastIcon = document.querySelector('.toast-icon');
+    const toastTitle = document.querySelector('.toast-content .title');
+    const toastMessage = document.querySelector('.toast-content .message');
+    const toastCountDown = document.querySelector('.toast-countdown');
+    const toastClose = document.querySelector('.toast-close');
+
+    switch (type) {
+        case 'success': {
+            toast.classList.add('show');
+            toastCountDown.classList.add('success');
+            toastIcon.classList.add('success');
+            toastIcon.innerHTML = `<i class="fa-solid fa-check"></i>`;
+            break;
+        }
+        case 'error': {
+            toast.classList.add('show');
+            toastCountDown.classList.add('error');
+            toastIcon.classList.add('error');
+            toastIcon.innerHTML = `<i class="fa-solid fa-x"></i>`;
+            break;
+        }
+    }
+
+
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+    toastCountDown.style.animation = `countdown ${countdown}ms linear`;
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+        toastCountDown.style.animation = ``;       
+    }, countdown);
+
+    toastClose.addEventListener('click', () => {
+        toast.classList.remove('show');
+        toastCountDown.style.animation = ``;
+    });
 }

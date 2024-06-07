@@ -1,0 +1,139 @@
+.Profile__container {
+    position: relative;
+}
+.Profile__container-main {
+    min-height: 600px;
+    padding: 0 0 20px 0;
+    display: flex;
+    max-width: calc(var(--default-layout-width) - 100px);
+    margin: 30px auto 0 auto;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.Profile__container-main .Profile__container-main__left {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    
+}
+
+.Profile__container-main .Profile__container-main__left .left-avatar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0 0 15px 0;
+}
+
+.Profile__container-main .Profile__container-main__left .left-avatar div {
+    display: flex;
+    flex-direction: column;
+}
+
+.Profile__container-main .Profile__container-main__left .left-option {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.Profile__container-main .Profile__container-main__left .left-option .option-item {
+    padding: 8px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    position: relative;
+}
+
+.Profile__container-main__left .left-option .option-item span {
+    display: block;
+    max-width: 200px;
+}
+
+.Profile__container-main__left .left-option .option-item-1 {
+    flex-direction: column;
+}
+
+.Profile__container-main__left .left-option .option-item  .list-option-account {
+    margin-left: 32px;
+}
+
+.Profile__container-main__left .left-option .option-item  .list-option-account li {
+    padding: 6px 18px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.Profile__container-main .Profile__container-main__right {
+    flex: 1;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
+    padding: 15px 30px 20px 30px;
+}
+.Profile__container-main .Profile__container-main__right .Profile__container-main__right-header {
+    padding: 5px 0 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Profile__container-main__right .Profile__container-main__right-header .title {
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 4px 0;
+}
+
+.Profile__container-main .Profile__container-main__right .Profile__container-main__right-main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    width: 80%;
+    margin: 10px auto 0 auto;
+}
+
+.Profile__container-main__right .Profile__container-main__right-main .form-container .form-group {
+    padding: 10px 0;
+    display: flex;
+    gap: 20px;
+}
+.Profile__container-main__right-main .form-container .form-group lable {
+    display: block;
+    padding: 10px;
+    width: 200px;
+}
+.Profile__container-main__right-main .form-container .form-group input {
+    height: 40px;
+    width: 80%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.Profile__container-main__right-main .form-container .form-group div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.Profile__container-main__right-main .form-container .form-group input[type="radio"] {
+    width: 20px;
+    height: 20px;
+}
+
+.Profile__container-main__right-main .form-image {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    font-size: 14px;
+    margin-left: 70px;
+    gap: 10px;
+    padding: 30px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.Profile__container-main__right-main .btn-submit-profile {
+    margin-top: 10px;
+    width: 100px;
+    padding: 12px 16px;
+    color: var(--white-color);
+    font-size: 16px;
+    border-radius: 4px;
+}

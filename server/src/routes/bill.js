@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const BillController = require('../controllers/BillController');
+
+router.post('/create', BillController.create);
+router.get('/find', BillController.findBill);
+router.put('/update/:id', BillController.update);
+router.delete('/delete/:id', BillController.delete);
+
+module.exports = router;
