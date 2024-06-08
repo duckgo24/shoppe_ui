@@ -1,0 +1,269 @@
+.ProductDetail__container-main {
+    width: calc(var(--default-layout-width) - 100px);
+    margin: auto;
+}
+
+.ProductDetail__container-main .ProductDetail__container-main__header {
+    padding: 20px 0;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.ProductDetail__container-main .ProductDetail__container-main__header a{
+    color: rgb(0, 0, 255, 0.6);
+    font-size: 16px;
+}
+
+.ProductDetail__container-main .ProductDetail__container-main__main {
+    box-shadow: var(--box-shadow);
+    background-color: var(--white-color);
+    display: grid;
+    grid-template-columns: 40% 60%;
+    gap: 20px;
+}
+
+.ProductDetail__container-main__main .left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ProductDetail__container-main__main .left .left__img {
+    padding: 10px 20px;
+    position: relative;
+}
+
+.ProductDetail__container-main__main .left .left__img .left-frame-product {
+    height: 100%;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.ProductDetail__container-main__main .left .left__list-img img:hover {
+    border: 1px solid red;
+    cursor: pointer;
+}
+.active-img {
+    border: 1px solid red;
+}
+
+.ProductDetail__container-main__main .left .share-like {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 20px 30px;
+    font-size: 18px;
+    position: relative;
+}
+
+.ProductDetail__container-main__main .left .share-like::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    height: 24px;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.ProductDetail__container-main__main .left .share-like div {
+    padding: 10px 0;
+}
+
+.ProductDetail__container-main__main .left .share-like .fa-brands,
+.ProductDetail__container-main__main .left .share-like .fa-regular {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.ProductDetail__container-main__main .right {
+    padding: 20px 0;
+}
+
+
+.ProductDetail__container-main__main .right .right__name-product .love {
+    padding: 4px 10px;
+    height: 23px;
+    background-color: var(--primary-color);
+    font-size: 14px;
+    color: var(--white-color);
+    border-radius: 4px;
+    float: left;
+}
+.ProductDetail__container-main__main .right .right__name-product .name-product {
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 25px;
+}
+
+.ProductDetail__container-main__main .right .right__evaluate {
+    display: flex;
+    gap: 50px;
+    margin-top: 15px;
+}
+
+.star-checked {
+    color: var(--primary-color);
+}
+
+.ProductDetail__container-main__main .right .right__evaluate  span {
+    padding: 4px 0;
+}
+
+.text {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+
+.ProductDetail__container-main__main .right .right__price {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    font-size: 24px;
+}
+
+
+.ProductDetail__container-main__main .right .right__price .price-origin {
+    text-decoration: line-through;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.ProductDetail__container-main__main .right .right__price .discount {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 22px;
+    gap: 5px
+}
+
+.ProductDetail__container-main__main .right .right__option {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.ProductDetail__container-main__main .right .right__option .right__option-item {
+    display: flex;
+    gap: 10px;
+    min-height: 50px;
+    margin-top: 10px;
+}
+
+
+.ProductDetail__container-main__main .right .right__option .right__option-item  div:nth-child(1) {
+    width: 18%;
+    display: block;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+}
+
+
+
+.ProductDetail__container-main__main .right .right__option .right__option-item  div:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.ProductDetail__container-main__main .right .right__option .right__option-item button {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-size: var(--fs-3);
+    padding: 10px 14px;
+    width: 122px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--black-0-4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.btn-active-product {
+    position: relative;
+    border-color: var(--primary-color) !important;
+    overflow: hidden;
+}
+
+.btn-active-product::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: -15px;
+    background-color: var(--primary-color);
+    height: 35px;
+    width: 30px;
+    transform: rotate(45deg);
+}
+
+.btn-active-product::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: -15px;
+    background: url(../../assets/image/sgv/checked.svg) no-repeat;
+    background-size: 27%;
+    background-color: var(--primary-color);
+    height: 30px;
+    width: 25px;
+}
+
+.ProductDetail__container-main__main .right .right__option .right__option-item .abc {
+    border: 1px solid var(--black-0-4);
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.ProductDetail__container-main__main .right .right__option .right__option-item .abc button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.ProductDetail__container-main__main .right .right__option .right__option-item .abc .quantity {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid var(--black-0-4);
+    border-right: 1px solid var(--black-0-4);
+}
+
+.ProductDetail__container-main__main .right .right__option .right__option-item .btn-add-cart {
+    width: 200px;
+    padding: 17px 10px;
+    border: 1px solid var(--primary-color);
+    background-color: #FFF5F1;
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.ProductDetail__container-main__main .right .right__option .right__option-item .btn-buy-now {
+    width: 190px;
+    padding: 17px 20px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+}

@@ -7,12 +7,12 @@
         <link rel="stylesheet" href="../../../fontawesome/css/all.min.css" />
         <link rel="stylesheet" href="../../../assets/css/reset.css" />
         <link rel="stylesheet" href="../../../assets/css/keyframe.css" />
-        <link rel="stylesheet" href="../../../assets/css/toast.css">
-        <link rel="stylesheet" href="./profile.css" />
+        <link rel="stylesheet" href="../../../assets/css/toast.css" />
+        <link rel="stylesheet" href="./productdetail.css" />
         <title>Document</title>
     </head>
     <body>
-        <div class="Profile__container">
+        <div class="ProductDetail__container">
             <!-- start header -->
             <div class="header">
                 <div class="header__nav">
@@ -114,7 +114,6 @@
                         <a href="#" class="cart">
                             <i class="fa-solid fa-shopping-cart"></i>
                         </a>
-
                         <div class="list-cart">
                             <div class="cart-item">
                                 <img src="../../assets/image/none.png" alt="" height="60px" />
@@ -125,119 +124,153 @@
                 </div>
             </div>
             <!-- end header -->
-            <div class="Profile__container-main">
-                <div class="Profile__container-main__left">
-                    <div class="left-avatar">
-                        <img
-                            src="../../assets/image/bear.gif"
-                            alt=""
-                            height="60px"
-                            width="60px"
-                            style="border-radius: 50%"
-                        />
-                        <div>
-                            <span class="fullname">Cao Việt</span>
-                            <button class="profile-btn-update">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                Chỉnh sửa
-                            </button>
-                        </div>
-                    </div>
-                    <div class="left-option list-option">
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-1.png" alt="" height="25px" width="25px" />
-                            <span
-                                >Ưu Đãi Dành Riêng Cho Bạn
-                                <img src="../../assets/image/Profile/new.png" alt="" height="18px" />
-                            </span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-2.png" alt="" height="25px" width="25px" />
-                            <span>
-                                6.6 Siêu Sale Giữa Năm
-                                <img src="../../assets/image/Profile/new.png" alt="" height="18px" />
-                            </span>
-                        </div>
-                        <div class="option-item option-item-1">
-                            <div style="display: flex; align-items: center; gap: 5px">
-                                <img src="../../assets/image/Profile/pf-3.png" alt="" height="25px" width="25px" />
-                                <span>Tài khoản của tôi</span>
-                            </div>
-                            <ul class="list-option-account">
-                                <li class="text-primary">Hồ Sơ</li>
-                                <li>Ngân Hàng</li>
-                                <li>Địa Chỉ</li>
-                                <li>Đổi Mật Khẩu</li>
-                                <li>Cài Đặt Thông Báo</li>
-                                <li>Những Thiết Lập Riêng Tư</li>
-                            </ul>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-4.png" alt="" height="25px" width="25px" />
-                            <span>Đơn mua</span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-5.png" alt="" height="25px" width="25px" />
-                            <span>Thông Báo</span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-6.png" alt="" height="25px" width="25px" />
-                            <span>Kho Voucher</span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-7.png" alt="" height="25px" width="25px" />
-                            <span>Shoppe Xu</span>
-                        </div>
-                    </div>
+            <div class="ProductDetail__container-main">
+                <div class="ProductDetail__container-main__header">
+                    <a href="/">Shoppe</a>
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span>
+                    <a href="/">Thời Trang</a>
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span>
+                    <a href="/">Áo</a>
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span>
+                    <span class="nav-name-product"></span>
                 </div>
-                <div class="Profile__container-main__right">
-                    <div class="Profile__container-main__right-header">
-                        <div class="title">Hồ Sơ Của Tôi</div>
-                        <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                <div class="ProductDetail__container-main__main">
+                    <div class="left">
+                        <div class="left__img">
+                            <img src="" alt="" height="450px"  class="img-main"/>
+                            <img src="../../assets/image/frame-product.png" alt="" class="left-frame-product" />
+                        </div>
+                        <div class="left__list-img">
+                            <img src="../../assets/image/ProductDetail/pr-1.jpg" alt="" height="100px" />
+                            <img src="../../assets/image/ProductDetail/pr-2.jpg" alt="" height="100px" />
+                            <img src="../../assets/image/ProductDetail/pr-3.jpg" alt="" height="100px" />
+                            <img src="../../assets/image/ProductDetail/pr-4.jpg" alt="" height="100px" />
+                            <img src="../../assets/image/ProductDetail/pr-5.jpg" alt="" height="100px" />
+                        </div>
+                        <div class="share-like">
+                            <div>
+                                <span>Chia sẻ:</span>
+                                <i class="fa-brands fa-facebook-messenger" style="color: #0384FF;"></i>
+                                <i class="fa-brands fa-facebook" style="color:#3B5999"></i>
+                                <i class="fa-brands fa-pinterest" style="color:#DE0217"></i>
+                                <i class="fa-brands fa-twitter" style="color:#10C2FF"></i>
+                            </div>
+                            <div>
+                                <span>
+                                    <i class="fa-regular fa-heart" style="color: red;"></i>
+                                </span>
+                                <span>Đã thích (999)</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="Profile__container-main__right-main">
-                        <div class="form-container">
-                            <form class="form-group">
-                                <lable class="lb-username">Tên Đăng Nhập</lable>
-                                <input type="text" class="nickname" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-name">Tên</lable>
-                                <input type="text" class="name" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-email">Email</lable>
-                                <input type="text" class="email" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-phone">Số điện thoại</lable>
-                                <input type="text" class="phone" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <label style="width: 170px; padding: 10px 0; margin-left: 10px;">Giới tính</label>
-                                <div>
-                                    <span class="lb-gender">Nam</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                                <div>
-                                    <span class="lb-gender">Nữ</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                                <div>
-                                    <span class="lb-gender">Khác</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-birth">Ngày sinh</lable>
-                                <input type="date" class="birth" disabled>
-                            </form>     
+                    <div class="right">
+                        <div class="right__name-product">
+                            <div class="love">Yêu thích</div>
+                            <span class="name-product"></span>
                         </div>
-                        <div class="form-image">
-                            <input type="file" name="image">
-                            <span>Vui lòng chọn ảnh</span>
+                        <div class="right__evaluate">
+                            <div>
+                                <span class="text-primary text">5.0</span>
+                                <i class="fa-solid fa-star star-checked"></i>
+                                <i class="fa-solid fa-star star-checked"></i>
+                                <i class="fa-solid fa-star star-checked"></i>
+                                <i class="fa-solid fa-star star-checked"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div>
+                                <span class="text">10.1k</span>
+                                <span>Đánh Giá</span>
+                            </div>
+                            <div>
+                                <span class="text">19.9k</span>
+                                <span>Bán</span>
+                            </div>
                         </div>
-                        <button class="btn-submit-profile bg-primary">Lưu</button>
+                        <div class="right__price">
+                            <span class="price-origin"></span>
+                            <span class="price-discount text-primary"></span>
+                            <div class="discount">
+                                <span class="expiry"></span>
+                                <span>GIẢM</span>
+                            </div>
+                        </div>
+                        <div class="right__option">
+                            <div class="right__option-item">
+                                <div>Chính Sách Trả Hàng</div>
+                                <div>
+                                    <img src="../../assets/image/sgv/return.svg" alt="" height="20px"/>
+                                    <div>Trả hàng trong 15 ngày</div>
+                                    <div class="black-0-6">Đổi ý miễn phí</div>
+                                    <i class="fa-regular fa-circle-question black-0-6"></i>
+                                </div>
+                            </div>
+                            <div class="right__option-item">
+                                <div>Vận chuyển</div>
+                                <div>
+                                    <img src="../../assets/image/free-ship.png" alt="" height="20px"/>
+                                    <div>Miễn phí vận chuyển</div>
+                                </div>
+                            </div>
+                            <div class="right__option-item">
+                                <div>Màu</div>
+                                <div class="color">
+                                    <button>
+                                        <img src="../../assets/image/ProductDetail/pr-1.jpg" alt="" height="20px" />
+                                        <span>Màu đen</span>
+                                    </button>
+                                    <button>
+                                        <img src="../../assets/image/ProductDetail/pr-2.jpg" alt="" height="20px" />
+                                       <span> Màu xanh</span>
+                                    </button>
+                                    <button>
+                                        <img src="../../assets/image/ProductDetail/pr-3.jpg" alt="" height="20px" />
+                                       <span> Màu xám</span>
+                                    </button>
+                                    <button>
+                                        <img src="../../assets/image/ProductDetail/pr-4.jpg" alt="" height="20px" />
+                                       <span> Màu cam</span>
+                                    </button>
+                                    <button>
+                                        <img src="../../assets/image/ProductDetail/pr-5.jpg" alt="" height="20px" />
+                                        <span>Màu đỏ</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="right__option-item">
+                                <div>Size</div>
+                                <div class="size">
+                                    <button>M</button>
+                                    <button>L</button>
+                                    <button>XL</button>
+                                </div>
+                            </div>
+                            <div class="right__option-item">
+                                <div>Số lượng</div>
+                                <div class="abc">
+                                    <button class="btn-add-quantity">
+                                        <i class="fa-brands fa-plus"></i>
+                                    </button>
+                                    <div class="quantity">0</div>
+                                    <button class="btn-sub-quantity">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div style="display: flex; align-items: center;">25999 sản phẩm có sẵn</div>
+                            </div>
+                            <div class="right__option-item" style="margin-top: 40px;">
+                                <button class="btn-add-cart text-primary">
+                                    <i class="fa-solid fa-shopping-cart"></i>
+                                    <div>Thêm vào giỏ hàng</div>
+                                </button>
+                                <button class="btn-buy-now">Mua ngay</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -357,25 +390,44 @@
                 </div>
             </div>
             <!-- end footer -->
-             <!-- start toast -->
-            <div class="toast">
-                <div class="toast-icon"></div>
-                <div class="toast-content">
-                    <div class="title"></div>
-                    <div class="message"></div>
+            <!-- start chat with me -->
+            <div class="chat-with-me">
+                <div class="btn-chat">
+                    <img src="../../assets/image/Chat-With-Me/chat-with-me.png" alt="" />
                 </div>
-
-                <button class="toast-close">
-                    <i class="fa-solid fa-x"></i>
-                </button>
-
-                <div class="toast-countdown"></div>
+                <div class="windown-chat">
+                    <div class="windown-chat__header">
+                        <span class="text-primary">Chat</span>
+                        <span>
+                            <i class="fa-solid fa-arrow-right chat-icon chat-btn-hide"></i>
+                            <i class="fa-solid fa-chevron-down chat-icon chat-btn-close"></i>
+                        </span>
+                    </div>
+                    <div class="windown-chat__main">
+                        <div class="left">
+                            <div class="top">
+                                <input type="text" placeholder="Tìm kiếm" />
+                                <p>Tất cả</p>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="main">
+                                <div>Không tìm thấy cuộc hội thoại nào</div>
+                            </div>
+                        </div>
+                        <div class="right list-message">
+                            <img
+                                src="../../assets/image/Chat-With-Me/welcome.png"
+                                alt=""
+                                height="200px"
+                                width="300px"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- end toast -->
+            <!-- end chat with me -->
         </div>
-
-        <script src="../../assets/js/toast.js"></script>
         <script src="../../assets/js/script.js"></script>
-        <script src="./profile.js"></script>
+        <script src="./productdetail.js"></script>
     </body>
 </html>

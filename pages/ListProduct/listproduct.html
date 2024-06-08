@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="../../assets/css/style.css" />
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="../../assets/css/keyframe.css" />
+        <link rel="shortcut icon" href="../../assets/image/icon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="./listproduct.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="ProductDetail__container">
+            <!-- start header -->
+            <div class="header">
+                <div class="header__nav">
+                    <div class="header__nav-left">
+                        <a href="#">Kênh người bán</a>
+                        <a href="#">Trở thành Người dùng Shoppe</a>
+                        <a href="#" id="qr">
+                            Tải ứng dụng
+                            <div class="show-qr">
+                                <img src="../../assets/image/Install/qr.png" alt="" width="120px" height="120px" />
+                                <div style="margin-left: 13px">
+                                    <img src="../../assets/image/Install/iphone.png" alt="" />
+                                    <img src="../../assets/image/Install/adr.png" alt="" />
+                                    <img src="../../assets/image/Install/gallery.png" alt="" />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="contact">
+                            <a href="#" class="fb icon">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="ins icon">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header__nav-right">
+                        <a href="#" class="notify">
+                            <i class="fa-regular fa-bell"></i>
+                            <span>Thông báo</span>
+                            <span class="num-notify"></span>
+                            <div class="list-notify">
+                                <img src="../../assets/image/none.png" alt="" sizes="" srcset="" height="100px" />
+                                <p class="notify-desc">Không có thông báo</p>
+                            </div>
+                        </a>
+                        <a href="#" class="help-user">
+                            <i class="fa-regular fa-circle-question"></i>
+                            <span>Hỗ trợ</span>
+                        </a>
+                        <div class="language">
+                            <i class="fa-solid fa-globe"></i>
+                            <span class="language-selected">Tiếng việt</span>
+                            <i class="fa-solid fa-chevron-down btn-down"></i>
+                            <div class="list-language">
+                                <span class="text-primary">Tiếng việt</span>
+                                <span>Tiếng anh</span>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="choose">
+                                <a href="../../pages/AuthenForm/../../Register/register.html" id="sign-up">Đăng kí</a>
+                                <a href="../../pages/AuthenForm/../../Login/login.html" id="sign-in">Đăng nhập</a>
+                            </div>
+                            <div class="user-info">
+                                <img src="" alt="" id="user-image" />
+                                <span id="user-name">Cao việt</span>
+                                <div class="option-list">
+                                    <a href="../../../../pages/Profile/profile.html" class="option-item"
+                                        >Tài khoản của tôi</a
+                                    >
+                                    <a href="#" class="option-item">Đơn hàng</a>
+                                    <button class="btn-signout option-item">Đăng xuất</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__main">
+                    <div class="header__main-logo">
+                        <a href="/">
+                            <img src="../../assets/image/shoppe-logo.png" alt="" id="logo-main" />
+                        </a>
+                    </div>
+                    <div class="header__main-search">
+                        <input type="text" placeholder="Tìm kiếm trên Shopee" />
+                        <button class="btn-search">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+
+                        <div class="search-result">
+                            <div class="search-result__item">
+                                <span>Shopee bao ship 0Đ - Đăng kí ngay!</span>
+                                <img src="../../assets/image/free-ship.png" alt="" height="30px" />
+                            </div>
+                        </div>
+
+                        <div class="search-suggestion">
+                            <span>Áo phông</span>
+                            <span>Săn iPhone 15 Pro Max 1k</span>
+                            <span>Set đồ nam</span>
+                            <span>Đồ trang trí</span>
+                            <span>Dép 0đ</span>
+                            <span>Gấu bông</span>
+                            <span>Áo Thun Local Brand</span>
+                            <span>Apple Watch</span>
+                            <span>Đồ ăn vặt</span>
+                        </div>
+                    </div>
+                    <div class="header__main-cart">
+                        <a href="#" class="cart">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                        </a>
+
+                        <div class="list-cart">
+                            <div class="cart-item">
+                                <img src="../../assets/image/none.png" alt="" height="60px" />
+                                <p>Không có sản phẩm nào</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end header -->
+
+            <!-- start suggest-today -->
+            <div class="suggest-today">
+                <div class="left">
+                    <div class="suggest-today__left-header">
+                        <i class="fa-solid fa-bars"></i>
+                        <span>Tất Cả Danh Mục</span>
+                    </div>
+                    <div class="suggest-today__row">
+                        <span class="title text-primary">
+                            <i class="fa-solid fa-caret-right icon-suggest"></i>
+                            <span >Thời Trang</span>
+                        </span>
+                        <ul>
+                            <li>Quần</li>
+                            <li>Áo</li>
+                            <li>Đầm</li>
+                            <li>Giày</li>
+                            <li>Phụ kiện</li>
+                            <li>
+                                <span>Thêm</span>
+                                <i class="fa-solid fa-chevron-down icon-suggest"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="suggest-today__row">
+                        <div class="title">
+                            <i class="fa-solid fa-filter"></i>
+                            <span>Bộ Lọc Tìm Kiếm</span>
+                        </div>
+
+                        <div>
+                            <span>Theo Danh Mục</span>
+                            <ul>
+                                <li>
+                                    <input type="checkbox" />
+                                    <span>Áo Thun (1tr+)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" />
+                                    <span>Quần thời trang (1tr+)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" />
+                                    <span>Bộ (750k+)</span>
+                                </li>
+                                <li>
+                                    <input type="checkbox" />
+                                    <span>Thể Thao & Dã Ngoại (1tr+)</span>
+                                </li>
+                                <li>
+                                    <span>Thêm</span>
+                                    <i class="fa-solid fa-chevron-down icon-suggest"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="suggest-today__row">
+                        <span>Nơi Bán</span>
+                        <ul>
+                            <li>
+                                <input type="checkbox" />
+                                <span>Hà Nội</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <span>Hải Dương</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <span>Hưng Yên</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <span>Bắc Ninh</span>
+                            </li>
+                            <li>
+                                <span>Thêm</span>
+                                <i class="fa-solid fa-chevron-down icon-suggest"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="suggest-today__row">
+                        <span>Thương Hiệu</span>
+                        <ul>
+                            <li>
+                                <input type="checkbox" />
+                                <span>SAM CLOTHING</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <span>MIAA</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <span>Louis</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" />
+                                <span>F88</span>
+                            </li>
+                            <li>
+                                <span>Thêm</span>
+                                <i class="fa-solid fa-chevron-down icon-suggest"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="suggest-today__row search-price">
+                        <span>Khoảng giá</span>
+                        <div>
+                            <input type="text" placeholder="₫ TỪ" />
+                            <span>-</span>
+                            <input type="text" placeholder="₫ ĐẾN" />
+                        </div>
+                        <button class="bg-primary">ÁP DỤNG</button>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="suggest-today__title">
+                        <span>Sắp xếp theo</span>
+                        <button class="btn-active">Phổ Biến</button>
+                        <button>Mới Nhất</button>
+                        <button>Bán Chạy</button>
+                        <select>
+                            <option>Giá</option>
+                            <option>Giá : Từ Cao Đến Thấp</option>
+                            <option>Giá : Từ Thấp Đến Cao</option>
+                        </select>
+                    </div>
+                    <div class="suggest-today__list">
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-1.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-2.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-3.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-4.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-5.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-6.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-7.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-8.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-9.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-10.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-11.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-12.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-13.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-14.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-15.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-16.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-17.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-18.png" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-19.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-20.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-21.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-22.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-23.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-24.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-25.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-25.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-27.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-28.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-29.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-30.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-21.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-17.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-12.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-16.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                        <div class="suggest-today__list-item">
+                            <div class="info product">
+                                <img src="../../assets/image/Product/product-11.jpg" alt="" class="suggest-today-img" />
+                                <img src="../../assets/image/frame-product.png" alt="" class="frame-product" />
+                                <p class="desc">Áo Thun Local Brand Siêu mát Dành cho cả nam và Nữ</p>
+                                <p class="price text-primary">
+                                    <span class="price-origin">₫69.520</span>
+                                    <span class="price-discount">₫49.520</span>
+                                </p>
+                                <p class="sell">
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star star-checked"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span>Đã bán 9.2k</span>
+                                </p>
+                                <p class="address">Hải Dương</p>
+                                <div class="expiry text-primary">-32%</div>
+                            </div>
+                            <button>Tìm sản phẩm tương tự</button>
+                        </div>
+                    </div>
+                    <div class="suggest-today-btn">
+                        <button>
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button class="btn-page-active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>...</button>
+                        <button>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- end suggest-today -->
+
+            <!-- start footer -->
+            <div class="footer">
+                <div class="wrapper">
+                    <div class="col customer">
+                        <h4 class="title">CHĂM SÓC KHÁCH HÀNG</h4>
+                        <a href="#">Trung Tâm Trợ Giúp</a>
+                        <a href="#">Shoppe Blog</a>
+                        <a href="#">Shope Mall</a>
+                        <a href="#">Hướng Dẫn Mua Hàng</a>
+                        <a href="#">Hướng Dẫn Bán Hàng</a>
+                        <a href="#">Thanh Toán</a>
+                        <a href="#">Shoppe Xu</a>
+                        <a href="#">Vận Chuyển</a>
+                        <a href="#">Trả Hàng & Hoàn Tiền</a>
+                        <a href="#">Chăm Sóc Khách Hàng</a>
+                        <a href="#">Chính Sách Bảo Hành</a>
+                    </div>
+                    <div class="col about">
+                        <h4 class="title">GIỚI THIỆU VỀ SHOPPE</h4>
+                        <a href="#">Giới Thiệu Về Shoppe Việt Nam</a>
+                        <a href="#">Tuyển Dụng</a>
+                        <a href="#">Điều Khoản Shoppe</a>
+                        <a href="#">Chính Sách Bảo Mật</a>
+                        <a href="#">Chính Hãng</a>
+                        <a href="#">Kênh Người Bán</a>
+                        <a href="#">Flash Sales</a>
+                        <a href="#">Chương Trình Tiếp Thị Liên Kết Shoppe</a>
+                        <a href="#">Liên Hệ Với Truyền Thông</a>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <h4 class="title">Thanh Toán</h4>
+                            <div class="pay">
+                                <img src="../../assets/image/Payment/p-1.png" alt="" class="pay-img" />
+                                <img src="../../assets/image/Payment/p-2.png" alt="" class="pay-img" />
+                                <img src="../../assets/image/Payment/p-3.png" alt="" class="pay-img" />
+                                <img src="../../assets/image/Payment/p-4.png" alt="" class="pay-img" />
+                                <img src="../../assets/image/Payment/p-5.png" alt="" class="pay-img" />
+                                <img src="../../assets/image/Payment/p-6.png" alt="" class="pay-img" />
+                                <img src="../../assets/image/Payment/p-7.png" alt="" class="pay-img" />
+                            </div>
+                            <div class="row">
+                                <h4 class="title">Đơn Vị Vận Chuyển</h4>
+                                <div class="deliver">
+                                    <img src="../../assets/image/Deliver/d-1.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-2.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-3.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-4.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-5.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-6.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-7.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-8.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-9.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-10.png" alt="" class="deliver-img" />
+                                    <img src="../../assets/image/Deliver/d-11.png" alt="" class="deliver-img" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h4 class="title">Theo Dõi Chúng Tôi Trên</h4>
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                            Facebook
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                            Instagram
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                    </div>
+                    <div class="col">
+                        <h4 class="title">Tải Ứng Dụng Ngay Thôi</h4>
+                        <div class="install">
+                            <img src="../../assets/image/Install/qr.png" alt="" class="install-img" />
+                            <div class="app">
+                                <img src="../../assets/image/Install/iphone.png" alt="" class="install-img" />
+                                <img src="../../assets/image/Install/adr.png" alt="" class="install-img" />
+                                <img src="../../assets/image/Install/gallery.png" alt="" class="install-img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copy-right">
+                    <p>© 2024 Shopee. Tất cả các quyền được bảo lưu.</p>
+                    <p>
+                        Quốc gia và khu vực: Singapo | Thái Lan | Việt Nam | Indonesia | PHiliphin | Đài Loan | Brazil |
+                        Mexico | Chile | Colombia | Malaysia
+                    </p>
+                </div>
+                <div class="more-info">
+                    <p>
+                        Chính sách bảo mật | Quy Chế Hoạt Động | Chính Sách Vận Chuyển | Chính Sách Trả Hàng và Hoàn
+                        Tiền
+                    </p>
+                    <div class="register">
+                        <div class="register-img">
+                            <img src="../../assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="../../assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="../../assets/image/Footer/f-2.png" alt="" class="r-img" />
+                        </div>
+                        <p>Công Ty TNH Shoppe</p>
+                    </div>
+                    <p>
+                        Địa chỉ: Tầng 4-5-6, Tòa nhà Capital Place, số 29 đường Liễu Giai, Phường Ngọc Khánh, Quận Ba
+                        Đình, Thành phố Hà Nội, Việt Nam. Tổng đài hỗ trợ: 19001221 - Email: cskh@hotro.shopee.vn
+                    </p>
+                    <p>Chịu Trách Nhiệm Quản Lý Nội Dung: Nguyễn Bùi Anh Tuấn - Điện thoại liên hệ: 0974181435</p>
+                    <p>Mã số doanh nghiệp: 0106773786 do Sở Kế hoạch & Đầu tư TP Hà Nội cấp lần đầu ngày 10/02/2015</p>
+                    <p>© 2015 - Bản quyền thuộc về Công ty TNHH Shopee</p>
+                </div>
+            </div>
+            <!-- end footer -->
+
+            <!-- start chat with me -->
+            <div class="chat-with-me">
+                <div class="btn-chat">
+                    <img src="../../assets/image/Chat-With-Me/chat-with-me.png" alt="" />
+                </div>
+                <div class="windown-chat">
+                    <div class="windown-chat__header">
+                        <span class="text-primary">Chat</span>
+                        <span>
+                            <i class="fa-solid fa-arrow-right chat-icon chat-btn-hide"></i>
+                            <i class="fa-solid fa-chevron-down chat-icon chat-btn-close"></i>
+                        </span>
+                    </div>
+                    <div class="windown-chat__main">
+                        <div class="left">
+                            <div class="top">
+                                <input type="text" placeholder="Tìm kiếm" />
+                                <p>Tất cả</p>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="main">
+                                <div>Không tìm thấy cuộc hội thoại nào</div>
+                            </div>
+                        </div>
+                        <div class="right list-message">
+                            <img
+                                src="../../assets/image/Chat-With-Me/welcome.png"
+                                alt=""
+                                height="200px"
+                                width="300px"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end chat with me -->
+        </div>
+
+        <script src="../../assets/js/script.js"></script>
+        <script src="./listproduct.js"></script>
+    </body>
+</html>

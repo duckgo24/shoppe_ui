@@ -17,10 +17,41 @@ html {
     --white-color-2: #FEEEEA;
     --gray-color: #F5F5F5;
     --disable: 0.6;
+    --fs-1: 12px;
+    --fs-2: 14px;
+    --fs-3: 16px;
+    --black-0-6: rgba(0, 0, 0, 0.6);
+    --black-0-4: rgba(0, 0, 0, 0.4);
+    --black-0-3: rgba(0, 0, 0, 0.3);
 }
+
 
 a {
     color: var(--white-color);
+}
+
+.fs-1 {
+    font-size: var(--fs-1);
+}
+
+.fs-2 {
+    font-size: var(--fs-2);
+}
+
+.fs-3 {
+    font-size: var(--fs-3);
+}
+
+.black-0-6 {
+    color: var(--black-0-6);
+}
+
+.black-0-4 {
+    color: var(--black-0-4);
+}
+
+.black-0-3 {
+    color: var(--black-0-3);
 }
 
 .text-primary {
@@ -790,8 +821,13 @@ a {
     justify-content: center;
     align-items: center;
     height: 160px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
+.category .category__list .category__list-item p {
+    height: 20%;
+}
 
 
 /* Flash sale */
@@ -1046,7 +1082,7 @@ a {
     height: 186px;
     width: 186px;
     position: absolute;
-    top: 0;
+    top: 3px;
     left: 0;
 }
 
@@ -1086,43 +1122,73 @@ a {
     gap: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
-    background-color: var(--white-color);
-    height: 300px;
-    
+    background-color: var(--white-color);   
+    height: 335px;
 }
+
+
+.suggest-today .suggest-today__list .suggest-today__list-item .info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .suggest-today__list .suggest-today__list-item .desc {
     font-size: 14px;
-    margin-left: 10px;
-    padding: 10px 0;
+    margin-left: 6px;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0 0 0;
 }
 
 .suggest-today__list .suggest-today__list-item .price {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 18px;
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 0 6px;
+}
+
+.suggest-today__list .suggest-today__list-item .price .price-origin {
+    text-decoration: line-through;   
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
 }
 
 .suggest-today__list .suggest-today__list-item .sell {
     font-size: 12px;
     color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    padding: 10px 6px;
+}
+
+.suggest-today__list .suggest-today__list-item .sell .fa-star {
+    font-size: 10px;
+}
+
+.suggest-today__list .suggest-today__list-item .sell .star-checked{
+    color: yellow;
+}
+
+.suggest-today__list .suggest-today__list-item .address {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 10px 6px;
 }
 
 .suggest-today__list .suggest-today__list-item button {
     position: absolute;
-    bottom: -35px;
-    right: 0px;
+    top: 100%;
+    left: 0;
     width: 100%;
     height: 35px;
     background-color: var(--primary-color);
     padding: 8px 16px;
     color: var(--white-color);
     font-size: 16px;
-    z-index: 2;
-    display: none;
+    z-index: 10;
+    opacity: 0;
 }
 
 .suggest-today .suggest-today__list .suggest-today__list-item:hover {
@@ -1132,7 +1198,8 @@ a {
 }
 
 .suggest-today .suggest-today__list .suggest-today__list-item:hover button {
-    display: block;
+    opacity: 1;
+    z-index: 10;
 }
 
 

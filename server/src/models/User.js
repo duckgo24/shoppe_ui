@@ -8,6 +8,7 @@ const User = new Schema({
     phone: { type: String },
     email: { type: String },
     birth: { type: Date },
+    nickName: { type: String },
     account: { type: Schema.Types.ObjectId, ref: 'accounts' }
   });
 

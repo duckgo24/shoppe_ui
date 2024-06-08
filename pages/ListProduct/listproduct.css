@@ -1,0 +1,111 @@
+.ProductDetail__container {
+    background-color: #E5E5E5;
+}
+
+.suggest-today {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 40px 0;
+    box-shadow: none;
+    background-color: #E5E5E5;;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.suggest-today .left {
+    display: flex;
+    flex-direction: column ;
+    gap: 20px;
+}
+
+.suggest-today .left .suggest-today__left-header {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    gap: 10px;
+}
+
+.suggest-today .left  .suggest-today__row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 0;
+    margin-right: 10px;
+}
+
+.suggest-today .left  .suggest-today__row .title {
+    font-size: 17px;
+}
+
+.suggest-today .left  .suggest-today__row ul li {
+    padding: 8px 12px;
+}
+.suggest-today .left .suggest-today__row ul li .icon-suggest {
+    font-size: 10px;
+}
+
+.suggest-today__list {
+    grid-template-columns: repeat(5,1fr) !important;
+
+}
+
+.right .suggest-today__title {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: #EDEDED;
+    border: none;
+    font-size: 16px;
+    gap: 10px;
+}
+
+.suggest-today-btn {
+    border: none !important;
+    width: 60% !important;
+    margin: auto;
+    gap: 20px;
+}
+
+.suggest-today-btn button {
+    background-color: transparent;
+}
+
+.btn-page-active {
+    background-color: var(--primary-color) !important;
+    color: var(--white-color) !important;
+}
+
+
+.right .suggest-today__title button {
+    padding: 10px 30px;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-size: 16px;
+}
+
+.right .suggest-today__title .btn-active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.right .suggest-today__title select {
+    padding: 10px 12px;
+    font-size: 16px;
+}
+
+.search-price div {
+   display: grid;
+   grid-template-columns: 40% 10% 40%;
+   text-align: center;
+}
+
+.search-price div * {
+    padding: 7px 0;
+}
+
+.search-price button {
+    width: 248px;
+    padding: 10px 16px;
+    color: var(--white-color);
+    font-size: 16px;
+}

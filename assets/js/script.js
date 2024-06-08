@@ -5,16 +5,16 @@ function Promotion() {
     let index = 0;
 
     const btnNextPromotion1 = document.querySelector('.btn-control-next');
-    btnNextPromotion1.addEventListener('click', () => {
-        index = NextSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0].clientWidth);
+    btnNextPromotion1?.addEventListener('click', () => {
+        index = NextSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth);
     });
 
     const btnPrevPromotion1 = document.querySelector('.btn-control-prev');
-    btnPrevPromotion1.addEventListener('click', () => {
-        index = PrevSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0].clientWidth);
+    btnPrevPromotion1?.addEventListener('click', () => {
+        index = PrevSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth);
     });
 
-    AutoSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0].clientWidth);
+    AutoSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth);
 
     Array.from(promotion1Btns).forEach((btn, idx) => {
         btn.addEventListener('click', () => {
@@ -38,7 +38,7 @@ function New() {
     let minuteE = document.querySelector('.new-minute');
     let secondE = document.querySelector('.new-second');
 
-    CounDown(hourE.textContent, minuteE.textContent, secondE.textContent, hourE, minuteE, secondE);
+    CounDown(hourE?.textContent, minuteE?.textContent, secondE?.textContent, hourE, minuteE, secondE);
 }
 
 function FlashSale() {
@@ -46,7 +46,7 @@ function FlashSale() {
     let minuteE = document.querySelector('.flash-sale-minute');
     let secondE = document.querySelector('.flash-sale-second');
 
-    CounDown(hourE.textContent, minuteE.textContent, secondE.textContent, hourE, minuteE, secondE);
+    CounDown(hourE?.textContent, minuteE?.textContent, secondE?.textContent, hourE, minuteE, secondE);
 }
 
 function ShoppeMall() {
@@ -56,16 +56,16 @@ function ShoppeMall() {
     let index = 0;
 
     const btnNextShoppeMall = document.querySelector('.left-btnNext');
-    btnNextShoppeMall.addEventListener('click', () => {
-        index = NextSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0].clientWidth);
+    btnNextShoppeMall?.addEventListener('click', () => {
+        index = NextSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
     });
 
     const btnPrevShoppeMall = document.querySelector('.left-btnPrev');
-    btnPrevShoppeMall.addEventListener('click', () => {
-        index = PrevSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0].clientWidth);
+    btnPrevShoppeMall?.addEventListener('click', () => {
+        index = PrevSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
     });
 
-    AutoSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0].clientWidth);
+    AutoSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
 
     Array.from(shoppeMallBtns).forEach((btn, idx) => {
         btn.addEventListener('click', () => {
@@ -83,7 +83,7 @@ function ShoppeMall() {
 function Hot() {
     const hot = document.querySelector('.hot');
     const btnClose = document.querySelector('.btn-hot-close');
-    btnClose.addEventListener('click', () => {
+    btnClose?.addEventListener('click', () => {
         hot.style.display = 'none';
     });
 }
@@ -95,7 +95,7 @@ function ChatWithMe() {
     const btnOpen = document.querySelector('.btn-chat');
     const btnHide = document.querySelector('.chat-btn-hide');
     let countClickHide = 0;
-    btnOpen.addEventListener('click', () => {
+    btnOpen?.addEventListener('click', () => {
         windownChat.style.animation = 'big 0.5s ease-in-out';
         windownChat.style.display = 'flex';
         btnOpen.style.display = 'none';
@@ -104,7 +104,7 @@ function ChatWithMe() {
         }, 1000);
     });
 
-    btnClose.addEventListener('click', () => {
+    btnClose?.addEventListener('click', () => {
         windownChat.style.animation = 'small 0.5s ease-in-out';           
         setTimeout(() => {
             windownChat.style.display = 'none';
@@ -112,7 +112,7 @@ function ChatWithMe() {
         },500)      
     });
 
-    btnHide.addEventListener('click', () => {
+    btnHide?.addEventListener('click', () => {
         countClickHide++;
         if(countClickHide % 2 == 1) {
             listMessage.style.animation = 'reduceWidth 0.7s ease-in-out';   
@@ -177,11 +177,12 @@ function Start() {
     User();
 }
 
-Start();
+window.addEventListener('DOMContentLoaded', Start);
 
 
 // My function
 function CounDown(hour, minute, second, hourE, minuteE, secondE) {
+    
     setInterval(() => {
         second--;
         if(minute < 0) {
@@ -200,10 +201,12 @@ function CounDown(hour, minute, second, hourE, minuteE, secondE) {
         
         minute < 10 ? minute = `0${minute}`: minute;
         second < 10 ? second = `0${second}`: second;
-
-        hourE.textContent = hour;
-        minuteE.textContent  = minute;
-        secondE.textContent  = second;
+        if(hourE && minuteE && secondE) { 
+            hourE.textContent = hour;
+            minuteE.textContent  = minute;
+            secondE.textContent  = second;
+        }
+        
     }, 1000);
 };
 
@@ -235,43 +238,26 @@ function AutoSlide(listImage, boxWrapper, index, width) {
     }, 3000);
 }
 
-function Toast(type, title, message, countdown) {
-    const toast = document.querySelector('.toast');
-    const toastIcon = document.querySelector('.toast-icon');
-    const toastTitle = document.querySelector('.toast-content .title');
-    const toastMessage = document.querySelector('.toast-content .message');
-    const toastCountDown = document.querySelector('.toast-countdown');
-    const toastClose = document.querySelector('.toast-close');
+var listproduct = document.querySelectorAll('.product');
 
-    switch (type) {
-        case 'success': {
-            toast.classList.add('show');
-            toastCountDown.classList.add('success');
-            toastIcon.classList.add('success');
-            toastIcon.innerHTML = `<i class="fa-solid fa-check"></i>`;
-            break;
-        }
-        case 'error': {
-            toast.classList.add('show');
-            toastCountDown.classList.add('error');
-            toastIcon.classList.add('error');
-            toastIcon.innerHTML = `<i class="fa-solid fa-x"></i>`;
-            break;
-        }
-    }
+listproduct.forEach((product) => {
+    product.addEventListener('click', (e) => {
+        e.preventDefault();
+        let nameProduct = product.querySelector('.desc').textContent;
+        let priceProductOrigin = product.querySelector('.price-origin').textContent;
+        let priceProductDiscount = product.querySelector('.price-discount').textContent;
+        let image = product.querySelector('.suggest-today-img').src;
+        let expiry = product.querySelector('.expiry').textContent;
 
-
-    toastTitle.textContent = title;
-    toastMessage.textContent = message;
-    toastCountDown.style.animation = `countdown ${countdown}ms linear`;
-
-    setTimeout(() => {
-        toast.classList.remove('show');
-        toastCountDown.style.animation = ``;       
-    }, countdown);
-
-    toastClose.addEventListener('click', () => {
-        toast.classList.remove('show');
-        toastCountDown.style.animation = ``;
+        const data = {
+            nameProduct,
+            priceProductOrigin,
+            priceProductDiscount,
+            image,
+            expiry
+        };
+        
+        localStorage.setItem('product', JSON.stringify(data));
+        window.location.href = "./pages/ProductDetail/productdetail.html";
     });
-}
+});

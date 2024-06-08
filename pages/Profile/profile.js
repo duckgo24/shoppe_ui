@@ -7,36 +7,39 @@ var phone = document.querySelector('.phone');
 var birth = document.querySelector('.birth');
 var _gender = null;
 
-const btnSubmit = document.querySelector('.btn-submit-profile');
-btnSubmit.addEventListener('click', async() => {
+const btnUpdateProfile = document.querySelector('.profile-btn-update');
+btnUpdateProfile.addEventListener('click', () => {
+    let inputFields = document.querySelectorAll('.form-group input');
+    inputFields.forEach((inputField) => {
+        inputField.removeAttribute('disabled');
+    });
+});
 
+
+const btnSubmit = document.querySelector('.btn-submit-profile');
+btnSubmit.addEventListener('click', async () => {
     var genders = document.querySelectorAll('.gender');
     var lbGenders = document.querySelectorAll('.lb-gender');
-    genders.forEach((gender,index) => {
-        if(gender.checked) {
-            _gender = lbGenders[index].textContent;  
+    genders.forEach((gender, index) => {
+        if (gender.checked) {
+            _gender = lbGenders[index].textContent;
         }
-    })
+    });
     Toast('success', 'Thông báo', 'Cập nhật thành công', 3000);
 
-   
-    
-
-    
     const accountInfo = localStorage.getItem('user');
     const accId = JSON.parse(accountInfo)._id;
     const formData = {
-        nickName: nickName.textContent,
+        nickName: nickName.value,
         name: _name.value,
         gender: _gender,
         email: email.value,
         phone: phone.value,
         birth: birth.value,
-        account: accId
+        account: accId,
     };
 
     console.table(formData);
-
 
     const res = await fetch(`${baseUrl}/users/edit/${accId}`, {
         method: 'PUT',
@@ -45,5 +48,45 @@ btnSubmit.addEventListener('click', async() => {
         },
         body: JSON.stringify(formData),
     });
-
 });
+
+async function LoadProfile() {
+    const accountInfo = localStorage.getItem('user');
+    const fullName = document.querySelector('.fullname');
+    const accId = JSON.parse(accountInfo)?._id;
+    const url = new URL(`${baseUrl}/users/getInfoByAccId`);
+    url.searchParams.append('account', accId);
+
+    if (accId) {
+        await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                nickName.value = data.nickName ? data.nickName : '';
+                _name.value = data.name ? data.name : '';
+                fullName.textContent = data.name ? data.name : '';
+                email.value = data.email ? data.email : '';
+                _gender = data.gender;
+                phone.value = data.phone ? data.phone : '';
+
+                birth.value = data.birth ? new Date(data.birth).toISOString().split('T')[0] : '';
+            });
+    }
+
+    if (_gender) {
+        var genders = document.querySelectorAll('.gender');
+        var lbGenders = document.querySelectorAll('.lb-gender');
+        lbGenders.forEach((lbGender, index) => {
+            if (lbGender.textContent === _gender) {
+                genders[index].checked = true;
+            }
+        });
+    }
+}
+
+LoadProfile();
+

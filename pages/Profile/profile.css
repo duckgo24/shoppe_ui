@@ -1,6 +1,7 @@
 .Profile__container {
     position: relative;
 }
+
 .Profile__container-main {
     min-height: 600px;
     padding: 0 0 20px 0;
@@ -28,6 +29,11 @@
 .Profile__container-main .Profile__container-main__left .left-avatar div {
     display: flex;
     flex-direction: column;
+}
+
+.Profile__container-main .Profile__container-main__left .left-avatar div .profile-btn-update:hover {
+    cursor: pointer;
+    color: var(--primary-color);
 }
 
 .Profile__container-main .Profile__container-main__left .left-option {
@@ -136,4 +142,9 @@
     color: var(--white-color);
     font-size: 16px;
     border-radius: 4px;
+}
+
+.disabled-input {
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.1);
 }
