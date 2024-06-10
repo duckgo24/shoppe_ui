@@ -144,6 +144,11 @@
     border-radius: 4px;
 }
 
+.Profile__container-main__right-main .btn-submit-profile:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 .disabled-input {
     pointer-events: none;
     background-color: rgba(0, 0, 0, 0.1);

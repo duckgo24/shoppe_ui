@@ -22,3 +22,12 @@ function CheckPhone() {
 function RemoveNotify(lb) {
     lb.textContent = '';
 }
+
+
+function toggleSubmitButton(username,password, btnSubmit) {
+    if (username?.value.length > 0 && password?.value.length > 0) {
+        btnSubmit?.classList.remove('disable');
+    } else {
+        btnSubmit?.classList.add('disable');
+    }
+}

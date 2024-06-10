@@ -1,6 +1,4 @@
-// productController.js
 
-// Import Product model and mongooseToObject function
 const Product = require('../models/Product');
 const { mutipleMongooseToObject, mongooseToObject } = require('../utils/mongoose');
 

@@ -6,6 +6,7 @@ const Account = new Schema({
     username: { type: String },
     password: { type: String } ,
     role: {type: String, default: 'customer'},
+    isBan: {type: Boolean, default: false},
   });
 
 module.exports = mongoose.model('accounts', Account);

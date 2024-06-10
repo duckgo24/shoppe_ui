@@ -8,24 +8,23 @@ const lbPassword = document.querySelector('.lb-password');
 const messageUsername = document.querySelector('.message-error-username');
 const messagePassword = document.querySelector('.message-error-password');
 
-let isRegisterSuccess = localStorage.getItem('isRegisterSuccess');
-if (isRegisterSuccess === true) {
-    Toast('success', 'Thành công', 'Đăng ký thành công', 3000);
-    setTimeout(() => {
-        isRegisterSuccess = false;
-    }, 3000);
-}
-
-function toggleSubmitButton() {
-    if (username.value.length > 0 && password.value.length > 0) {
-        btnSubmit.classList.remove('disable');
-    } else {
-        btnSubmit.classList.add('disable');
+window.addEventListener('DOMContentLoaded', () => {
+    function NotifyRegister() {
+        let isRegisterSuccess = !!localStorage.getItem('isRegisterSuccess');
+        console.log(typeof isRegisterSuccess);
+        if (isRegisterSuccess) {
+            Toast('success', 'Thành công', 'Đăng ký thành công', 3000);
+            setTimeout(() => {
+                localStorage.removeItem('isRegisterSuccess');
+            }, 3000);
+        }
+        
     }
-}
+    NotifyRegister();
+});
 
 username.addEventListener('input', () => {
-    toggleSubmitButton();
+    toggleSubmitButton(username, password, btnSubmit);
     ToggleLable(username.value, lbUsername);
     if (!CheckEmail(username.value)) {
         messageUsername.textContent = 'Vui lòng nhập email';
@@ -34,7 +33,7 @@ username.addEventListener('input', () => {
 });
 
 password.addEventListener('input', () => {
-    toggleSubmitButton();
+    toggleSubmitButton(username, password, btnSubmit);
     ToggleLable(password.value, lbPassword);
 });
 
@@ -46,11 +45,10 @@ btnSubmit.addEventListener('click', async (e) => {
     //     return;
     // }
 
-    // if(!CheckPhone(username.value)){   
+    // if(!CheckPhone(username.value)){
     //     messageUsername.textContent = 'Vui lòng nhập số điện thoại';
     //     return;
     // }
-
 
     const url = new URL(`${baseUrl}/accounts/search`);
     url.searchParams.append('username', username.value);
@@ -64,18 +62,28 @@ btnSubmit.addEventListener('click', async (e) => {
             },
         });
         const data = await res?.json();
-        if(data?.message === "Not Found"){
+
+        if (data?.message === 'Not Found') {
             Toast('error', 'Thất bại', 'Tài khoản hoặc mật khẩu không chính xác', 3000);
+            username.value = '';
+            password.value = '';
             return;
         }
 
+
         if (data) {
-            localStorage.setItem('user', JSON.stringify(data.data));
-            window.location.href = '/index.html';
+            if(data.data.isBan) {
+                Toast('error', 'Thất bại', 'Tài khoản của bạn đã bị khóa :>', 3000);
+                username.value = '';
+                password.value = '';
+                return;
+            } else {
+                localStorage.setItem('account', JSON.stringify(data.data));
+                window.location.href = '/index.html';
+            
+            }
         }
     } catch (err) {
         console.log('Error:', err.message);
     }
 });
-
-

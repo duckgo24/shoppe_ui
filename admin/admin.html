@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="../assets/css/reset.css" />
+        <link rel="stylesheet" href="../assets/css/keyframe.css" />
+        <link rel="stylesheet" href="../assets/css/toast.css" />
+        <link rel="stylesheet" href="admin.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <title>Admin</title>
+    </head>
+    <body>
+        <div class="Admin__container">
+            <div class="Admin__container-left">
+                <div class="container-left__header">
+                    <img src="../assets/image/shoppe-logo.png" alt="" height="60px" />
+                </div>
+                <div class="container-left__main">
+                    <button id="btn-home" class="btn-active">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </button>
+                    <button id="btn-mn-category">
+                        <i class="fa-solid fa-window-restore"></i>
+                        <span>Danh mục</span>
+                    </button>
+                    <button id="btn-mn-product">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Sản phẩm</span>
+                    </button>
+                    <button id="btn-mn-account">
+                        <i class="fa-solid fa-hippo"></i>
+                        <span>Tài khoản</span>
+                    </button>
+                </div>
+            </div>
+            <div class="Admin__container-right">
+                <div class="container-right__header"></div>
+                <div class="container-right__main main-content"></div>
+            </div>
+            <!-- start toast -->
+            <div class="toast">
+                <div class="toast-icon"></div>
+                <div class="toast-content">
+                    <div class="title"></div>
+                    <div class="message"></div>
+                </div>
+
+                <button class="toast-close">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+
+                <div class="toast-countdown"></div>
+            </div>
+            <!-- end toast -->
+        </div>
+
+        <script src="../assets/js/toast.js"></script>
+        <script src="./admin.js"></script>
+    </body>
+</html>

@@ -82,6 +82,11 @@ function ShoppeMall() {
 
 function Hot() {
     const hot = document.querySelector('.hot');
+    const data = localStorage.getItem('account');
+
+    if(!data) {
+        hot.style.display = 'none';
+    }
     const btnClose = document.querySelector('.btn-hot-close');
     btnClose?.addEventListener('click', () => {
         hot.style.display = 'none';
@@ -147,7 +152,7 @@ function User() {
 
     const username = document.getElementById('user-name');
 
-    const data = localStorage.getItem('user');
+    const data = localStorage.getItem('account');
 
     if(data) {
         const user = JSON.parse(data);
@@ -158,7 +163,7 @@ function User() {
 
     const btnSignout = document.querySelector('.btn-signout');
     btnSignout.addEventListener('click', () => {
-        localStorage.removeItem('user');
+        localStorage.removeItem('account');
         window.location.href = '/index.html';
         hooseAuth.style.display = 'flex';
         userInfo.style.display = 'none';
@@ -166,6 +171,22 @@ function User() {
 }
 
 
+function IsAdmin() {
+    const data = localStorage.getItem('account');
+    if (data) {
+        const user = JSON.parse(data);
+        console.log(user);
+        if (user?.role === 'admin') {
+            console.log("pke");
+            let optionList = document.querySelector('.option-list');
+            let anchor = document.createElement('a');
+            anchor.classList.add('option-item');
+            anchor.href = '/Admin/admin.html';
+            anchor.textContent = 'Quản trị viên';
+            optionList.appendChild(anchor);
+        }
+    }
+}
 // Start
 function Start() {
     Promotion();
@@ -175,6 +196,7 @@ function Start() {
     Hot();
     ChatWithMe();
     User();
+    IsAdmin();
 }
 
 window.addEventListener('DOMContentLoaded', Start);
@@ -223,7 +245,7 @@ function NextSlide(listImage, boxWrapper, index, width) {
 
 function PrevSlide(listImage, boxWrapper, index, width) {
     if (index <= 0) {
-        index = 0;
+        index = listImage.length - 1;
     } else {
         index--;
         boxWrapper.style.transform = `translateX(-${index * width}px)`;

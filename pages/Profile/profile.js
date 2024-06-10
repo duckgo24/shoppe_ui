@@ -25,9 +25,8 @@ btnSubmit.addEventListener('click', async () => {
             _gender = lbGenders[index].textContent;
         }
     });
-    Toast('success', 'Thông báo', 'Cập nhật thành công', 3000);
-
-    const accountInfo = localStorage.getItem('user');
+    
+    const accountInfo = localStorage.getItem('account');
     const accId = JSON.parse(accountInfo)._id;
     const formData = {
         nickName: nickName.value,
@@ -39,7 +38,6 @@ btnSubmit.addEventListener('click', async () => {
         account: accId,
     };
 
-    console.table(formData);
 
     const res = await fetch(`${baseUrl}/users/edit/${accId}`, {
         method: 'PUT',
@@ -48,12 +46,23 @@ btnSubmit.addEventListener('click', async () => {
         },
         body: JSON.stringify(formData),
     });
+
+    if(res.status === 200) {
+        LoadProfile();
+        Toast('success', 'Thông báo', 'Cập nhật thành công', 3000);
+        let inputFields = document.querySelectorAll('.form-group input');
+        inputFields.forEach((inputField) => {
+            inputField.setAttribute('disabled', 'disabled');
+        });
+    }
 });
 
 async function LoadProfile() {
-    const accountInfo = localStorage.getItem('user');
+    const accountInfo = localStorage.getItem('account');
     const fullName = document.querySelector('.fullname');
     const accId = JSON.parse(accountInfo)?._id;
+
+
     const url = new URL(`${baseUrl}/users/getInfoByAccId`);
     url.searchParams.append('account', accId);
 
@@ -72,7 +81,6 @@ async function LoadProfile() {
                 email.value = data.email ? data.email : '';
                 _gender = data.gender;
                 phone.value = data.phone ? data.phone : '';
-
                 birth.value = data.birth ? new Date(data.birth).toISOString().split('T')[0] : '';
             });
     }

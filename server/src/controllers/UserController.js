@@ -40,6 +40,25 @@ class UserController {
             })
             .catch(next)
     }
+
+    //DELETE 
+    async deleteByAccId(req, res, next) {
+        const accountId = req.query?.account;
+        if (accountId) {
+            try {
+                const user = await User.findOneAndDelete({ account: accountId });
+                if (user) {
+                    res.json({ message: 'success' });
+                } else {
+                    res.status(404).json({ message: 'User not found' });
+                }
+            } catch (err) {
+                next(err);
+            }
+        } else {
+            res.status(400).json({ message: 'Account ID not provided' });
+        }
+    }
     
     
 
