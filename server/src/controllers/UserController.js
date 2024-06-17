@@ -7,7 +7,7 @@ class UserController {
         User 
         .create(formData)
         .then(() => {
-            res.json({message: "User created successfully"})        
+            res.json({res: formData, message: "Tạo tài khoản thành công"})        
         })  
     }
 

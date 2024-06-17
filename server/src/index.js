@@ -5,7 +5,6 @@ const methodOverride = require('method-override')
 const app = express();
 
 const port = 9999;
-
 //
 const route = require('./routes/index');
 // Kết nối db

@@ -1,4 +1,5 @@
 const baseUrl = 'http://localhost:9999';
+var inputEs = document.querySelectorAll('.form-group input[type="text"]');
 
 async function LoadCategories() {
     const res = await fetch(`${baseUrl}/categories/stores`);
@@ -18,16 +19,23 @@ async function LoadCategories() {
 LoadCategories();
 
 async function GetData() {
+
+    function formatCurrency(amount) {
+        return amount.toLocaleString('vi-VN');
+    }
+    
+    
+
     const res = await fetch(`${baseUrl}/products/stores`);
     const data = await res.json();
     const tableBody = document.querySelector('.list-product tbody');
     if (data) {
-        data.forEach((product, index) => {
+        data.forEach((product) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td class="product_id">${product._id}</td>
                 <td class="product_name">${product.name}</td>
-                <td class="product_price">${product.price}</td>
+                <td class="product_price">${formatCurrency(product.price)}₫</td>
                 <td class="product_quantity">${product.quantity}</td>
                 <td class="product_unit">${product.unit}</td>
                 <td class="product_image">
@@ -55,6 +63,12 @@ async function GetData() {
         const btnEditRow = document.querySelectorAll('.btn-edit-row');
         btnEditRow?.forEach((btn, index) => {
             btn.addEventListener('click', () => {
+
+                inputEs.forEach((input) => { 
+                    input.nextElementSibling.style.fontSize = '14px';
+                    input.nextElementSibling.style.top = '12px';
+                });   
+
                 GetDataByRow(index, 'edit');
             });
         });
@@ -63,6 +77,11 @@ async function GetData() {
         btnDeleteRow?.forEach((btn, index) => {
             btn.addEventListener('click', () => {
                 GetDataByRow(index, 'delete');
+
+                inputEs.forEach((input) => { 
+                    input.nextElementSibling.style.fontSize = '14px';
+                    input.nextElementSibling.style.top = '12px';
+                })
             });
         });
     }
@@ -131,6 +150,8 @@ function GetDataByRow(index, option) {
 const inputUpLoadImage = document.querySelector('.image-upload');
 const imgPreview = document.querySelector('.image-preview');
 inputUpLoadImage?.addEventListener('change', (e) => {
+    console.log(e.target.files)
+    console.log(inputUpLoadImage.files);
     let key = '7b01ffc71f98f9b012c2cd72aa4d92f2';
     const reader = new FileReader();
     reader.onloadend = async () => {
@@ -143,6 +164,7 @@ inputUpLoadImage?.addEventListener('change', (e) => {
                 method: 'POST',
                 body: formData,
             });
+
 
             const data = await res.json();
             imgPreview.src = data.data?.url;
@@ -179,12 +201,12 @@ btnShowModalAddProduct?.addEventListener('click', () => {
 });
 
 function CheckInput() {
-    var inputEs = document.querySelectorAll('.form-group input[type="text"]');
+    
     inputEs.forEach((input) => {
         input.addEventListener('input', () => {
             if (input.value.length > 0) {
                 input.nextElementSibling.style.fontSize = '14px';
-                input.nextElementSibling.style.top = '10px';
+                input.nextElementSibling.style.top = '12px';
             } else {
                 input.nextElementSibling.style.fontSize = '16px';
                 input.nextElementSibling.style.top = '50%';
@@ -215,7 +237,6 @@ btnSaveProduct?.addEventListener('click', async () => {
         category: _idCategory,
     };
 
-    console.log(formData);
     const res = await fetch(`${baseUrl}/products/create`, {
         method: 'POST',
         headers: {

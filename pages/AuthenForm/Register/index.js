@@ -1,52 +1,76 @@
 var baseUrl = 'http://localhost:9999';
 
-const username = document.getElementById('username');
-const password = document.getElementById('password');
-const passwordConfirm = document.getElementById('password-confirm');
-const btnSubmit = document.querySelector('.btn-submit-resgiter');
-const lbUsername = document.querySelector('.lb-username');
-const lbPassword = document.querySelector('.lb-password');
-const lbPasswordConfirm = document.querySelector('.lb-password-confirm');
-const messageUsername = document.querySelector('.message-error-username');
-const messagePassword = document.querySelector('.message-error-password');
-const messagePasswordConfirm = document.querySelector('.message-error-password-confirm');
+var username = document.getElementById('username');
+var password = document.getElementById('password');
+var passwordConfirm = document.getElementById('password-confirm');
+var btnSubmit = document.querySelector('.btn-submit-resgiter');
+var lbUsername = document.querySelector('.lb-username');
+var lbPassword = document.querySelector('.lb-password');
+var lbPasswordConfirm = document.querySelector('.lb-password-confirm');
+var messageUsername = document.querySelector('.message-error-username');
+var messagePassword = document.querySelector('.message-error-password');
+var messagePasswordConfirm = document.querySelector('.message-error-password-confirm');
+var isValidUsername = false;
+var isValidPassword = false;
+var isValidPasswordConfirm = false;
 
-username.addEventListener('input', () => {
+username.addEventListener('input', (e) => {
     toggleSubmitButton(username, password, btnSubmit);
     ToggleLable(username.value, lbUsername);
 
     if (!CheckEmail(username.value)) {
         messageUsername.textContent = 'Email không hợp lệ';
         username.style.borderColor = 'red';
-    } else if (!CheckPhone(username.value)) {
-        messageUsername.textContent = 'Số điện thoại không hợp lệ';
-        username.style.borderColor = 'red';
+        isValidUsername = false;
+    } else {
+        messageUsername.textContent = '';
+        username.style.borderColor = 'var(--color-black)';
+        isValidUsername = true;
     }
 });
 
-password.addEventListener('input', () => {
+password.addEventListener('input', (e) => {
     toggleSubmitButton(username, password, btnSubmit);
     ToggleLable(password.value, lbPassword);
+
+    if(password.value.length < 6) {
+        messagePassword.textContent = 'Mật khẩu phải lớn hơn 6 kí tự';
+        password.style.borderColor = 'red';
+        isValidPassword = false;
+    } else {
+        messagePassword.textContent = '';
+        password.style.borderColor = 'var(--color-black)';
+        isValidPassword = true;
+    }
 });
 
 passwordConfirm.addEventListener('input', () => {
     toggleSubmitButton();
     ToggleLable(passwordConfirm.value, lbPasswordConfirm);
+
+    if(passwordConfirm.value.length < 6) {
+        messagePasswordConfirm.textContent = 'Mật khẩu phải lớn hơn 6 kí tự';
+        passwordConfirm.style.borderColor = 'red';
+        isValidPasswordConfirm = false;
+    } else  if(passwordConfirm.value !== password.value) {
+        messagePasswordConfirm.textContent = 'Mật khẩu xác nhận không khớp';
+        passwordConfirm.style.borderColor = 'red';
+        isValidPasswordConfirm = false;
+    } 
+    else {
+        messagePasswordConfirm.textContent = '';
+        passwordConfirm.style.borderColor = 'var(--color-black)';
+        isValidPasswordConfirm = true;
+    }
 });
 
 btnSubmit.addEventListener('click', async () => {
-    // if (password.value !== passwordConfirm.value) {
-    //     messagePasswordConfirm.textContent = 'Mật khẩu không khớp';
-    //     passwordConfirm.style.borderColor = 'red';
-    //     return;
-    // }
-
-    // if (!CheckEmail(username.value)) {
-    //     messageUsername.textContent = 'Email không hợp lệ';
-    //     username.style.borderColor = 'red';
-    //     return;
-    // }
-
+    
+    if(!isValidUsername || !isValidPassword || !isValidPasswordConfirm) {
+        Toast('error', 'Thông báo', 'Thông tin các trường không hợp lệ !', 3000);
+        return;
+    }
+    
     const url = new URL(`${baseUrl}/accounts/create`);
     const resAccount = await fetch(url, {
         method: 'POST',
@@ -71,6 +95,7 @@ btnSubmit.addEventListener('click', async () => {
             email,
             phone: '',
             birth: '',
+            deliverAddress: '',
             account: _idAcc,
         };
 
@@ -82,7 +107,6 @@ btnSubmit.addEventListener('click', async () => {
             },
             body: JSON.stringify(formData),
         });
-
         localStorage.setItem('isRegisterSuccess', true);
         window.location.href = '../Login/login.html';
     }

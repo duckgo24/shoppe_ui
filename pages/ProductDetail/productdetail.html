@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../../../fontawesome/css/all.min.css" />
         <link rel="stylesheet" href="../../../assets/css/reset.css" />
         <link rel="stylesheet" href="../../../assets/css/keyframe.css" />
-        <link rel="stylesheet" href="../../../assets/css/toast.css" />
+        <link rel="stylesheet" href="../../../assets/css/toast.css"/>
         <link rel="stylesheet" href="./productdetail.css" />
         <title>Document</title>
     </head>
@@ -111,15 +111,21 @@
                         </div>
                     </div>
                     <div class="header__main-cart">
-                        <a href="#" class="cart">
+                        <a href="../Cart/cart.html" class="cart-icon">
                             <i class="fa-solid fa-shopping-cart"></i>
                         </a>
-                        <div class="list-cart">
-                            <div class="cart-item">
-                                <img src="../../assets/image/none.png" alt="" height="60px" />
+                        <div class="cart">
+                            <div class="no-cart">
+                                <img src="../../assets/image/none.png" alt="" height="100px" />
                                 <p>Không có sản phẩm nào</p>
                             </div>
+                            <div class="cart__detail">
+                                <div class="cart__detail-title">Sản Phẩm Mới Thêm</div>
+                                <div class="cart__detail-list"></div>
+                                <a href="../Cart/cart.html" class="cart__detail-btn bg-primary">Xem giỏ hàng</a>
+                            </div>
                         </div>
+                        <span class="cart__detail-total-product"></span>
                     </div>
                 </div>
             </div>
@@ -256,7 +262,7 @@
                                     <button class="btn-add-quantity">
                                         <i class="fa-brands fa-plus"></i>
                                     </button>
-                                    <div class="quantity">0</div>
+                                    <div class="quantity">1</div>
                                     <button class="btn-sub-quantity">
                                         <i class="fa-solid fa-minus"></i>
                                     </button>
@@ -427,7 +433,24 @@
             </div>
             <!-- end chat with me -->
         </div>
+        <!-- start toast -->
+        <div class="toast">
+            <div class="toast-icon"></div>
+            <div class="toast-content">
+                <div class="title"></div>
+                <div class="message"></div>
+            </div>
+
+            <button class="toast-close">
+                <i class="fa-solid fa-x"></i>
+            </button>
+
+            <div class="toast-countdown"></div>
+        </div>
+        <!-- end toast -->
+
         <script src="../../assets/js/script.js"></script>
+        <script src="../../assets/js/toast.js"></script>
         <script src="./productdetail.js"></script>
     </body>
 </html>

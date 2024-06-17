@@ -8,11 +8,14 @@
         <link rel="stylesheet" href="../../../assets/css/reset.css" />
         <link rel="stylesheet" href="../../../assets/css/keyframe.css" />
         <link rel="stylesheet" href="../../../assets/css/toast.css">
-        <link rel="stylesheet" href="./profile.css" />
+        <link rel="stylesheet" href="../Profile/profile.css">
+        <link rel="stylesheet" href="../ProductDetail/productdetail.css" />
+        <link rel="stylesheet" href="../Cart/cart.css" />
+        <link rel="stylesheet" href="myorder.css">
         <title>Document</title>
     </head>
     <body>
-        <div class="Profile__container">
+        <div class="MyOder__container">
             <!-- start header -->
             <div class="header">
                 <div class="header__nav">
@@ -116,7 +119,7 @@
                         </a>
                         <div class="cart">
                             <div class="no-cart">
-                                <img src="../../assets/image/none.png" alt="" height="100px" />
+                                <img src="./assets/image/none.png" alt="" height="100px" />
                                 <p>Không có sản phẩm nào</p>
                             </div>
                             <div class="cart__detail">
@@ -131,7 +134,7 @@
                 </div>
             </div>
             <!-- end header -->
-            <div class="Profile__container-main">
+            <div class="Myorder__container-main">
                 <div class="Profile__container-main__left">
                     <div class="left-avatar">
                         <img
@@ -196,54 +199,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="Profile__container-main__right">
-                    <div class="Profile__container-main__right-header">
-                        <div class="title">Hồ Sơ Của Tôi</div>
-                        <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                <div class="Myorder__container-main__right">
+                    <div class="right-nav">
+                        <button class="btn-nav-active">Tất cả</button>
+                        <button>Chờ thanh toán</button>
+                        <button>Vận chuyển</button>
+                        <button>Chờ giao hàng</button>
+                        <button>Hoàn thành</button>
+                        <button>Đã hủy</button>
+                        <button>Trả hàng/Hoàn tiền</button>
                     </div>
-                    <div class="Profile__container-main__right-main">
-                        <div class="form-container">
-                            <form class="form-group">
-                                <lable class="lb-username">Tên Đăng Nhập</lable>
-                                <input type="text" class="nickname" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-name">Tên</lable>
-                                <input type="text" class="name" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-email">Email</lable>
-                                <input type="text" class="email" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-phone">Số điện thoại</lable>
-                                <input type="text" class="phone" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <label style="width: 170px; padding: 10px 0; margin-left: 10px;">Giới tính</label>
-                                <div>
-                                    <span class="lb-gender">Nam</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                                <div>
-                                    <span class="lb-gender">Nữ</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                                <div>
-                                    <span class="lb-gender">Khác</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-birth">Ngày sinh</lable>
-                                <input type="date" class="birth" disabled>
-                            </form>     
+                    <div class="right-main">
+                        <div class="no-bill">
+                            <img src="../../assets/image/no-bill.png" alt="" height="100px">
+                            <div>Chưa có đơn hàng</div>
                         </div>
-                        <div class="form-image">
-                            <input type="file" name="image" id="input-image-user">
-                            <img src="" alt="user" id="image-user" height="200px" width="200px">
-                        </div>
-                        <button class="btn-submit-profile bg-primary">Lưu</button>
+                        <div class="my-order-info"></div>
                     </div>
                 </div>
             </div>
@@ -382,6 +353,6 @@
 
         <script src="../../assets/js/toast.js"></script>
         <script src="../../assets/js/script.js"></script>
-        <script src="./profile.js"></script>
+        <script src="./myorder.js"></script>
     </body>
 </html>

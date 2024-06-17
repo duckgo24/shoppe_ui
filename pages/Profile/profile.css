@@ -18,7 +18,7 @@
     
 }
 
-.Profile__container-main .Profile__container-main__left .left-avatar {
+.Profile__container-main__left .left-avatar {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -26,12 +26,12 @@
     padding: 0 0 15px 0;
 }
 
-.Profile__container-main .Profile__container-main__left .left-avatar div {
+ .Profile__container-main__left .left-avatar div {
     display: flex;
     flex-direction: column;
 }
 
-.Profile__container-main .Profile__container-main__left .left-avatar div .profile-btn-update:hover {
+.Profile__container-main__left .left-avatar div .profile-btn-update:hover {
     cursor: pointer;
     color: var(--primary-color);
 }
@@ -42,7 +42,7 @@
     margin-top: 40px;
 }
 
-.Profile__container-main .Profile__container-main__left .left-option .option-item {
+.Profile__container-main__left .left-option .option-item {
     padding: 8px 0;
     display: flex;
     flex-wrap: nowrap;

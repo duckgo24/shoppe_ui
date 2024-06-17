@@ -8,16 +8,12 @@ function ToggleLable(value, lb) {
 }
 
 function CheckEmail(str) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regex = /^[a-zA-Z0-9.]+@(gmail\.com|hotmail\.com|yahoo\.com)$/;
     const result = regex.test(str);
     return result;
 }
 
-function CheckPhone() {
-    const regex = /^(03|09)\d{8}$/;
-    const result = regex.test(str);
-    return result;
-}
+
 
 function RemoveNotify(lb) {
     lb.textContent = '';

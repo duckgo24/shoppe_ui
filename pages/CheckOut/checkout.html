@@ -3,16 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../../../assets/css/style.css" />
-        <link rel="stylesheet" href="../../../fontawesome/css/all.min.css" />
-        <link rel="stylesheet" href="../../../assets/css/reset.css" />
-        <link rel="stylesheet" href="../../../assets/css/keyframe.css" />
-        <link rel="stylesheet" href="../../../assets/css/toast.css">
-        <link rel="stylesheet" href="./profile.css" />
+        <link rel="stylesheet" href="../../fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="../../assets/css/style.css" />
+        <link rel="stylesheet" href="../../assets/css/reset.css" />
+        <link rel="stylesheet" href="../../assets/css/keyframe.css" />
+        <link rel="shortcut icon" href="../../assets/image/icon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="../Cart/cart.css" />
+        <link rel="stylesheet" href="./checkout.css" />
         <title>Document</title>
     </head>
     <body>
-        <div class="Profile__container">
+        <div class="Checkout__container">
             <!-- start header -->
             <div class="header">
                 <div class="header__nav">
@@ -64,14 +65,16 @@
                         </div>
                         <div class="user">
                             <div class="choose">
-                                <a href="../AuthenForm/Register/register.html" id="sign-up">Đăng kí</a>
-                                <a href="../AuthenForm/Login/login.html" id="sign-in">Đăng nhập</a>
+                                <a href="../../pages/AuthenForm/../../Register/register.html" id="sign-up">Đăng kí</a>
+                                <a href="../../pages/AuthenForm/../../Login/login.html" id="sign-in">Đăng nhập</a>
                             </div>
                             <div class="user-info">
                                 <img src="" alt="" id="user-image" />
                                 <span id="user-name">Cao việt</span>
                                 <div class="option-list">
-                                    <a href="./profile.html" class="option-item">Tài khoản của tôi</a>
+                                    <a href="../../../../pages/Profile/profile.html" class="option-item"
+                                        >Tài khoản của tôi</a
+                                    >
                                     <a href="#" class="option-item">Đơn hàng</a>
                                     <button class="btn-signout option-item">Đăng xuất</button>
                                 </div>
@@ -116,7 +119,7 @@
                         </a>
                         <div class="cart">
                             <div class="no-cart">
-                                <img src="../../assets/image/none.png" alt="" height="100px" />
+                                <img src="./assets/image/none.png" alt="" height="100px" />
                                 <p>Không có sản phẩm nào</p>
                             </div>
                             <div class="cart__detail">
@@ -124,129 +127,71 @@
                                 <div class="cart__detail-list"></div>
                                 <a href="./pages/Cart/cart.html" class="cart__detail-btn bg-primary">Xem giỏ hàng</a>
                             </div>
-
                         </div>
                         <span class="cart__detail-total-product"></span>
                     </div>
                 </div>
             </div>
             <!-- end header -->
-            <div class="Profile__container-main">
-                <div class="Profile__container-main__left">
-                    <div class="left-avatar">
-                        <img
-                            src="../../assets/image/bear.gif"
-                            alt=""
-                            height="60px"
-                            width="60px"
-                            style="border-radius: 50%"
-                        />
-                        <div>
-                            <span class="fullname">Cao Việt</span>
-                            <button class="profile-btn-update">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                Chỉnh sửa
-                            </button>
+
+            <!-- start main -->
+            <div class="Checkout__main">
+                <div class="Checkout__main-header">
+                    <div class="header__row row-1"></div>
+                    <div class="header__row row-2">
+                        <div class="row-2-title text-primary">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Địa Chỉ Nhận Hàng</span>
                         </div>
-                    </div>
-                    <div class="left-option list-option">
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-1.png" alt="" height="25px" width="25px" />
-                            <span
-                                >Ưu Đãi Dành Riêng Cho Bạn
-                                <img src="../../assets/image/Profile/new.png" alt="" height="18px" />
-                            </span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-2.png" alt="" height="25px" width="25px" />
-                            <span>
-                                6.6 Siêu Sale Giữa Năm
-                                <img src="../../assets/image/Profile/new.png" alt="" height="18px" />
-                            </span>
-                        </div>
-                        <div class="option-item option-item-1">
-                            <div style="display: flex; align-items: center; gap: 5px">
-                                <img src="../../assets/image/Profile/pf-3.png" alt="" height="25px" width="25px" />
-                                <span>Tài khoản của tôi</span>
-                            </div>
-                            <ul class="list-option-account">
-                                <li class="text-primary">Hồ Sơ</li>
-                                <li>Ngân Hàng</li>
-                                <li>Địa Chỉ</li>
-                                <li>Đổi Mật Khẩu</li>
-                                <li>Cài Đặt Thông Báo</li>
-                                <li>Những Thiết Lập Riêng Tư</li>
-                            </ul>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-4.png" alt="" height="25px" width="25px" />
-                            <span>Đơn mua</span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-5.png" alt="" height="25px" width="25px" />
-                            <span>Thông Báo</span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-6.png" alt="" height="25px" width="25px" />
-                            <span>Kho Voucher</span>
-                        </div>
-                        <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-7.png" alt="" height="25px" width="25px" />
-                            <span>Shoppe Xu</span>
+                        <div class="consignee-infor">
+                            <span class="name text-bold">Cao Việt</span>
+                            <span class="phone text-bold">0388036937</span>
+                            <span class="deliver-address">Đỗ Hạ, Thanh Miện, Hải Dương</span>
+                            <button class="btn-change btn-change-deliver-address">Thay đổi</button>
                         </div>
                     </div>
                 </div>
-                <div class="Profile__container-main__right">
-                    <div class="Profile__container-main__right-header">
-                        <div class="title">Hồ Sơ Của Tôi</div>
-                        <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                <div class="Checkout__main-main">
+                    <div class="main-thead">
+                        <div class="thead-td" style="margin-left: 30px">
+                            <span style="margin-left: 70px"> Sản phẩm</span>
+                        </div>
+                        <div class="thead-td text-center">Đơn Giá</div>
+                        <div class="thead-td text-center">Số Lượng</div>
+                        <div class="thead-td text-center">Số Tiền</div>
                     </div>
-                    <div class="Profile__container-main__right-main">
-                        <div class="form-container">
-                            <form class="form-group">
-                                <lable class="lb-username">Tên Đăng Nhập</lable>
-                                <input type="text" class="nickname" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-name">Tên</lable>
-                                <input type="text" class="name" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-email">Email</lable>
-                                <input type="text" class="email" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-phone">Số điện thoại</lable>
-                                <input type="text" class="phone" disabled/>
-                            </form>
-                            <form class="form-group">
-                                <label style="width: 170px; padding: 10px 0; margin-left: 10px;">Giới tính</label>
-                                <div>
-                                    <span class="lb-gender">Nam</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                                <div>
-                                    <span class="lb-gender">Nữ</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                                <div>
-                                    <span class="lb-gender">Khác</span>
-                                    <input type="radio" name="gender" class="gender" disabled/>
-                                </div>
-                            </form>
-                            <form class="form-group">
-                                <lable class="lb-birth">Ngày sinh</lable>
-                                <input type="date" class="birth" disabled>
-                            </form>     
+                    <div class="main-tbody"></div>
+                </div>
+                <div class="Checkout__main-footer">
+                    <div class="pay-method">
+                        <div>Phương thức thanh toán</div>
+                        <div class="list-method">
+                            <button class="btn-active-method">Thanh Toán khi nhận hàng </button>
+                            <button>Ví ShopeePay</button>
+                            <button>Thẻ Tín Dụng/Ghi Nợ</button>
                         </div>
-                        <div class="form-image">
-                            <input type="file" name="image" id="input-image-user">
-                            <img src="" alt="user" id="image-user" height="200px" width="200px">
+                        <div style="width: 20%; text-align: center;">
+                            <span class="pay-method-default">Thanh toán khi nhận hàng</span>
+                            <button class="btn-change btn-change-pay-method">Thay đổi</button>
                         </div>
-                        <button class="btn-submit-profile bg-primary">Lưu</button>
+                    </div>
+                    <div class="bill-info">
+                        <div class="fee-deliver">
+                            <span style="margin-right: 54px">Giảm giá</span>
+                            <span class="fee">₫0</span>
+                        </div>
+                        <span class="total-bill">
+                            <span style="margin-right: 20px">Tổng tiền</span>
+                            <span style="font-size: 24px" class="total text-primary"></span>
+                        </span>
+                    </div>
+                    <div class="pay">
+                        <button class="btn-pay bg-primary">Đặt hàng</button>
                     </div>
                 </div>
             </div>
+            <!-- end main -->
+
             <!-- start footer -->
             <div class="footer">
                 <div class="wrapper">
@@ -363,25 +308,50 @@
                 </div>
             </div>
             <!-- end footer -->
-             <!-- start toast -->
-            <div class="toast">
-                <div class="toast-icon"></div>
-                <div class="toast-content">
-                    <div class="title"></div>
-                    <div class="message"></div>
+
+            <!-- start chat with me -->
+            <div class="chat-with-me">
+                <div class="btn-chat">
+                    <img src="../../assets/image/Chat-With-Me/chat-with-me.png" alt="" />
                 </div>
-
-                <button class="toast-close">
-                    <i class="fa-solid fa-x"></i>
-                </button>
-
-                <div class="toast-countdown"></div>
+                <div class="windown-chat">
+                    <div class="windown-chat__header">
+                        <span class="text-primary">Chat</span>
+                        <span>
+                            <i class="fa-solid fa-arrow-right chat-icon chat-btn-hide"></i>
+                            <i class="fa-solid fa-chevron-down chat-icon chat-btn-close"></i>
+                        </span>
+                    </div>
+                    <div class="windown-chat__main">
+                        <div class="left">
+                            <div class="top">
+                                <input type="text" placeholder="Tìm kiếm" />
+                                <p>Tất cả</p>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="main">
+                                <div>Không tìm thấy cuộc hội thoại nào</div>
+                            </div>
+                        </div>
+                        <div class="right list-message">
+                            <img
+                                src="../../assets/image/Chat-With-Me/welcome.png"
+                                alt=""
+                                height="200px"
+                                width="300px"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- end toast -->
+            <!-- end chat with me -->
+            <div class="loading">
+                <div class="dot dot-1"></div>
+                <div class="dot dot-2"></div>
+                <div class="dot dot-3"></div>
+            </div>
         </div>
-
-        <script src="../../assets/js/toast.js"></script>
         <script src="../../assets/js/script.js"></script>
-        <script src="./profile.js"></script>
+        <script src="./checkout.js"></script>
     </body>
 </html>

@@ -373,17 +373,17 @@ td {
 .form-image {
     display: flex;
     flex-direction: column;
-    
     margin-right: 30px;
     width: 40%;
     gap: 10px;
 }
 
 .form-image .image-preview {
-    width: 100%;
+    width: 200px;
     height: 70%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 10px;
+    margin: 52px auto 0 auto;
 }
 
 .btn-delete {

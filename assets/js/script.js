@@ -31,8 +31,6 @@ function Promotion() {
     });
 }
 
-
-
 function New() {
     let hourE = document.querySelector('.new-hour');
     let minuteE = document.querySelector('.new-minute');
@@ -84,7 +82,7 @@ function Hot() {
     const hot = document.querySelector('.hot');
     const data = localStorage.getItem('account');
 
-    if(!data) {
+    if (!data) {
         hot.style.display = 'none';
     }
     const btnClose = document.querySelector('.btn-hot-close');
@@ -110,51 +108,100 @@ function ChatWithMe() {
     });
 
     btnClose?.addEventListener('click', () => {
-        windownChat.style.animation = 'small 0.5s ease-in-out';           
+        windownChat.style.animation = 'small 0.5s ease-in-out';
         setTimeout(() => {
             windownChat.style.display = 'none';
             btnOpen.style.display = 'block';
-        },500)      
+        }, 500);
     });
 
     btnHide?.addEventListener('click', () => {
         countClickHide++;
-        if(countClickHide % 2 == 1) {
-            listMessage.style.animation = 'reduceWidth 0.7s ease-in-out';   
+        if (countClickHide % 2 == 1) {
+            listMessage.style.animation = 'reduceWidth 0.7s ease-in-out';
             setTimeout(() => {
                 listMessage.style.width = '0';
                 listMessage.style.animation = '';
             }, 700);
         } else {
-            listMessage.style.animation = 'increaseWidth 0.7s ease-in-out';   
+            listMessage.style.animation = 'increaseWidth 0.7s ease-in-out';
             setTimeout(() => {
                 listMessage.style.width = '100%';
                 listMessage.style.animation = '';
             }, 700);
         }
-        
 
-        if(btnHide.classList.contains('fa-arrow-right')) {
-            btnHide.classList.remove('fa-arrow-right')
-            btnHide.classList.add('fa-arrow-left')
+        if (btnHide.classList.contains('fa-arrow-right')) {
+            btnHide.classList.remove('fa-arrow-right');
+            btnHide.classList.add('fa-arrow-left');
+        } else {
+            btnHide.classList.remove('fa-arrow-left');
+            btnHide.classList.add('fa-arrow-right');
         }
-        else {
-            btnHide.classList.remove('fa-arrow-left')
-            btnHide.classList.add('fa-arrow-right')
-        }
-    })
+    });
+}
 
+async function Cart() {
+    let baseUrl = 'http://localhost:9999';
+
+    async function GetListProductNoPaid() {
+        const accountId = JSON.parse(localStorage.getItem('account'))?._id;
+
+        const url = new URL(`${baseUrl}/bills/find`);
+        url.searchParams.append('account', accountId);
+        url.searchParams.append('isPaid', false);
+        if (accountId) {
+            try {
+                const res = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const data = await res.json();
+                return data;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    }
+
+    const data = await GetListProductNoPaid();
+
+    const noCart = document.querySelector('.no-cart');
+    const cartDetail = document.querySelector('.cart__detail');
+    const cartListItem = document.querySelector('.cart__detail-list');
+    let totalProduct = document.querySelector('.cart__detail-total-product');
+    if (data?.length > 0 && data) {
+        noCart.style.display = 'none';
+        cartDetail.style.display = 'flex';
+        totalProduct.style.display = 'block';
+        totalProduct.textContent = data.length;
+        data.forEach((bill) => {
+            cartListItem.innerHTML += `
+                <div class="cart__detail-item">
+                    <img src="${bill.image}" alt="" class="item-img" height="40px">
+                    <span class="item-name">
+                        <div class="text-primary">Combo khuyến mại</div>
+                         <div>${bill.product}</div>
+                    </span>
+                    <span class="item-price text-primary">₫${bill.price}</span>
+                </div>
+                `;
+        });
+    }
 }
 
 function User() {
+    let baseUrl = 'http://localhost:9999';
     const chooseAuth = document.querySelector('.user .choose');
-    const userInfo = document.querySelector('.user .user-info');    
+    const userInfo = document.querySelector('.user .user-info');
 
     const username = document.getElementById('user-name');
 
-    const data = localStorage.getItem('account');
+    var data = localStorage.getItem('account');
 
-    if(data) {
+    if (data) {
         const user = JSON.parse(data);
         username.textContent = user?.username;
         chooseAuth.style.display = 'none';
@@ -168,6 +215,37 @@ function User() {
         hooseAuth.style.display = 'flex';
         userInfo.style.display = 'none';
     });
+
+    async function LoadUserName() {
+        const accId = JSON.parse(data)?._id;
+        var dataUser = {};
+
+        const url = new URL(`${baseUrl}/users/getInfoByAccId`);
+        url.searchParams.append('account', accId);
+
+        if (accId) {
+            await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    dataUser = data;
+                });
+        }
+
+        if (dataUser) {
+            const userName = document.getElementById('user-name');
+            console.log(userName);
+            userName.textContent = dataUser.nickName;
+        }
+
+        console.log(dataUser);
+    }
+
+    LoadUserName();
 }
 
 
@@ -175,9 +253,7 @@ function IsAdmin() {
     const data = localStorage.getItem('account');
     if (data) {
         const user = JSON.parse(data);
-        console.log(user);
         if (user?.role === 'admin') {
-            console.log("pke");
             let optionList = document.querySelector('.option-list');
             let anchor = document.createElement('a');
             anchor.classList.add('option-item');
@@ -197,20 +273,19 @@ function Start() {
     ChatWithMe();
     User();
     IsAdmin();
+    Cart();
 }
 
 window.addEventListener('DOMContentLoaded', Start);
 
-
 // My function
 function CounDown(hour, minute, second, hourE, minuteE, secondE) {
-    
     setInterval(() => {
         second--;
-        if(minute < 0) {
+        if (minute < 0) {
             hour--;
             minute = 59;
-        } 
+        }
 
         if (second < 0) {
             second = 59;
@@ -220,18 +295,16 @@ function CounDown(hour, minute, second, hourE, minuteE, secondE) {
             minute = 0;
             second = 0;
         }
-        
-        minute < 10 ? minute = `0${minute}`: minute;
-        second < 10 ? second = `0${second}`: second;
-        if(hourE && minuteE && secondE) { 
-            hourE.textContent = hour;
-            minuteE.textContent  = minute;
-            secondE.textContent  = second;
-        }
-        
-    }, 1000);
-};
 
+        minute < 10 ? (minute = `0${minute}`) : minute;
+        second < 10 ? (second = `0${second}`) : second;
+        if (hourE && minuteE && secondE) {
+            hourE.textContent = hour;
+            minuteE.textContent = minute;
+            secondE.textContent = second;
+        }
+    }, 1000);
+}
 
 function NextSlide(listImage, boxWrapper, index, width) {
     if (index >= listImage.length - 1) {
@@ -276,10 +349,10 @@ listproduct.forEach((product) => {
             priceProductOrigin,
             priceProductDiscount,
             image,
-            expiry
+            expiry,
         };
-        
+
         localStorage.setItem('product', JSON.stringify(data));
-        window.location.href = "./pages/ProductDetail/productdetail.html";
+        window.location.href = './pages/ProductDetail/productdetail.html';
     });
 });

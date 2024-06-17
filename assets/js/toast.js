@@ -30,6 +30,10 @@ function Toast(type, title, message, countdown) {
 
     setTimeout(() => {
         toast.classList.remove('show');
+        toastCountDown.classList.remove('success');
+        toastCountDown.classList.remove('error');
+        toastIcon.classList.remove('success');
+        toastIcon.classList.remove('error');
         toastCountDown.style.animation = ``;       
     }, countdown);
 

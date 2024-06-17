@@ -9,6 +9,7 @@ const User = new Schema({
     email: { type: String },
     birth: { type: Date },
     nickName: { type: String },
+    deliverAddress: { type: String },
     account: { type: Schema.Types.ObjectId, ref: 'accounts' }
   });
 

@@ -1,0 +1,168 @@
+.text-bold {
+    font-weight: bold;
+}
+
+.Checkout__container {
+    height: 100vh;
+}
+
+
+.Checkout__main {
+    width: calc(var(--default-layout-width) - 100px);
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+    border-bottom: 4px solid var(--primary-color);
+}
+
+.Checkout__main .Checkout__main-header {
+    height: 150px;
+    border: 1px solid var(--black-0-1);
+    margin-bottom: 20px;
+}
+
+.Checkout__main .Checkout__main-header .header__row {
+    padding: 0 40px;
+}
+.Checkout__main .Checkout__main-header .row-1 {
+    background-image: repeating-linear-gradient(
+        45deg,
+        #6fa6d6,
+        #6fa6d6 33px,
+        transparent 0,
+        transparent 41px,
+        #f18d9b 0,
+        #f18d9b 74px,
+        transparent 0,
+        transparent 82px
+    );
+    background-position-x: -30px;
+    background-size: 116px 3px;
+    height: 3px;
+    width: 100%;
+}
+
+.Checkout__main .Checkout__main-header .row-2 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    font-size: 20px;
+}
+
+.Checkout__main .Checkout__main-header .row-2 .consignee-infor {
+    font-size: 17px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-change {
+    font-size: var(--f-s-3);
+    color: rgba(0, 0, 255, 0.6);
+}
+
+.btn-change:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.quantity-product {
+    border: none !important;
+}
+
+
+.Checkout__main-footer {
+    margin-top: 20px;
+    border: 1px solid var(--black-0-1);
+    background-color: var(--white-color);
+}
+
+.Checkout__main-footer .pay-method {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 30px;
+    border-bottom: 1px solid var(--black-0-1);
+}
+
+.Checkout__main-footer .pay-method .list-method {
+    display: none;
+    gap: 10px;
+}
+
+.Checkout__main-footer .pay-method .list-method button {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    font-size: var(--fs-3);
+    padding: 10px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--black-0-4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.btn-active-method {
+    position: relative;
+    border-color: var(--primary-color) !important;
+    overflow: hidden;
+}
+
+.btn-active-method::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: -15px;
+    background-color: var(--primary-color);
+    height: 35px;
+    width: 30px;
+    transform: rotate(45deg);
+}
+
+.btn-active-method::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: -15px;
+    background: url(../../assets/image/sgv/checked.svg) no-repeat;
+    background-size: 27%;
+    background-color: var(--primary-color);
+    height: 30px;
+    width: 25px;
+}
+
+
+.Checkout__main-footer .bill-info {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 30px;
+    text-align: end;
+    gap: 10px;
+    font-size: 17px;
+    color: var(--black-0-6);
+    border-bottom: 1px solid var(--black-0-1);
+}
+
+.Checkout__main-footer .pay {
+    padding: 32px 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.Checkout__main-footer .pay .btn-pay {
+    padding: 14px 24px;
+    width: 200px;
+    font-size: var(--f-s-3);
+    color: var(--white-color);
+}
+
+.Checkout__main-footer .pay .btn-pay:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+.id_bill {
+    display: none;
+}

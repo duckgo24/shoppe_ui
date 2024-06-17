@@ -1,11 +1,14 @@
-function LoadData() {
-    let navNameProduct = document.querySelector('.nav-name-product');
-    let nameProduct = document.querySelector('.name-product');
-    let priceProductOrigin = document.querySelector('.price-origin');
-    let priceProductDiscount = document.querySelector('.price-discount');
-    let expiry = document.querySelector('.expiry');
-    let image = document.querySelector('.img-main');
+const baseUrl = 'http://localhost:9999';
 
+
+var navNameProduct = document.querySelector('.nav-name-product');
+var nameProduct = document.querySelector('.name-product');
+var priceProductOrigin = document.querySelector('.price-origin');
+var priceProductDiscount = document.querySelector('.price-discount');
+var expiry = document.querySelector('.expiry');
+var image = document.querySelector('.img-main');
+
+function LoadData() {
     const dataProduct = JSON.parse(localStorage.getItem('product'));
     if (dataProduct) {
         navNameProduct.textContent = dataProduct.nameProduct;
@@ -37,7 +40,6 @@ listBtnColor.forEach((btn, index) => {
 
         btn.classList.add('btn-active-product');
         let srcImg = btn.querySelector('img').src;
-        let textColor = listTextColor[index].textContent;
         imgMain.src = srcImg;
     });
 });
@@ -50,13 +52,11 @@ listBtnSize.forEach((btn, index) => {
         });
 
         btn.classList.add('btn-active-product');
-
-        console.log(btn.textContent);
     });
 });
 
-var btnAddQuantity = document.querySelector('.btn-add-quantity');
-var btnSubQuantity = document.querySelector('.btn-sub-quantity');
+const btnAddQuantity = document.querySelector('.btn-add-quantity');
+const btnSubQuantity = document.querySelector('.btn-sub-quantity');
 var quantity = document.querySelector('.quantity');
 
 btnAddQuantity.addEventListener('click', () => {
@@ -67,4 +67,102 @@ btnSubQuantity.addEventListener('click', () => {
     if (quantity.textContent > 1) {
         quantity.textContent--;
     }
+});
+
+
+
+const btnAddToCart = document.querySelector('.btn-add-cart');
+btnAddToCart?.addEventListener('click', async () => {
+
+    let _colorChoose = document.querySelector('.color .btn-active-product span');
+    let _sizeChoose = document.querySelector('.size .btn-active-product');
+    let _priceProductDiscount = priceProductDiscount.textContent.replace(/[₫.]/g, '');
+    
+
+    if(!_colorChoose) {
+        Toast("error", "Thông báo", "Vui lòng chọn màu sản phẩm", 3000);
+        return;
+    }
+
+    if(!_sizeChoose) {
+        Toast("error", "Thông báo", "Vui lòng chọn size sản phẩm", 3000);
+        return;
+    }
+
+    const formData = {
+        product: nameProduct.textContent,
+        image: imgMain.src,
+        size: _sizeChoose?.textContent,
+        color: _colorChoose?.textContent, 
+        price: _priceProductDiscount,
+        quantity: quantity.textContent,
+        total: parseInt(_priceProductDiscount) * parseInt(quantity.textContent),
+        payMethod: "Thanh toán khi nhận hàng",
+        isPaid: false ,
+        account: JSON.parse(localStorage.getItem('account'))?._id
+    };
+    
+
+    try {
+        const res = await fetch(`${baseUrl}/bills/create`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if(res.status === 200) {
+            Toast("success", "Thông báo", "Thêm sản phẩm vào giỏ hàng thành công", 3000);
+            listBtnColor.forEach((btn) => {
+                btn.classList.remove('btn-active-product');
+            });
+            listBtnSize.forEach((btn) => {
+                btn.classList.remove('btn-active-product');
+            });
+            quantity.textContent = 1;
+            return;
+        }
+
+    } catch (error) {
+        Toast("error", "Thông báo", "Đã có lõi xảy ra", 3000);
+        return;
+    }
+});
+
+
+
+const btnBuyNow = document.querySelector('.btn-buy-now');
+btnBuyNow?.addEventListener('click', async () => {  
+    
+    let _colorChoose = document.querySelector('.color .btn-active-product span');
+    let _sizeChoose = document.querySelector('.size .btn-active-product');
+    let _priceProductDiscount = priceProductDiscount.textContent.replace(/[₫.]/g, '');
+    
+
+    if(!_colorChoose) {
+        Toast("error", "Thông báo", "Vui lòng chọn màu sản phẩm", 3000);
+        return;
+    }
+
+    if(!_sizeChoose) {
+        Toast("error", "Thông báo", "Vui lòng chọn size sản phẩm", 3000);
+        return;
+    }
+
+    const formData = {
+        product: nameProduct.textContent,
+        image: imgMain.src,
+        size: _sizeChoose?.textContent,
+        color: _colorChoose?.textContent, 
+        price: _priceProductDiscount,
+        quantity: quantity.textContent,
+        total: parseInt(_priceProductDiscount) * parseInt(quantity.textContent),
+        isPaid: false ,
+        account: JSON.parse(localStorage.getItem('account'))?._id
+    };
+    
+    localStorage.setItem('bill', JSON.stringify(formData));
+    window.location.href = '/checkout';
+
 });

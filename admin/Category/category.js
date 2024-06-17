@@ -1,4 +1,8 @@
 const baseUrl = 'http://localhost:9999';
+var inputName = document.querySelector('.form-group input');
+var inputDesc = document.querySelector('.form-group textarea');
+var lbCategoryName = document.querySelector('.lb-category-name');
+var lbCategoryDesc = document.querySelector('.lb-category-desc');
 
 async function GetData() {
     const res = await fetch(`${baseUrl}/categories/stores`);
@@ -31,6 +35,11 @@ async function GetData() {
         const listCategory = document.querySelectorAll('.list-category tbody tr');
         btnEditRow?.forEach((btn, index) => {
             btn.addEventListener('click', () => {
+                lbCategoryName.style.fontSize = '14px';
+                lbCategoryName.style.top = '10px';
+                lbCategoryDesc.style.fontSize = '14px';
+                lbCategoryDesc.style.top = '8px';
+
                 const data = {
                     id: listCategory[index].querySelector('.category_id').textContent,
                     name: listCategory[index].querySelector('.category_name').textContent,
@@ -48,7 +57,7 @@ async function GetData() {
                     let id = document.getElementById('id_category');
                     let inputName = document.querySelector('.form-group input');
                     let inputDesc = document.querySelector('.form-group textarea');
-                    
+
                     id.textContent = data.id;
                     inputName.value = data.name;
                     inputDesc.value = data.desc;
@@ -63,6 +72,10 @@ async function GetData() {
         btnDeleteRow = document.querySelectorAll('.btn-delete-row');
         btnDeleteRow?.forEach((btn, index) => {
             btn.addEventListener('click', () => {
+                lbCategoryName.style.fontSize = '14px';
+                lbCategoryName.style.top = '10px';
+                lbCategoryDesc.style.fontSize = '14px';
+                lbCategoryDesc.style.top = '8px';
                 const data = {
                     id: listCategory[index].querySelector('.category_id').textContent,
                     name: listCategory[index].querySelector('.category_name').textContent,
@@ -80,7 +93,7 @@ async function GetData() {
                     let id = document.getElementById('id_category');
                     let inputName = document.querySelector('.form-group input');
                     let inputDesc = document.querySelector('.form-group textarea');
-                    
+
                     id.textContent = data.id;
                     inputName.value = data.name;
                     inputDesc.value = data.desc;
@@ -113,11 +126,6 @@ btnShowModalAddCategory?.addEventListener('click', () => {
         modalCategory.style.animation = '';
     }, 500);
 });
-
-var inputName = document.querySelector('.form-group input');
-var inputDesc = document.querySelector('.form-group textarea');
-var lbCategoryName = document.querySelector('.lb-category-name');
-var lbCategoryDesc = document.querySelector('.lb-category-desc');
 
 function CheckInput() {
     inputName?.addEventListener('input', () => {
@@ -164,7 +172,7 @@ btnSaveCategory?.addEventListener('click', async () => {
         listBtnControllModal.forEach((btn) => {
             btn.style.display = 'none';
         });
-        
+
         Toast('success', 'Thông báo', 'Thêm thành công', 3000);
         const tableBody = document.querySelector('.list-category tbody');
         tableBody.innerHTML = '';
@@ -204,7 +212,6 @@ btnUpdateCategory?.addEventListener('click', async () => {
         GetData();
         inputName.value = '';
         inputDesc.value = '';
-        
     }
 });
 
@@ -230,7 +237,7 @@ btnDeleteCategory?.addEventListener('click', async () => {
         listBtnControllModal.forEach((btn) => {
             btn.style.display = 'none';
         });
-        
+
         Toast('success', 'Thông báo', 'Xóa thành công', 3000);
         const tableBody = document.querySelector('.list-category tbody');
         tableBody.innerHTML = '';

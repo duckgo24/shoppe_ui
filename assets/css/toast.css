@@ -22,7 +22,6 @@
     border-radius: 50%;
     font-size: 16px;
     color: var(--white-color);
-    
 }
 
 .toast .toast-close {
@@ -72,9 +71,9 @@
 
 
 .success {
-    background-color: green;
+    background-color: green !important;
 }
 
 .error {
-    background-color: red;
+    background-color: red !important;
 }

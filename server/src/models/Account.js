@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const Account = new Schema({
     username: { type: String },
     password: { type: String } ,
-    role: {type: String, default: 'customer'},
+    role: {type: String, default: 'Khách hàng'},
     isBan: {type: Boolean, default: false},
   });
 

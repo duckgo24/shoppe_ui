@@ -18,6 +18,15 @@ btnUpdateProfile.addEventListener('click', () => {
 
 const btnSubmit = document.querySelector('.btn-submit-profile');
 btnSubmit.addEventListener('click', async () => {
+
+
+        const regexPhone = /^(03|09)\d{8}$/;
+
+    if(!regexPhone.test(phone.value)) {
+        Toast('error', 'Thông báo', 'Số điện thoại không hợp lệ', 3000);
+        return;
+    }
+
     var genders = document.querySelectorAll('.gender');
     var lbGenders = document.querySelectorAll('.lb-gender');
     genders.forEach((gender, index) => {
@@ -57,11 +66,12 @@ btnSubmit.addEventListener('click', async () => {
     }
 });
 
+
+
 async function LoadProfile() {
     const accountInfo = localStorage.getItem('account');
     const fullName = document.querySelector('.fullname');
     const accId = JSON.parse(accountInfo)?._id;
-
 
     const url = new URL(`${baseUrl}/users/getInfoByAccId`);
     url.searchParams.append('account', accId);
@@ -94,6 +104,7 @@ async function LoadProfile() {
             }
         });
     }
+
 }
 
 LoadProfile();
