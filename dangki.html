@@ -3,22 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../index.css" />
-        <link rel="stylesheet" href="../../../assets/css/style.css">
-        <link rel="stylesheet" href="../../../fontawesome/css/all.min.css">
-        <link rel="stylesheet" href="../../../assets/css/reset.css">
-        <link rel="stylesheet" href="../../../assets/css/keyframe.css">
-        <link rel="stylesheet" href="../../../assets/css/toast.css">
-        <title>Đăng nhập</title>
+        <link rel="stylesheet" href="./assets/css/authen.css"/>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="stylesheet" href="./assets/css/toast.css">
+        <link rel="shortcut icon" href="./assets/image/icon1.png" type="image/x-icon" />
+        <title>Đăng kí</title>
     </head>
     <body>
         <div class="Authen_container">
             <div class="Authen__header">
                 <div class="Authen__header-left">
-                    <a href="/">
-                        <img src="../../../assets/image/logo.png" alt="" id="logo" />
+                    <a href="./trangchu.html">
+                        <img src="./assets/image/logo.png" alt="" id="logo" />
                     </a>
-                    <span>Đăng Nhập</span>
+                    <span>Đăng Kí</span>
                 </div>
                 <div class="Authen__header-right">
                     <a href="#" class="text-primary">Bạn cần giúp đỡ</a>
@@ -27,31 +27,29 @@
             <div class="Authen__main">
                 <div class="Authen__main-wrapper">
                     <div class="left">
-                        <img src="../../../assets/image/bg-authen.png" alt="">
+                        <img src="./assets/image/bg-authen.png" alt="" />
                     </div>
                     <div class="right">
-                        <div class="right-header">
-                            <span>Đăng Nhập</span>
-                            <span class="text-qr">Đăng nhập với mã <br> QR</span>
-                            <img src="../../../assets/image/Authen/qr.png" alt="" class="qr-code" height="50px">
-                        </div>
+                        <div style="padding: 24px; font-size: 22px">Đăng Kí</div>
                         <div class="right-form">
                             <form class="form-group">
                                 <label for="#username" class="lb-username">Số điện thoại/Email</label>
-                                <input type="text" id="username">
+                                <input type="text" id="username" name="username" />
                                 <span class="message-error message-error-username text-primary"></span>
                             </form>
                             <form class="form-group">
                                 <label for="#password" class="lb-password">Mật khẩu</label>
-                                <input type="password" id="password">
+                                <input type="password" id="password" name="password" />
                                 <span class="message-error message-error-password text-primary"></span>
                             </form>
-                            <button class="btn-submit btn-submit-login bg-primary disable">Đăng nhập</button>
+                            <form class="form-group">
+                                <label for="#password-confirm" class="lb-password-confirm">Nhập lại mật khẩu</label>
+                                <input type="password" id="password-confirm" />
+                                <span class="message-error message-error-password-confirm text-primary"></span>
+                            </form>
+                            <button class="btn-submit btn-submit-resgiter bg-primary disable">Đăng kí</button>
                         </div>
-                        <div class="right-help-user">
-                            <a href="#" class="">Quên mật khẩu</a>
-                            <a href="#" class="">Đăng nhập với SMS </a>
-                        </div>
+
                         <div class="right-separate">Hoặc</div>
                         <div class="right-orther-login">
                             <button class="method-login">
@@ -63,9 +61,18 @@
                                 <span>Google</span>
                             </button>
                         </div>
+                        <div class="right-warning">
+                            <span>
+                                Bằng việc đăng kí, bạn đã đồng ý với Shopee về
+                                <br />
+                                <span class="text-primary">Điều khoản và dịch vụ</span>
+                                &
+                                <span class="text-primary">Chính sách bảo mật</span>
+                            </span>
+                        </div>
                         <div class="right-resigter">
-                            <span>Bạn mới biết đến Shoppe?</span>
-                            <a href="../Register/register.html" class="text-primary">Đăng ký</a>
+                            <span>Bạn đã có tài khoản?</span>
+                            <a href="./dangnhap.html" class="text-primary">Đăng nhập</a>
                         </div>
                     </div>
                 </div>
@@ -103,28 +110,28 @@
                         <div class="row">
                             <h4 class="title">Thanh Toán</h4>
                             <div class="pay">
-                                <img src="../../../assets/image/Payment/p-1.png" alt="" class="pay-img" />
-                                <img src="../../../assets/image/Payment/p-2.png" alt="" class="pay-img" />
-                                <img src="../../../assets/image/Payment/p-3.png" alt="" class="pay-img" />
-                                <img src="../../../assets/image/Payment/p-4.png" alt="" class="pay-img" />
-                                <img src="../../../assets/image/Payment/p-5.png" alt="" class="pay-img" />
-                                <img src="../../../assets/image/Payment/p-6.png" alt="" class="pay-img" />
-                                <img src="../../../assets/image/Payment/p-7.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-1.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-2.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-3.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-4.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-5.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-6.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-7.png" alt="" class="pay-img" />
                             </div>
                             <div class="row">
                                 <h4 class="title">Đơn Vị Vận Chuyển</h4>
                                 <div class="deliver">
-                                    <img src="../../../assets/image/Deliver/d-1.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-2.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-3.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-4.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-5.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-6.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-7.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-8.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-9.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-10.png" alt="" class="deliver-img" />
-                                    <img src="../../../assets/image/Deliver/d-11.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-1.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-2.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-3.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-4.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-5.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-6.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-7.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-8.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-9.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-10.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-11.png" alt="" class="deliver-img" />
                                 </div>
                             </div>
                         </div>
@@ -147,11 +154,11 @@
                     <div class="col">
                         <h4 class="title">Tải Ứng Dụng Ngay Thôi</h4>
                         <div class="install">
-                            <img src="../../../assets/image/Install/qr.png" alt="" class="install-img" />
+                            <img src="./assets/image/Install/qr.png" alt="" class="install-img" />
                             <div class="app">
-                                <img src="../../../assets/image/Install/iphone.png" alt="" class="install-img" />
-                                <img src="../../../assets/image/Install/adr.png" alt="" class="install-img" />
-                                <img src="../../../assets/image/Install/gallery.png" alt="" class="install-img" />
+                                <img src="./assets/image/Install/iphone.png" alt="" class="install-img" />
+                                <img src="./assets/image/Install/adr.png" alt="" class="install-img" />
+                                <img src="./assets/image/Install/gallery.png" alt="" class="install-img" />
                             </div>
                         </div>
                     </div>
@@ -170,9 +177,9 @@
                     </p>
                     <div class="register">
                         <div class="register-img">
-                            <img src="../../../assets/image/Footer/f-1.png" alt="" class="r-img" />
-                            <img src="../../../assets/image/Footer/f-1.png" alt="" class="r-img" />
-                            <img src="../../../assets/image/Footer/f-2.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-2.png" alt="" class="r-img" />
                         </div>
                         <p>Công Ty TNH Shoppe</p>
                     </div>
@@ -203,9 +210,10 @@
             </div>
             <!-- end toast -->
         </div>
-        <script src="../../../assets/js/toast.js"></script>
-        <script src="./index.js"></script>
-        <script src="../index.js"></script>
+
+        <script src="./assets/js/toast.js"></script>
+        <script src="./assets/js/authen.js"></script>
+        <script src="./assets/js/register.js"></script>
         
     </body>
 </html>

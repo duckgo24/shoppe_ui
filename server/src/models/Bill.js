@@ -11,6 +11,7 @@ const Bill = new Schema({
     "price": { type: Number } ,
     "quantity": { type: Number } ,
     "total": { type: Number },
+    "address": { type: String } ,
     "dayCreate" : { type: Date, default: Date.now } ,
     "payMethod": { type: String , default: "Thanh toán khi nhận hàng" },
     "isPaid": { type: Boolean, default: false } ,

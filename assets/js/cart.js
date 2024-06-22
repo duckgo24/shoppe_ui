@@ -208,7 +208,7 @@ async function CartNoPaid() {
             
             }
             localStorage.setItem('listBillPay', JSON.stringify(listBillPay));
-            window.location.href = '../CheckOut/checkout.html';
+            window.location.href = './hoadon.html';
         });
     }
 }

@@ -7,14 +7,23 @@ function Promotion() {
     const btnNextPromotion1 = document.querySelector('.btn-control-next');
     btnNextPromotion1?.addEventListener('click', () => {
         index = NextSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth);
+
+        promotion1Btns.forEach((btn) => {
+            btn.classList.remove('bg-primary');
+        })
+        promotion1Btns[index].classList.add('bg-primary');
     });
 
     const btnPrevPromotion1 = document.querySelector('.btn-control-prev');
     btnPrevPromotion1?.addEventListener('click', () => {
         index = PrevSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth);
+        promotion1Btns.forEach((btn) => {
+            btn.classList.remove('bg-primary');
+        })
+        promotion1Btns[index].classList.add('bg-primary');
     });
 
-    AutoSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth);
+    AutoSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth, promotion1Btns);
 
     Array.from(promotion1Btns).forEach((btn, idx) => {
         btn.addEventListener('click', () => {
@@ -51,11 +60,13 @@ function ShoppeMall() {
     var shoppeMallWrapper = document.querySelector('.left__carousel');
     var shoppeMallBtns = document.querySelectorAll('.left__btns-item');
     var listImageShoppeMall = document.querySelectorAll('.shoppe-mall-img');
+
     let index = 0;
 
     const btnNextShoppeMall = document.querySelector('.left-btnNext');
     btnNextShoppeMall?.addEventListener('click', () => {
         index = NextSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
+        
     });
 
     const btnPrevShoppeMall = document.querySelector('.left-btnPrev');
@@ -63,7 +74,7 @@ function ShoppeMall() {
         index = PrevSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
     });
 
-    AutoSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
+    AutoSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth, shoppeMallBtns) ;
 
     Array.from(shoppeMallBtns).forEach((btn, idx) => {
         btn.addEventListener('click', () => {
@@ -211,7 +222,7 @@ function User() {
     const btnSignout = document.querySelector('.btn-signout');
     btnSignout.addEventListener('click', () => {
         localStorage.removeItem('account');
-        window.location.href = '/index.html';
+        window.location.href = '/trangchu.html';
         hooseAuth.style.display = 'flex';
         userInfo.style.display = 'none';
     });
@@ -238,11 +249,9 @@ function User() {
 
         if (dataUser) {
             const userName = document.getElementById('user-name');
-            console.log(userName);
-            userName.textContent = dataUser.nickName;
+            userName.textContent = dataUser?.nickName;
         }
 
-        console.log(dataUser);
     }
 
     LoadUserName();
@@ -308,7 +317,7 @@ function CounDown(hour, minute, second, hourE, minuteE, secondE) {
 
 function NextSlide(listImage, boxWrapper, index, width) {
     if (index >= listImage.length - 1) {
-        index = listImage.length - 1;
+        index = 0;
     } else {
         index++;
         boxWrapper.style.transform = `translateX(-${index * width}px)`;
@@ -327,10 +336,20 @@ function PrevSlide(listImage, boxWrapper, index, width) {
     return index;
 }
 
-function AutoSlide(listImage, boxWrapper, index, width) {
+function AutoSlide(listImage, boxWrapper, index, width, btns) {
     setInterval(() => {
         index = NextSlide(listImage, boxWrapper, index, width);
+        // btns.forEach((btn) => {
+        //     btn.classList.remove('bg-primary');
+        // });
+
+        // btns[index].classList.add('bg-primary');
+
+        // if(index === listImage.length - 1) {
+        //     index = -1;
+        // }
     }, 3000);
+
 }
 
 var listproduct = document.querySelectorAll('.product');
@@ -353,6 +372,6 @@ listproduct.forEach((product) => {
         };
 
         localStorage.setItem('product', JSON.stringify(data));
-        window.location.href = './pages/ProductDetail/productdetail.html';
+        window.location.href = './chitietsanpham.html';
     });
 });

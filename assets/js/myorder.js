@@ -28,8 +28,8 @@ async function RenderData() {
                                 <div class="tbody-tr tr-product">
                                     <span id="id_bill">666aff6d72cfb8a82b324cea</span>
                                     <div class="tbody-tr-td">
-                                        <img src="${item?.image}" alt="" class="img-product" height="80px">
-                                        <div style="text-align: start; width: 220px">
+                                        <img src="${item?.image}" alt="" class="img-product" height="110px">
+                                        <div style="text-align: start; width: 220px; padding: 0 10px">
                                             <span class="name-product">
                                                 ${item?.product}        
                                             </span>
@@ -78,8 +78,30 @@ async function RenderData() {
         }
     }
 
-
+    LoadFullName();
 
 }
 
 RenderData();
+async function LoadFullName() {
+    const accountInfo = localStorage.getItem('account');
+    const fullName = document.querySelector('.fullname');
+    const accId = JSON.parse(accountInfo)?._id;
+
+    const url = new URL(`${baseUrl}/users/getInfoByAccId`);
+    url.searchParams.append('account', accId);
+
+    if (accId) {
+        await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((res) =>res.json())
+            .then((data) => {
+                fullName.textContent = data.name ? data.name : '';
+            });
+    }
+}
+

@@ -1,12 +1,12 @@
 var mainContent = document.querySelector('.main-content');
 
 const btnHome = document.getElementById('btn-home');
-btnHome.addEventListener('click', () => {
+btnHome?.addEventListener('click', () => {
     window.location.href = '/';
 });
 
 const btnMnCategory = document.getElementById('btn-mn-category');
-btnMnCategory.addEventListener('click', () => {
+btnMnCategory?.addEventListener('click', () => {
     mainContent.innerHTML = `
         <div class="item__container">
                         <div class="item__container-header">
@@ -27,6 +27,12 @@ btnMnCategory.addEventListener('click', () => {
                                         <input type="text" class="category-name" />
                                         <lable class="lb-category lb">Tìm kiếm danh mục</lable>
                                     </form>
+                              
+                                    <select class="option">
+                                        <option value="0">Mã danh mục</option>
+                                        <option value="1">Tên danh mục</option>
+                                    </select>
+                                 
                                     <button class="btn-search">
                                         <i class="fa-solid fa-search"></i>
                                         <span>Tìm kiếm</span>
@@ -92,7 +98,7 @@ btnMnCategory.addEventListener('click', () => {
 });
 
 const btnMnProduct = document.getElementById('btn-mn-product');
-btnMnProduct.addEventListener('click', () => {
+btnMnProduct?.addEventListener('click', () => {
     mainContent.innerHTML = `
         <div class="item__container">
                         <div class="item__container-header">
@@ -110,14 +116,34 @@ btnMnProduct.addEventListener('click', () => {
                             <div class="main">
                                 <div class="search">
                                     <form>
-                                        <input type="text" class="product-name" />
+                                        <input type="text" class="input-find-product" />
                                         <lable class="lb-product lb">Tìm kiếm sản phẩm</lable>
                                     </form>
-                                    <button class="btn-search">
+                                    <select class="option">
+                                        <option value="0">Mã sản phẩm</option>
+                                        <option value="1">Tên sản phẩm</option>
+                                        <option value="2">Giá bán</option>
+                                        <option value="3">Số lượng</option>
+                                        <option value="4">Kích cỡ</option>
+                                        <option value="5">Màu sắc</option>
+                                    </select>
+                                    <select class="compare">
+                                        <option value="gt">
+                                            >
+                                        </option>
+                                        <option value="lt">
+                                            <
+                                        </option>
+                                        <option value="eq">
+                                            =
+                                        </option>
+                                    </select>
+                                    <button class="btn-search btn-find-product">
                                         <i class="fa-solid fa-search"></i>
                                         <span>Tìm kiếm</span>
                                     </button>
                                 </div>
+                                
                                 <table class="list-product">
                                     <thead>
                                         <th>Mã sản phẩm</th>
@@ -311,3 +337,5 @@ listBtn.forEach((btn) => {
         btn.classList.add('btn-active');
     });
 });
+
+

@@ -18,12 +18,11 @@ async function LoadCategories() {
 }
 LoadCategories();
 
-async function GetData() {
+function formatCurrency(amount) {
+    return amount.toLocaleString('vi-VN');
+}
 
-    function formatCurrency(amount) {
-        return amount.toLocaleString('vi-VN');
-    }
-    
+async function GetData() {
     
 
     const res = await fetch(`${baseUrl}/products/stores`);
@@ -63,11 +62,10 @@ async function GetData() {
         const btnEditRow = document.querySelectorAll('.btn-edit-row');
         btnEditRow?.forEach((btn, index) => {
             btn.addEventListener('click', () => {
-
-                inputEs.forEach((input) => { 
+                inputEs.forEach((input) => {
                     input.nextElementSibling.style.fontSize = '14px';
                     input.nextElementSibling.style.top = '12px';
-                });   
+                });
 
                 GetDataByRow(index, 'edit');
             });
@@ -78,10 +76,10 @@ async function GetData() {
             btn.addEventListener('click', () => {
                 GetDataByRow(index, 'delete');
 
-                inputEs.forEach((input) => { 
+                inputEs.forEach((input) => {
                     input.nextElementSibling.style.fontSize = '14px';
                     input.nextElementSibling.style.top = '12px';
-                })
+                });
             });
         });
     }
@@ -90,11 +88,16 @@ async function GetData() {
 GetData();
 
 function GetDataByRow(index, option) {
+    function removeCurrencyFormat(formattedAmount) {
+        const amount = formattedAmount.replace(/[^0-9]/g, '');
+        return amount;
+    }
+
     const listProduct = document.querySelectorAll('.list-product tbody tr');
     const data = {
         id: listProduct[index].querySelector('.product_id').textContent,
         name: listProduct[index].querySelector('.product_name').textContent,
-        price: listProduct[index].querySelector('.product_price').textContent,
+        price: removeCurrencyFormat(listProduct[index].querySelector('.product_price').textContent),
         quantity: listProduct[index].querySelector('.product_quantity').textContent,
         unit: listProduct[index].querySelector('.product_unit').textContent,
         image: listProduct[index].querySelector('.product_image img').src,
@@ -150,7 +153,7 @@ function GetDataByRow(index, option) {
 const inputUpLoadImage = document.querySelector('.image-upload');
 const imgPreview = document.querySelector('.image-preview');
 inputUpLoadImage?.addEventListener('change', (e) => {
-    console.log(e.target.files)
+    console.log(e.target.files);
     console.log(inputUpLoadImage.files);
     let key = '7b01ffc71f98f9b012c2cd72aa4d92f2';
     const reader = new FileReader();
@@ -164,7 +167,6 @@ inputUpLoadImage?.addEventListener('change', (e) => {
                 method: 'POST',
                 body: formData,
             });
-
 
             const data = await res.json();
             imgPreview.src = data.data?.url;
@@ -201,7 +203,6 @@ btnShowModalAddProduct?.addEventListener('click', () => {
 });
 
 function CheckInput() {
-    
     inputEs.forEach((input) => {
         input.addEventListener('input', () => {
             if (input.value.length > 0) {
@@ -275,7 +276,7 @@ btnUpdateProduct?.addEventListener('click', async () => {
         color: inputColor.value,
         category: _idCategory,
     };
-    
+
     const res = await fetch(`${baseUrl}/products/edit/${_id}`, {
         method: 'PUT',
         headers: {
@@ -300,7 +301,6 @@ btnUpdateProduct?.addEventListener('click', async () => {
     }
 });
 
-
 const btnDeleteProduct = document.getElementById('btn-delete-product');
 btnDeleteProduct?.addEventListener('click', async () => {
     const _id = document.getElementById('id_product').textContent;
@@ -318,7 +318,7 @@ btnDeleteProduct?.addEventListener('click', async () => {
         listBtnControllModal.forEach((btn) => {
             btn.style.display = 'none';
         });
-        
+
         Toast('success', 'Thông báo', 'Xóa thành công', 3000);
         const tableBody = document.querySelector('.list-product tbody');
         tableBody.innerHTML = '';
@@ -326,7 +326,6 @@ btnDeleteProduct?.addEventListener('click', async () => {
         ResetInput();
     }
 });
-
 
 const btnCloseModal = document.getElementById('btn-close-product');
 btnCloseModal?.addEventListener('click', () => {
@@ -346,6 +345,121 @@ btnCloseModal?.addEventListener('click', () => {
     }, 400);
 });
 
+const inputFindProduct = document.querySelector('.input-find-product');
+inputFindProduct.addEventListener('input', () => {
+    let lb = document.querySelector('.lb-product');
+
+    if (inputFindProduct.value.length > 0) {
+        lb.style.display = 'none';
+    } else {
+        lb.style.display = 'block';
+    }
+});
+const btnFindProduct = document.querySelector('.btn-find-product');
+
+btnFindProduct.addEventListener('click', async () => {
+    const optionFind = document.querySelector('.option');
+    const inputFindProduct = document.querySelector('.input-find-product').value.trim();
+    const optionCompare = document.querySelector('.compare').value;
+    let payLoad = {};
+
+    if (!inputFindProduct) {
+        console.error('Input is empty');
+        return;
+    }
+
+    switch (optionFind.value) {
+        case '0':
+            payLoad = { _id: inputFindProduct };
+            break;
+        case '1':
+            payLoad = { name: inputFindProduct };
+            break;
+        case '2':
+            payLoad = { 
+                price: inputFindProduct ,
+                operator: optionCompare
+             };
+            break;
+        case '3':
+            payLoad = { 
+                quantity: inputFindProduct ,
+                operator: optionCompare
+             };
+            break;
+        case '4':
+            payLoad = { size: inputFindProduct };
+            break;
+        case '5':
+            payLoad = { color: inputFindProduct };
+            break;
+        default:
+            break;
+    }
+
+    try {
+        const res = await fetch(`${baseUrl}/products/find`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payLoad),
+        });
+
+        if (res.status === 200) {
+            const data = await res.json();
+            console.log(data);
+
+            const tableBody = document.querySelector('.list-product tbody');
+            tableBody.innerHTML = '';   
+
+            data.forEach((product) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                <td class="product_id">${product._id}</td>
+                <td class="product_name">${product.name}</td>
+                <td class="product_price">${formatCurrency(product.price)}₫</td>
+                <td class="product_quantity">${product.quantity}</td>
+                <td class="product_unit">${product.unit}</td>
+                <td class="product_image">
+                    <img src="${product.image}" alt="product-image" class="product-image-td">
+                </td>
+                <td class="product_size">${product.size}</td>
+                <td class="product_color">${product.color}</td>
+                <td class="product_category">${product.category}</td>
+                <td>
+                    <button class="btn-edit-row">
+                        <i class="fa-solid fa-edit"></i>
+                        <span>Sửa</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn-delete-row">
+                        <i class="fa-solid fa-trash"></i>
+                        <span>Xóa</span>
+                    </button>
+                </td>
+            `;
+                tableBody.appendChild(tr);
+            });
+        } else {
+            console.error('Error:', res.statusText);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+});
+
+
+var option = document.querySelector('.option');
+option.addEventListener('change', () => {
+    let optionCompare = document.querySelector('.compare');
+    if(option.value === '2' || option.value === '3') {
+        optionCompare.style.visibility = 'visible';
+    } else {
+        optionCompare.style.visibility = 'hidden';
+    }
+});
 
 
 function ResetInput() {

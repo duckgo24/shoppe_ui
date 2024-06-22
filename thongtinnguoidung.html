@@ -3,13 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../../../assets/css/style.css" />
-        <link rel="stylesheet" href="../../../fontawesome/css/all.min.css" />
-        <link rel="stylesheet" href="../../../assets/css/reset.css" />
-        <link rel="stylesheet" href="../../../assets/css/keyframe.css" />
-        <link rel="stylesheet" href="../../../assets/css/toast.css">
-        <link rel="stylesheet" href="./profile.css" />
-        <title>Document</title>
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <link rel="stylesheet" href="./assets/css/keyframe.css" />
+        <link rel="stylesheet" href="./assets/css/toast.css">
+        <link rel="stylesheet" href="./assets/css/profile.css" />
+        <link rel="shortcut icon" href="./assets/image/icon1.png" type="image/x-icon" />
+        <title>Thông tin người dùng</title>
     </head>
     <body>
         <div class="Profile__container">
@@ -22,11 +23,11 @@
                         <a href="#" id="qr">
                             Tải ứng dụng
                             <div class="show-qr">
-                                <img src="../../assets/image/Install/qr.png" alt="" width="120px" height="120px" />
+                                <img src="./assets/image/Install/qr.png" alt="" width="120px" height="120px" />
                                 <div style="margin-left: 13px">
-                                    <img src="../../assets/image/Install/iphone.png" alt="" />
-                                    <img src="../../assets/image/Install/adr.png" alt="" />
-                                    <img src="../../assets/image/Install/gallery.png" alt="" />
+                                    <img src="./assets/image/Install/iphone.png" alt="" />
+                                    <img src="./assets/image/Install/adr.png" alt="" />
+                                    <img src="./assets/image/Install/gallery.png" alt="" />
                                 </div>
                             </div>
                         </a>
@@ -45,7 +46,7 @@
                             <span>Thông báo</span>
                             <span class="num-notify"></span>
                             <div class="list-notify">
-                                <img src="../../assets/image/none.png" alt="" sizes="" srcset="" height="100px" />
+                                <img src="./assets/image/none.png" alt="" sizes="" srcset="" height="100px" />
                                 <p class="notify-desc">Không có thông báo</p>
                             </div>
                         </a>
@@ -64,15 +65,15 @@
                         </div>
                         <div class="user">
                             <div class="choose">
-                                <a href="../AuthenForm/Register/register.html" id="sign-up">Đăng kí</a>
-                                <a href="../AuthenForm/Login/login.html" id="sign-in">Đăng nhập</a>
+                                <a href="./dangki.html" id="sign-up">Đăng kí</a>
+                                <a href="./dangnhap.html" id="sign-in">Đăng nhập</a>
                             </div>
                             <div class="user-info">
                                 <img src="" alt="" id="user-image" />
-                                <span id="user-name">Cao việt</span>
+                                <span id="user-name"></span>
                                 <div class="option-list">
-                                    <a href="./profile.html" class="option-item">Tài khoản của tôi</a>
-                                    <a href="#" class="option-item">Đơn hàng</a>
+                                    <a href="./thongtinnguoidung.html" class="option-item">Tài khoản của tôi</a>
+                                    <a href="./donhangdamua.html" class="option-item">Đơn hàng</a>
                                     <button class="btn-signout option-item">Đăng xuất</button>
                                 </div>
                             </div>
@@ -81,8 +82,8 @@
                 </div>
                 <div class="header__main">
                     <div class="header__main-logo">
-                        <a href="/">
-                            <img src="../../assets/image/shoppe-logo.png" alt="" id="logo-main" />
+                        <a href="./trangchu.html">
+                            <img src="./assets/image/shoppe-logo.png" alt="" id="logo-main" />
                         </a>
                     </div>
                     <div class="header__main-search">
@@ -94,7 +95,7 @@
                         <div class="search-result">
                             <div class="search-result__item">
                                 <span>Shopee bao ship 0Đ - Đăng kí ngay!</span>
-                                <img src="../../assets/image/free-ship.png" alt="" height="30px" />
+                                <img src="./assets/image/free-ship.png" alt="" height="30px" />
                             </div>
                         </div>
 
@@ -111,20 +112,19 @@
                         </div>
                     </div>
                     <div class="header__main-cart">
-                        <a href="./pages/Cart/cart.html" class="cart-icon">
+                        <a href="./giohang.html" class="cart-icon">
                             <i class="fa-solid fa-shopping-cart"></i>
                         </a>
                         <div class="cart">
                             <div class="no-cart">
-                                <img src="../../assets/image/none.png" alt="" height="100px" />
+                                <img src="./assets/image/none.png" alt="" height="100px" />
                                 <p>Không có sản phẩm nào</p>
                             </div>
                             <div class="cart__detail">
                                 <div class="cart__detail-title">Sản Phẩm Mới Thêm</div>
                                 <div class="cart__detail-list"></div>
-                                <a href="./pages/Cart/cart.html" class="cart__detail-btn bg-primary">Xem giỏ hàng</a>
+                                <a href="./giohang.html" class="cart__detail-btn bg-primary">Xem giỏ hàng</a>
                             </div>
-
                         </div>
                         <span class="cart__detail-total-product"></span>
                     </div>
@@ -134,13 +134,7 @@
             <div class="Profile__container-main">
                 <div class="Profile__container-main__left">
                     <div class="left-avatar">
-                        <img
-                            src="../../assets/image/bear.gif"
-                            alt=""
-                            height="60px"
-                            width="60px"
-                            style="border-radius: 50%"
-                        />
+                        <img  src="./assets/image/bear.gif" alt="" height="60px" width="60px" style="border-radius: 50%" />
                         <div>
                             <span class="fullname">Cao Việt</span>
                             <button class="profile-btn-update">
@@ -151,22 +145,22 @@
                     </div>
                     <div class="left-option list-option">
                         <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-1.png" alt="" height="25px" width="25px" />
+                            <img src="./assets/image/Profile/pf-1.png" alt="" height="25px" width="25px" />
                             <span
                                 >Ưu Đãi Dành Riêng Cho Bạn
-                                <img src="../../assets/image/Profile/new.png" alt="" height="18px" />
+                                <img src="./assets/image/Profile/new.png" alt="" height="18px" />
                             </span>
                         </div>
                         <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-2.png" alt="" height="25px" width="25px" />
+                            <img src="./assets/image/Profile/pf-2.png" alt="" height="25px" width="25px" />
                             <span>
                                 6.6 Siêu Sale Giữa Năm
-                                <img src="../../assets/image/Profile/new.png" alt="" height="18px" />
+                                <img src="./assets/image/Profile/new.png" alt="" height="18px" />
                             </span>
                         </div>
                         <div class="option-item option-item-1">
                             <div style="display: flex; align-items: center; gap: 5px">
-                                <img src="../../assets/image/Profile/pf-3.png" alt="" height="25px" width="25px" />
+                                <img src="./assets/image/Profile/pf-3.png" alt="" height="25px" width="25px" />
                                 <span>Tài khoản của tôi</span>
                             </div>
                             <ul class="list-option-account">
@@ -179,19 +173,19 @@
                             </ul>
                         </div>
                         <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-4.png" alt="" height="25px" width="25px" />
+                            <img src="./assets/image/Profile/pf-4.png" alt="" height="25px" width="25px" />
                             <span>Đơn mua</span>
                         </div>
                         <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-5.png" alt="" height="25px" width="25px" />
+                            <img src="./assets/image/Profile/pf-5.png" alt="" height="25px" width="25px" />
                             <span>Thông Báo</span>
                         </div>
                         <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-6.png" alt="" height="25px" width="25px" />
+                            <img src="./assets/image/Profile/pf-6.png" alt="" height="25px" width="25px" />
                             <span>Kho Voucher</span>
                         </div>
                         <div class="option-item">
-                            <img src="../../assets/image/Profile/pf-7.png" alt="" height="25px" width="25px" />
+                            <img src="./assets/image/Profile/pf-7.png" alt="" height="25px" width="25px" />
                             <span>Shoppe Xu</span>
                         </div>
                     </div>
@@ -280,28 +274,28 @@
                         <div class="row">
                             <h4 class="title">Thanh Toán</h4>
                             <div class="pay">
-                                <img src="../../assets/image/Payment/p-1.png" alt="" class="pay-img" />
-                                <img src="../../assets/image/Payment/p-2.png" alt="" class="pay-img" />
-                                <img src="../../assets/image/Payment/p-3.png" alt="" class="pay-img" />
-                                <img src="../../assets/image/Payment/p-4.png" alt="" class="pay-img" />
-                                <img src="../../assets/image/Payment/p-5.png" alt="" class="pay-img" />
-                                <img src="../../assets/image/Payment/p-6.png" alt="" class="pay-img" />
-                                <img src="../../assets/image/Payment/p-7.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-1.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-2.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-3.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-4.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-5.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-6.png" alt="" class="pay-img" />
+                                <img src="./assets/image/Payment/p-7.png" alt="" class="pay-img" />
                             </div>
                             <div class="row">
                                 <h4 class="title">Đơn Vị Vận Chuyển</h4>
                                 <div class="deliver">
-                                    <img src="../../assets/image/Deliver/d-1.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-2.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-3.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-4.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-5.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-6.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-7.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-8.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-9.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-10.png" alt="" class="deliver-img" />
-                                    <img src="../../assets/image/Deliver/d-11.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-1.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-2.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-3.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-4.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-5.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-6.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-7.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-8.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-9.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-10.png" alt="" class="deliver-img" />
+                                    <img src="./assets/image/Deliver/d-11.png" alt="" class="deliver-img" />
                                 </div>
                             </div>
                         </div>
@@ -324,11 +318,11 @@
                     <div class="col">
                         <h4 class="title">Tải Ứng Dụng Ngay Thôi</h4>
                         <div class="install">
-                            <img src="../../assets/image/Install/qr.png" alt="" class="install-img" />
+                            <img src="./assets/image/Install/qr.png" alt="" class="install-img" />
                             <div class="app">
-                                <img src="../../assets/image/Install/iphone.png" alt="" class="install-img" />
-                                <img src="../../assets/image/Install/adr.png" alt="" class="install-img" />
-                                <img src="../../assets/image/Install/gallery.png" alt="" class="install-img" />
+                                <img src="./assets/image/Install/iphone.png" alt="" class="install-img" />
+                                <img src="./assets/image/Install/adr.png" alt="" class="install-img" />
+                                <img src="./assets/image/Install/gallery.png" alt="" class="install-img" />
                             </div>
                         </div>
                     </div>
@@ -347,9 +341,9 @@
                     </p>
                     <div class="register">
                         <div class="register-img">
-                            <img src="../../assets/image/Footer/f-1.png" alt="" class="r-img" />
-                            <img src="../../assets/image/Footer/f-1.png" alt="" class="r-img" />
-                            <img src="../../assets/image/Footer/f-2.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-1.png" alt="" class="r-img" />
+                            <img src="./assets/image/Footer/f-2.png" alt="" class="r-img" />
                         </div>
                         <p>Công Ty TNH Shoppe</p>
                     </div>
@@ -380,8 +374,8 @@
             <!-- end toast -->
         </div>
 
-        <script src="../../assets/js/toast.js"></script>
-        <script src="../../assets/js/script.js"></script>
-        <script src="./profile.js"></script>
+        <script src="./assets/js/toast.js"></script>
+        <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/profile.js"></script>
     </body>
 </html>

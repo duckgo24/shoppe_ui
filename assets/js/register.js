@@ -83,11 +83,19 @@ btnSubmit.addEventListener('click', async () => {
         }),
     });
 
-    
-    if (resAccount.status === 200) {
-        const _data = await resAccount.json();
-        const _idAcc = _data.data.id;
-        const email = _data.data.username;
+   
+    const data = await resAccount.json();
+    console.log(data);
+
+    if(data.status === 400 || data.message === 'Account already exists') {
+        Toast('error', 'Thông báo', 'Email đã tồn tại', 3000);
+        return;
+    } 
+
+    if (data.status === 200) {
+       
+        const _idAcc = data.data.id;
+        const email = data.data.username;
         const formData = {
             nickName: `user_${Math.floor(Math.random() * 1000000)}`,
             name: '',
@@ -108,6 +116,8 @@ btnSubmit.addEventListener('click', async () => {
             body: JSON.stringify(formData),
         });
         localStorage.setItem('isRegisterSuccess', true);
-        window.location.href = '../Login/login.html';
+        window.location.href = '/dangnhap.html';
+    } else {
+        Toast('error', 'Thông báo', 'Đã có lỗi xảy ra', 3000);
     }
 });

@@ -89,8 +89,9 @@ btnSubmit.addEventListener('click', async (e) => {
                 password.value = '';
                 return;
             } else {
+                console.log('Oke');
                 localStorage.setItem('account', JSON.stringify(data.data));
-                window.location.href = '/index.html';
+                window.location.href = '/trangchu.html';
             }
         }
     } catch (err) {

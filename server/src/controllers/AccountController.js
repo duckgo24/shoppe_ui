@@ -20,14 +20,28 @@ class AccountController {
     async insert(req, res, next) {
         try {
             const { username, password } = req.body;
+
+
+            const checkExitAccount = await Account.findOne({ username });
+            if (checkExitAccount) {
+                return res.json({ 
+                    message: 'Account already exists',
+                    status: 400
+                 });
+            }
+
             const account = await Account.create({ username, password });
-            res.json({
-                data: {
-                    id: account._id,
-                    username: account.username,
-                    password: account.password,
-                },
-            });
+            if(account) {
+                res.json({
+                    data: {
+                        id: account._id,
+                        username: account.username,
+                        password: account.password,
+                    },
+                    status: 200
+                });
+            }
+            
         } catch (error) {
             next(error);
         }

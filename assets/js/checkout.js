@@ -1,33 +1,39 @@
 const baseUrl = 'http://localhost:9999';
 
 async function RenderData() {
-    const dataLocalStorage = JSON.parse(localStorage.getItem('listBillPay'));
-    let _data = [];
-    try {
-        const fetchData = dataLocalStorage.map(async (item) => {
-            const url = new URL(`${baseUrl}/bills/find/${item.idBill}`);
-            const res = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            return await res.json();
-        });
+    var _data = [];
 
-        _data = await Promise.all(fetchData);
-    } catch (error) {
-        console.error('Error fetching data:', error);
+    const bills = localStorage.getItem('bill');
+    if (bills) {
+        _data = JSON.parse(bills);
     }
-    
 
+    const dataLocalStorage = JSON.parse(localStorage.getItem('listBillPay'));
+    if (dataLocalStorage) {
+        try {
+            const fetchData = dataLocalStorage.map(async (item) => {
+                const url = new URL(`${baseUrl}/bills/find/${item.idBill}`);
+                const res = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                return await res.json();
+            });
+
+            _data = await Promise.all(fetchData);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
 
     const tBody = document.querySelector('.main-tbody');
-    
+
     let totalBill = 0;
     tBody.innerHTML = _data.map((item) => {
         totalBill += item.total;
-        let _totalBill = document.querySelector('.total')
+        let _totalBill = document.querySelector('.total');
         _totalBill.textContent = `₫${totalBill}`;
         return `
         <div class="tbody-tr tr-product">
@@ -80,43 +86,54 @@ async function RenderData() {
         `;
     });
 
+    const btnPay = document.querySelector('.btn-pay');
+    var loading = document.querySelector('.loading');
+    var container = document.querySelector('.Checkout__container');
 
+    btnPay?.addEventListener('click', async () => {
+        loading.style.display = 'flex';
+        container.style.overflow = 'hidden';
 
-    
-
-const btnPay = document.querySelector('.btn-pay');
-var loading = document.querySelector('.loading');
-var container = document.querySelector('.Checkout__container');
-
-btnPay?.addEventListener('click', async () => {
-    loading.style.display = 'flex';
-    container.style.overflow = 'hidden';
-
-    
-    _data.map(async (item) => {
-        const url = new URL(`${baseUrl}/bills/update/${item._id}`);
-        const res = await fetch(url, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                _id : item._id,
-                isPaid: true,
-            }),
+        _data.map(async (item) => {
+            const urlPUT = new URL(`${baseUrl}/bills/update/${item._id}`);
+            const urlPOST = new URL(`${baseUrl}/bills/create`);
+            let address = document.querySelector('.deliver-address').textContent;
+            try {
+                const res = await fetch(item._id ? urlPUT : urlPOST, {
+                    method: item._id ? 'PUT' : 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(
+                        item._id
+                            ? {
+                                _id: item._id,
+                                isPaid: true,
+                                address,
+                              }
+                            : {
+                                ...item,
+                                address,
+                                payMethod: payMethodDefault.textContent,
+                                isPaid: true,
+                              },
+                    ),
+                });
+                const data = await res.json();
+                console.log(data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         });
-        const data = await res.json();
-        console.log(data);
+
+        setTimeout(() => {
+            loading.style.display = 'none';
+            container.style.overflow = 'auto';
+            localStorage.removeItem('listBillPay');
+            localStorage.removeItem('bill');
+            window.location.href = './donhangdamua.html';
+        }, 2000);
     });
-
-
-    setTimeout(() => {
-        loading.style.display = 'none';
-        container.style.overflow = 'auto';
-        localStorage.removeItem('listBillPay');
-        window.location.href = '../MyOrders/myorder.html';
-    },2000)
-});
 }
 
 RenderData();

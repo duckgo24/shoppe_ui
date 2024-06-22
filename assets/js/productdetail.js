@@ -39,8 +39,8 @@ listBtnColor.forEach((btn, index) => {
         });
 
         btn.classList.add('btn-active-product');
-        let srcImg = btn.querySelector('img').src;
-        imgMain.src = srcImg;
+        // let srcImg = btn.querySelector('img').src;
+        // imgMain.src = srcImg;
     });
 });
 
@@ -74,6 +74,13 @@ btnSubQuantity.addEventListener('click', () => {
 const btnAddToCart = document.querySelector('.btn-add-cart');
 btnAddToCart?.addEventListener('click', async () => {
 
+    const account = JSON.parse(localStorage.getItem('account'));
+    if(!account) {
+        Toast("error", "Thông báo", "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng", 3000);
+        return;
+    }
+
+
     let _colorChoose = document.querySelector('.color .btn-active-product span');
     let _sizeChoose = document.querySelector('.size .btn-active-product');
     let _priceProductDiscount = priceProductDiscount.textContent.replace(/[₫.]/g, '');
@@ -97,6 +104,7 @@ btnAddToCart?.addEventListener('click', async () => {
         price: _priceProductDiscount,
         quantity: quantity.textContent,
         total: parseInt(_priceProductDiscount) * parseInt(quantity.textContent),
+        address : '', 
         payMethod: "Thanh toán khi nhận hàng",
         isPaid: false ,
         account: JSON.parse(localStorage.getItem('account'))?._id
@@ -121,6 +129,7 @@ btnAddToCart?.addEventListener('click', async () => {
                 btn.classList.remove('btn-active-product');
             });
             quantity.textContent = 1;
+            CartNoPaid();
             return;
         }
 
@@ -135,6 +144,12 @@ btnAddToCart?.addEventListener('click', async () => {
 const btnBuyNow = document.querySelector('.btn-buy-now');
 btnBuyNow?.addEventListener('click', async () => {  
     
+    const account = JSON.parse(localStorage.getItem('account'));
+    if(!account) {
+        Toast("error", "Thông báo", "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng", 3000);
+        return;
+    }
+
     let _colorChoose = document.querySelector('.color .btn-active-product span');
     let _sizeChoose = document.querySelector('.size .btn-active-product');
     let _priceProductDiscount = priceProductDiscount.textContent.replace(/[₫.]/g, '');
@@ -150,7 +165,7 @@ btnBuyNow?.addEventListener('click', async () => {
         return;
     }
 
-    const formData = {
+    const formData = [{
         product: nameProduct.textContent,
         image: imgMain.src,
         size: _sizeChoose?.textContent,
@@ -158,11 +173,13 @@ btnBuyNow?.addEventListener('click', async () => {
         price: _priceProductDiscount,
         quantity: quantity.textContent,
         total: parseInt(_priceProductDiscount) * parseInt(quantity.textContent),
+        address : '', 
         isPaid: false ,
         account: JSON.parse(localStorage.getItem('account'))?._id
-    };
+    }];
     
     localStorage.setItem('bill', JSON.stringify(formData));
-    window.location.href = '/checkout';
+    window.location.href = './hoadon.html';
 
 });
+

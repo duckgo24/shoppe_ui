@@ -20,6 +20,6 @@ listproduct.forEach((product) => {
         };
         
         localStorage.setItem('product', JSON.stringify(data));
-        window.location.href = '../ProductDetail/productdetail.html';
+        window.location.href = './chitietsanpham.html';
     });
 });

@@ -84,3 +84,13 @@
     color: #1B9887;
     padding: 0 20px;
 }
+
+.name-product {
+    display: -webkit-box;
+    width: 200px;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+}

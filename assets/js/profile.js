@@ -15,14 +15,11 @@ btnUpdateProfile.addEventListener('click', () => {
     });
 });
 
-
 const btnSubmit = document.querySelector('.btn-submit-profile');
 btnSubmit.addEventListener('click', async () => {
+    const regexPhone = /^(03|09)\d{8}$/;
 
-
-        const regexPhone = /^(03|09)\d{8}$/;
-
-    if(!regexPhone.test(phone.value)) {
+    if (!regexPhone.test(phone.value)) {
         Toast('error', 'Thông báo', 'Số điện thoại không hợp lệ', 3000);
         return;
     }
@@ -34,7 +31,7 @@ btnSubmit.addEventListener('click', async () => {
             _gender = lbGenders[index].textContent;
         }
     });
-    
+
     const accountInfo = localStorage.getItem('account');
     const accId = JSON.parse(accountInfo)._id;
     const formData = {
@@ -47,7 +44,6 @@ btnSubmit.addEventListener('click', async () => {
         account: accId,
     };
 
-
     const res = await fetch(`${baseUrl}/users/edit/${accId}`, {
         method: 'PUT',
         headers: {
@@ -56,7 +52,7 @@ btnSubmit.addEventListener('click', async () => {
         body: JSON.stringify(formData),
     });
 
-    if(res.status === 200) {
+    if (res.status === 200) {
         LoadProfile();
         Toast('success', 'Thông báo', 'Cập nhật thành công', 3000);
         let inputFields = document.querySelectorAll('.form-group input');
@@ -65,8 +61,6 @@ btnSubmit.addEventListener('click', async () => {
         });
     }
 });
-
-
 
 async function LoadProfile() {
     const accountInfo = localStorage.getItem('account');
@@ -104,8 +98,6 @@ async function LoadProfile() {
             }
         });
     }
-
 }
 
 LoadProfile();
-

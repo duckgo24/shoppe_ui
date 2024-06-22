@@ -76,8 +76,8 @@ a {
     position: relative;
 }
 
-/* Header */
 
+/* Header */
 .header {
     height: var(--default-layout-height-header);
     min-width: var(--default-layout-width);
@@ -1283,8 +1283,8 @@ a {
 }
 
 .suggest-today .suggest-today__list .suggest-today__list-item:hover button {
-    opacity: 1;
-    z-index: 10;
+    /* opacity: 1;
+    z-index: 10; */
 }
 
 
