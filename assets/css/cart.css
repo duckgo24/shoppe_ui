@@ -13,7 +13,6 @@ input[type="checkbox"] {
 }
 
 .Cart__container {
-   
     height: 100vh;
 }
 
@@ -34,7 +33,6 @@ input[type="checkbox"] {
     background-color: var(--bg-color);
 }
 
-
 .Cart__container-main .Cart__container-main__main {
     display: flex;
     flex-direction: column;
@@ -50,7 +48,6 @@ input[type="checkbox"] {
     border-radius: 4px;
     background-color: var(--bg-color);
 }
-
 
 .main-tbody {
     display: flex;

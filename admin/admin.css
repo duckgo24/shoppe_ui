@@ -404,6 +404,16 @@ td {
     margin: 52px auto 0 auto;
 }
 
+.btn-edit-row {
+    color: green;
+}
+
+.btn-delete-row {
+    color: red;
+}
+
+
+
 .btn-delete {
     display: none;
     background-color: red !important;

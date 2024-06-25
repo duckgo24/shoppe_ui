@@ -2,27 +2,31 @@ const baseUrl = 'http://localhost:9999';
 
 var nickName = document.querySelector('.nickname');
 var _name = document.querySelector('.name');
+var avatar = document.getElementById('image-user');
 var email = document.querySelector('.email');
 var phone = document.querySelector('.phone');
 var birth = document.querySelector('.birth');
 var _gender = null;
+var inputImage = document.getElementById('input-image-user');
+
 
 const btnUpdateProfile = document.querySelector('.profile-btn-update');
+const btnSubmit = document.querySelector('.btn-submit-profile');
+
 btnUpdateProfile.addEventListener('click', () => {
+    btnSubmit.removeAttribute('disabled');
+    inputImage.removeAttribute('disabled');
+
     let inputFields = document.querySelectorAll('.form-group input');
     inputFields.forEach((inputField) => {
         inputField.removeAttribute('disabled');
     });
 });
 
-const btnSubmit = document.querySelector('.btn-submit-profile');
-btnSubmit.addEventListener('click', async () => {
-    const regexPhone = /^(03|09)\d{8}$/;
 
-    if (!regexPhone.test(phone.value)) {
-        Toast('error', 'Thông báo', 'Số điện thoại không hợp lệ', 3000);
-        return;
-    }
+btnSubmit.addEventListener('click', async () => {
+    btnSubmit.setAttribute('disabled', 'disabled');
+    inputImage.setAttribute('disabled', 'disabled');
 
     var genders = document.querySelectorAll('.gender');
     var lbGenders = document.querySelectorAll('.lb-gender');
@@ -32,11 +36,24 @@ btnSubmit.addEventListener('click', async () => {
         }
     });
 
+    if (!_gender) {
+        Toast('error', 'Thông báo', 'Vui lòng chọn giới tính', 3000);
+        return;
+    }
+
+    const regexPhone = /^(03|09)\d{8}$/;
+
+    if (!regexPhone.test(phone.value)) {
+        Toast('error', 'Thông báo', 'Số điện thoại không hợp lệ', 3000);
+        return;
+    }
+
     const accountInfo = localStorage.getItem('account');
     const accId = JSON.parse(accountInfo)._id;
     const formData = {
         nickName: nickName.value,
         name: _name.value,
+        avatar: avatar.src,
         gender: _gender,
         email: email.value,
         phone: phone.value,
@@ -63,8 +80,11 @@ btnSubmit.addEventListener('click', async () => {
 });
 
 async function LoadProfile() {
-    const accountInfo = localStorage.getItem('account');
+    const defaultAvatar = 'https://i.ibb.co/nfBvKrd/3de359480d02.png';
     const fullName = document.querySelector('.fullname');
+    const avatarMain = document.querySelector('.left-avatar img');
+    const accountInfo = localStorage.getItem('account');
+
     const accId = JSON.parse(accountInfo)?._id;
 
     const url = new URL(`${baseUrl}/users/getInfoByAccId`);
@@ -81,7 +101,9 @@ async function LoadProfile() {
             .then((data) => {
                 nickName.value = data.nickName ? data.nickName : '';
                 _name.value = data.name ? data.name : '';
-                fullName.textContent = data.name ? data.name : '';
+                avatar.src = data.avatar ? data.avatar : '';
+                fullName.textContent = data.name ? data.name : data.nickName;
+                avatarMain.src = data.avatar ? data.avatar : defaultAvatar;
                 email.value = data.email ? data.email : '';
                 _gender = data.gender;
                 phone.value = data.phone ? data.phone : '';
@@ -101,3 +123,29 @@ async function LoadProfile() {
 }
 
 LoadProfile();
+
+inputImage.addEventListener('change', async (e) => {
+    let key = '7b01ffc71f98f9b012c2cd72aa4d92f2';
+    const reader = new FileReader();
+    reader.onloadend = async () => {
+        const imgBase64 = reader.result.split(',')[1];
+        try {
+            const formData = new FormData();
+            formData.append('image', imgBase64);
+
+            const res = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await res.json();
+
+            if (data) {
+                avatar.src = data?.data?.url;
+            }
+        } catch (error) {
+            console.error('Error uploading image:', error);
+        }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+});

@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="./assets/image/icon.png" type="image/x-icon" />
         <link rel="stylesheet" href="./assets/css/cart.css" />
         <link rel="stylesheet" href="./assets/css/checkout.css" />
+        <link rel="stylesheet" href="./assets/css/toast.css">
         <link rel="shortcut icon" href="./assets/image/icon1.png" type="image/x-icon" />
         <title>Hóa đơn của tôi</title>
     </head>
@@ -138,15 +139,17 @@
                 <div class="Checkout__main-header">
                     <div class="header__row row-1"></div>
                     <div class="header__row row-2">
-                        <div class="row-2-title text-primary">
+                        <div class="row-2-header text-primary">
                             <i class="fa-solid fa-location-dot"></i>
                             <span>Địa Chỉ Nhận Hàng</span>
                         </div>
                         <div class="consignee-infor">
-                            <span class="name text-bold">Cao Việt</span>
-                            <span class="phone text-bold">0388036937</span>
-                            <span class="deliver-address">Đỗ Hạ, Thanh Miện, Hải Dương</span>
+                            <span class="name text-bold"></span>
+                            <span class="phone text-bold"></span>
+                            <span class="deliver-address"></span>
+                            <input type="text" class="deliver-address-input" placeholder="Địa chỉ nhận hàng"/>
                             <button class="btn-change btn-change-deliver-address">Thay đổi</button>
+                            <button class="btn-change btn-confirm-deliver-address">OKE</button>
                         </div>
                     </div>
                 </div>
@@ -308,6 +311,7 @@
             </div>
             <!-- end footer -->
 
+            
             <!-- start chat with me -->
             <div class="chat-with-me">
                 <div class="btn-chat">
@@ -344,6 +348,21 @@
                 </div>
             </div>
             <!-- end chat with me -->
+             <!-- start toast -->
+            <div class="toast">
+                <div class="toast-icon"></div>
+                <div class="toast-content">
+                    <div class="title"></div>
+                    <div class="message"></div>
+                </div>
+
+                <button class="toast-close">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+
+                <div class="toast-countdown"></div>
+            </div>
+            <!-- end toast -->
             <div class="loading">
                 <div class="dot dot-1"></div>
                 <div class="dot dot-2"></div>
@@ -351,6 +370,7 @@
             </div>
         </div>
         <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/toast.js"></script>
         <script src="./assets/js/checkout.js"></script>
     </body>
 </html>

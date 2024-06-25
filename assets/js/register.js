@@ -99,6 +99,7 @@ btnSubmit.addEventListener('click', async () => {
         const formData = {
             nickName: `user_${Math.floor(Math.random() * 1000000)}`,
             name: '',
+            avatar: '',
             gender: '',
             email,
             phone: '',

@@ -2,7 +2,7 @@ var mainContent = document.querySelector('.main-content');
 
 const btnHome = document.getElementById('btn-home');
 btnHome?.addEventListener('click', () => {
-    window.location.href = '/';
+    window.location.href = '/trangchu.html';
 });
 
 const btnMnCategory = document.getElementById('btn-mn-category');
@@ -91,9 +91,10 @@ btnMnCategory?.addEventListener('click', () => {
                         <div class="overlay"></div>
                     </div>
     `;
+
+
     const script = document.createElement('script');
     script.src = './Category/category.js';
-    script.async = false;
     mainContent.appendChild(script);
 });
 
@@ -337,5 +338,3 @@ listBtn.forEach((btn) => {
         btn.classList.add('btn-active');
     });
 });
-
-

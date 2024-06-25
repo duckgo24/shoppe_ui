@@ -1,6 +1,5 @@
 const baseUrl = 'http://localhost:9999';
 
-
 var navNameProduct = document.querySelector('.nav-name-product');
 var nameProduct = document.querySelector('.name-product');
 var priceProductOrigin = document.querySelector('.price-origin');
@@ -129,11 +128,11 @@ btnAddToCart?.addEventListener('click', async () => {
                 btn.classList.remove('btn-active-product');
             });
             quantity.textContent = 1;
-            CartNoPaid();
             return;
         }
 
     } catch (error) {
+        console.log(error);
         Toast("error", "Thông báo", "Đã có lõi xảy ra", 3000);
         return;
     }
@@ -182,4 +181,5 @@ btnBuyNow?.addEventListener('click', async () => {
     window.location.href = './hoadon.html';
 
 });
+
 

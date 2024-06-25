@@ -10,7 +10,7 @@ function Promotion() {
 
         promotion1Btns.forEach((btn) => {
             btn.classList.remove('bg-primary');
-        })
+        });
         promotion1Btns[index].classList.add('bg-primary');
     });
 
@@ -19,7 +19,7 @@ function Promotion() {
         index = PrevSlide(listPromotion1, promotion1Wrapper, index, listPromotion1[0]?.clientWidth);
         promotion1Btns.forEach((btn) => {
             btn.classList.remove('bg-primary');
-        })
+        });
         promotion1Btns[index].classList.add('bg-primary');
     });
 
@@ -66,7 +66,6 @@ function ShoppeMall() {
     const btnNextShoppeMall = document.querySelector('.left-btnNext');
     btnNextShoppeMall?.addEventListener('click', () => {
         index = NextSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
-        
     });
 
     const btnPrevShoppeMall = document.querySelector('.left-btnPrev');
@@ -74,7 +73,7 @@ function ShoppeMall() {
         index = PrevSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth);
     });
 
-    AutoSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth, shoppeMallBtns) ;
+    AutoSlide(listImageShoppeMall, shoppeMallWrapper, index, listImageShoppeMall[0]?.clientWidth, shoppeMallBtns);
 
     Array.from(shoppeMallBtns).forEach((btn, idx) => {
         btn.addEventListener('click', () => {
@@ -207,34 +206,19 @@ function User() {
     let baseUrl = 'http://localhost:9999';
     const chooseAuth = document.querySelector('.user .choose');
     const userInfo = document.querySelector('.user .user-info');
-
     const username = document.getElementById('user-name');
+    const avatar = document.getElementById('user-image');
 
-    var data = localStorage.getItem('account');
+    const dataAccount = JSON.parse(localStorage.getItem('account'));
 
-    if (data) {
-        const user = JSON.parse(data);
-        username.textContent = user?.username;
-        chooseAuth.style.display = 'none';
-        userInfo.style.display = 'flex';
-    }
-
-    const btnSignout = document.querySelector('.btn-signout');
-    btnSignout.addEventListener('click', () => {
-        localStorage.removeItem('account');
-        window.location.href = '/trangchu.html';
-        hooseAuth.style.display = 'flex';
-        userInfo.style.display = 'none';
-    });
-
-    async function LoadUserName() {
-        const accId = JSON.parse(data)?._id;
+    async function GetInfoUser() {
+        const accId = dataAccount?._id;
         var dataUser = {};
 
         const url = new URL(`${baseUrl}/users/getInfoByAccId`);
         url.searchParams.append('account', accId);
 
-        if (accId) {
+        if (accId && dataAccount) {
             await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -245,18 +229,31 @@ function User() {
                 .then((data) => {
                     dataUser = data;
                 });
-        }
 
-        if (dataUser) {
-            const userName = document.getElementById('user-name');
-            userName.textContent = dataUser?.nickName;
+            if (dataUser) {
+                localStorage.setItem('user', JSON.stringify(dataUser));
+                const data = { ...dataUser, ...dataAccount };
+                username.textContent = data?.nickName;
+                avatar.src = data?.avatar;
+                chooseAuth.style.display = 'none';
+                userInfo.style.display = 'flex';
+            }
+        } else {
+            return;
         }
-
     }
 
-    LoadUserName();
-}
+    GetInfoUser();
 
+    const btnSignout = document.querySelector('.btn-signout');
+    btnSignout.addEventListener('click', () => {
+        localStorage.removeItem('account');
+        localStorage.removeItem('user');
+        window.location.href = '/trangchu.html';
+        chooseAuth.style.display = 'flex';
+        userInfo.style.display = 'none';
+    });
+}
 
 function IsAdmin() {
     const data = localStorage.getItem('account');
@@ -272,6 +269,31 @@ function IsAdmin() {
         }
     }
 }
+
+var listproduct = document.querySelectorAll('.product');
+
+listproduct.forEach((product) => {
+    product.addEventListener('click', (e) => {
+        e.preventDefault();
+        let nameProduct = product.querySelector('.desc').textContent;
+        let priceProductOrigin = product.querySelector('.price-origin').textContent;
+        let priceProductDiscount = product.querySelector('.price-discount').textContent;
+        let image = product.querySelector('.suggest-today-img').src;
+        let expiry = product.querySelector('.expiry').textContent;
+
+        const data = {
+            nameProduct,
+            priceProductOrigin,
+            priceProductDiscount,
+            image,
+            expiry,
+        };
+
+        localStorage.setItem('product', JSON.stringify(data));
+        window.location.href = './chitietsanpham.html';
+    });
+});
+
 // Start
 function Start() {
     Promotion();
@@ -339,39 +361,5 @@ function PrevSlide(listImage, boxWrapper, index, width) {
 function AutoSlide(listImage, boxWrapper, index, width, btns) {
     setInterval(() => {
         index = NextSlide(listImage, boxWrapper, index, width);
-        // btns.forEach((btn) => {
-        //     btn.classList.remove('bg-primary');
-        // });
-
-        // btns[index].classList.add('bg-primary');
-
-        // if(index === listImage.length - 1) {
-        //     index = -1;
-        // }
     }, 3000);
-
 }
-
-var listproduct = document.querySelectorAll('.product');
-
-listproduct.forEach((product) => {
-    product.addEventListener('click', (e) => {
-        e.preventDefault();
-        let nameProduct = product.querySelector('.desc').textContent;
-        let priceProductOrigin = product.querySelector('.price-origin').textContent;
-        let priceProductDiscount = product.querySelector('.price-discount').textContent;
-        let image = product.querySelector('.suggest-today-img').src;
-        let expiry = product.querySelector('.expiry').textContent;
-
-        const data = {
-            nameProduct,
-            priceProductOrigin,
-            priceProductDiscount,
-            image,
-            expiry,
-        };
-
-        localStorage.setItem('product', JSON.stringify(data));
-        window.location.href = './chitietsanpham.html';
-    });
-});

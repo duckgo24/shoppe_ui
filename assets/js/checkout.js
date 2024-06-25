@@ -1,6 +1,22 @@
 const baseUrl = 'http://localhost:9999';
 
 async function RenderData() {
+
+    async function LoadDataUser() {
+        const dataUser = JSON.parse(localStorage.getItem('user'));
+
+        if (dataUser) {
+            let nameUser = document.querySelector('.name');
+            let phone = document.querySelector('.phone');
+            nameUser.textContent = dataUser?.name;
+            phone.textContent = dataUser?.phone;
+        }
+    }
+
+    LoadDataUser();
+
+
+
     var _data = [];
 
     const bills = localStorage.getItem('bill');
@@ -91,6 +107,14 @@ async function RenderData() {
     var container = document.querySelector('.Checkout__container');
 
     btnPay?.addEventListener('click', async () => {
+
+        let addressDeliver = document.querySelector('.deliver-address');
+        if(!addressDeliver.textContent) {
+            Toast("error", "Thông báo", "Vui lòng nhập địa chỉ giao hàng", 3000);
+            return;
+        }
+
+
         loading.style.display = 'flex';
         container.style.overflow = 'hidden';
 
@@ -138,6 +162,39 @@ async function RenderData() {
 
 RenderData();
 
+
+const btnChangeAddressDeliver = document.querySelector('.btn-change-deliver-address');
+const btnConfirmAddressDeliver = document.querySelector('.btn-confirm-deliver-address');
+var addressDeliver = document.querySelector('.deliver-address');
+var inputAddressDeliver = document.querySelector('.deliver-address-input');
+
+btnChangeAddressDeliver?.addEventListener('click', () => {
+    
+    inputAddressDeliver.style.display = 'block';
+    inputAddressDeliver.value = addressDeliver.textContent;
+    addressDeliver.style.display = 'none';
+    btnConfirmAddressDeliver.style.display = 'block';
+    btnChangeAddressDeliver.style.display = 'none';
+
+});
+
+btnConfirmAddressDeliver?.addEventListener('click', () => {
+    
+    if(!inputAddressDeliver.value) {
+        Toast("error", "Thông báo", "Vui lòng nhập địa chỉ giao hàng", 3000);
+        return;
+    }
+
+    addressDeliver.textContent = inputAddressDeliver.value;
+    inputAddressDeliver.value = '';
+
+    inputAddressDeliver.style.display = 'none';
+    addressDeliver.style.display = 'block';
+    btnConfirmAddressDeliver.style.display = 'none';
+    btnChangeAddressDeliver.style.display = 'block';
+
+});
+
 const btnChangePayMethod = document.querySelector('.btn-change-pay-method');
 var listMethod = document.querySelector('.list-method');
 var payMethodDefault = document.querySelector('.pay-method-default');
@@ -156,3 +213,4 @@ listBtnMethod?.forEach((btn) => {
         payMethodDefault.textContent = btn.textContent;
     });
 });
+
