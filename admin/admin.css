@@ -254,6 +254,7 @@ td {
 
 
 
+
 .modal {
     display: none;
     position: absolute;
@@ -427,10 +428,12 @@ td {
     display: none;
 }
 
-.product-image-td {
+.product-image-td,
+.user-avatar-td {
     height: 50px;
     width: 50px;
 }
+
 
 .overlay {
     display: none;
@@ -441,4 +444,9 @@ td {
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
+}
+
+.input-birth {
+    padding: 4px 20px;
+    font-size: 16px;
 }

@@ -454,6 +454,7 @@ a {
     box-shadow: var(--box-shadow);
     border-radius: 5px;
     display: none;
+    z-index: 9999;
 }
 
 .header__main .header__main-search input:focus ~ .search-result {
@@ -466,6 +467,11 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+}
+
+.header__main-search .search-result .search-result__item a {
+    color: var(--black-color) !important;
 }
 
 .header__main .header__main-search .search-suggestion {

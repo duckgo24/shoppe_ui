@@ -328,6 +328,120 @@ btnMnAccount.addEventListener('click', () => {
     mainContent.appendChild(script);
 });
 
+
+var btnMnUser = document.getElementById('btn-mn-user');
+btnMnUser.addEventListener('click', () => {
+    mainContent.innerHTML = `
+            <div class="item__container">
+                        <div class="item__container-header">
+                            <i class="fa-solid fa-face-grin-squint-tears"></i>
+                            <span class="item-name">Người dùng</span>
+                        </div>
+                        <div class="item__container-main">
+                            <div class="header">
+                                <div class="title">Danh sách người dùng</div>
+                            </div>
+                            <div class="main">
+                                <div class="search">
+                                    <form>
+                                        <input type="text" class="input-find-user" />
+                                        <lable class="lb-user lb">Tìm kiếm người dùng</lable>
+                                    </form>
+                                    <select class="option">
+                                        <option value="0">Mã người dùng</option>
+                                        <option value="1">Tên người dùng</option>
+                                        <option value="2">Giới tính</option>
+                                        <option value="3">Số điện thoại</option>
+                                        <option value="4">Mã tài khoản</option>
+                                    </select>
+                                    <button class="btn-search btn-find-user">
+                                        <i class="fa-solid fa-search"></i>
+                                        <span>Tìm kiếm</span>
+                                    </button>
+                                </div>
+                                
+                                <table class="list-user">
+                                    <thead>
+                                        <th>Mã người dùng</th>
+                                        <th>Tên người dùng</th>
+                                        <th>Ngày sinh</th>
+                                        <th>Giới tính</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Email</th>
+                                        <th>Nickname</th>
+                                        <th>Avatar</th>
+                                        <th>Mã tài khoản</th>
+                                        <th colspan="2">Thao tác</th>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal">
+                            <div class="modal__header">
+                                <div>
+                                    <i class="fa-solid fa-window-restore"></i>
+                                    <span class="modal__header-title"></span>
+                                </div>
+                                <button id="btn-close-user" class="btn-close">
+                                    <i class="fa-solid fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="modal__main">
+                                <form class="form-info-user">
+                                    <span id="id_user" class="modal-hide-id"></span>
+                                    <div class="form-group">
+                                        <input type="text" class="input-name" />
+                                        <lable class="lb-user-name lb">Tên người dùng</lable>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="date" class="input-birth"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="input-gender"/>
+                                        <lable class="lb">Giới tính</lable>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="input-phone"/>
+                                        <lable class="lb">Số điện thoại</lable>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="text" class="input-email"/>
+                                        <lable class="lb">Email</lable>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="input-nickname"/>
+                                        <lable class="lb">Nickname</lable>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal__footer">
+                                <button id="btn-save-user" class="btn-save btn-control-modal">
+                                    <i class="fa-solid fa-save"></i>
+                                    <span>Lưu</span>
+                                </button>
+                                <button id="btn-update-user" class="btn-update btn-control-modal">
+                                    <i class="fa-solid fa-edit"></i>
+                                    <span>Cập nhật</span>
+                                </button>
+                                <button id="btn-delete-user" class="btn-delete btn-control-modal">
+                                    <i class="fa-solid fa-trash"></i>
+                                    <span>Xóa</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="overlay"></div>
+                    </div>
+        `;
+        const script = document.createElement('script');
+        script.src = './User/user.js';
+        script.async = false;
+        mainContent.appendChild(script);
+
+});
+
+
 var listBtn = document.querySelectorAll('.container-left__main button');
 listBtn.forEach((btn) => {
     btn.addEventListener('click', () => {

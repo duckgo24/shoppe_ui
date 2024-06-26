@@ -1,16 +1,57 @@
 const User = require('../models/User');
 const { mutipleMongooseToObject, mongooseToObject } = require('../utils/mongoose');
 class UserController {
-    //[Post] 
-    create(req, res, next) {
-        const formData = req.body
-        User 
-        .create(formData)
-        .then(() => {
-            res.json({res: formData, message: "Tạo tài khoản thành công"})        
-        })  
+    //[Get]
+    stores(req, res, next) {
+        User.find({})
+            .then((users) => {
+                res.json(mutipleMongooseToObject(users));
+            })
+            .catch(next);
     }
 
+    //[Post]
+    create(req, res, next) {
+        const formData = req.body;
+        User.create(formData).then(() => {
+            res.json({ res: formData, message: 'Tạo tài khoản thành công' });
+        });
+    }
+
+    // [Post]
+    async find(req, res, next) {
+        const query = req.body;
+        console.log(query);
+        
+        try {
+            let dbQuery = {};
+    
+            if (query?.name) {
+                dbQuery.name = { $regex: query.name, $options: 'i' };
+            }
+    
+            if (query?.gender) {
+                dbQuery.gender = { $regex: query.gender, $options: 'i' };
+            }
+    
+            if (query?.phone) {
+                dbQuery.phone = { $regex: query.phone, $options: 'i' };
+            }
+
+      
+    
+    
+            const data = await User.find(dbQuery && dbQuery.length > 0 ? dbQuery : query);
+            if (data && data.length > 0) {
+                res.json(mutipleMongooseToObject(data));
+            } else {
+                res.status(404).json({ message: 'No users found' });
+            }
+        } catch (error) {
+            next(error);
+        }
+    }
+    
     //[Get]
     async getInfoByAccId(req, res, next) {
         const accountId = req.query?.account;
@@ -30,18 +71,29 @@ class UserController {
         }
     }
 
-    //PUT 
-    async edit(req, res, next) {
-        console.log(req.body);
+    //PUT
+    edit(req, res, next) {
         User
-            .updateOne({account: req.params.id} , req.body)
+            .updateOne({ _id: req.params.id }, req.body)
             .then(() => {
-                res.status(200).json({message: "Sửa thành công"})
+                res.status(200).json({ message: 'Sửa thành công' });
             })
-            .catch(next)
+            .catch(next);
     }
 
-    //DELETE 
+
+
+    //DELETE
+    delete(req, res, next) {
+        User
+            .findOneAndDelete({ _id: req.params.id })
+            .then(() => {
+                res.status(200).json({ message: 'Xóa thành công' });
+            })
+            .catch(next);
+    }
+
+    //DELETE
     async deleteByAccId(req, res, next) {
         const accountId = req.query?.account;
         if (accountId) {
@@ -59,10 +111,6 @@ class UserController {
             res.status(400).json({ message: 'Account ID not provided' });
         }
     }
-    
-    
-
-    
 }
 
 module.exports = new UserController();

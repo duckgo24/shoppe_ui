@@ -3,7 +3,6 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    z-index: 10;
     box-shadow: var(--box-shadow);
     height: 90px;
     width: 400px;
@@ -15,6 +14,7 @@
     gap: 20px;
     border-radius: 10px;
     animation: OpactiyFadeIn 0.6s ease-in-out ;
+    z-index: 9999;
 }
 
 .toast .toast-icon {

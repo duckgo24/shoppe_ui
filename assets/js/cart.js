@@ -203,7 +203,7 @@ async function CartNoPaid() {
                 }
             });
             if(listBillPay.length === 0) {
-                alert('Vui lòng chọn sản phẩm');
+                Toast('error', 'Thông báo', 'Vui lòng chọn sản phẩm để thanh toán',3000);
                 return;
             
             }

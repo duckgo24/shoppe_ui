@@ -251,6 +251,17 @@ btnDeleteAccount?.addEventListener('click', async () => {
     });
 
     if (res.status == 200) {
+
+        await fetch(`${baseUrl}/users/deleteByAccId/${_id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+
+
+
         modalAccount.style.display = 'none';
         overLay.style.display = 'none';
         let listBtnControllModal = document.querySelectorAll('.btn-control-modal');
@@ -286,3 +297,5 @@ btnCloseModal?.addEventListener('click', () => {
         overLay.style.display = 'none';
     }, 400);
 });
+
+

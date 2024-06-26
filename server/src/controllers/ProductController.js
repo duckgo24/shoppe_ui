@@ -20,7 +20,7 @@ class ProductController {
             .catch(next);
     }
 
-    // GET
+    // [Post]
     async find(req, res, next) {
         const query = req.body;
 
@@ -28,6 +28,10 @@ class ProductController {
         try {
             let dbQuery = {};
 
+            if(query?._id) {
+                dbQuery._id = query._id;
+            }
+            
             if (query?.name) {
                 dbQuery.name = { $regex: query.name, $options: 'i' };
             }
@@ -52,6 +56,8 @@ class ProductController {
                         break;
                 }
             }
+            
+            
             const data = await Product.find(dbQuery);
             if (data && data.length > 0) {
                 res.json(mutipleMongooseToObject(data));

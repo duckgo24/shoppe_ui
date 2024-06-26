@@ -227,6 +227,12 @@ var urlImage = document.querySelector('.image-preview');
 
 const btnSaveProduct = document.getElementById('btn-save-product');
 btnSaveProduct?.addEventListener('click', async () => {
+
+    if(!IsNumber(inputPrice.value) || !IsNumber(inputQuantity.value)) {
+        Toast('error', 'Thông báo', 'Giá và số lượng phải là số', 3000);
+        return;
+    }
+
     const formData = {
         name: inputName.value,
         price: inputPrice.value,
@@ -263,6 +269,12 @@ btnSaveProduct?.addEventListener('click', async () => {
 
 const btnUpdateProduct = document.getElementById('btn-update-product');
 btnUpdateProduct?.addEventListener('click', async () => {
+
+    if(!IsNumber(inputPrice.value) || !IsNumber(inputQuantity.value)) {
+        Toast('error', 'Thông báo', 'Giá và số lượng phải là số', 3000);
+        return;
+    }
+
     const _id = document.getElementById('id_product').textContent;
 
     const formData = {
@@ -361,7 +373,7 @@ btnFindProduct.addEventListener('click', async () => {
     const optionFind = document.querySelector('.option');
     const inputFindProduct = document.querySelector('.input-find-product').value.trim();
     const optionCompare = document.querySelector('.compare').value;
-    let payLoad = {};
+    let query = {};
 
     if (!inputFindProduct) {
         console.error('Input is empty');
@@ -370,28 +382,28 @@ btnFindProduct.addEventListener('click', async () => {
 
     switch (optionFind.value) {
         case '0':
-            payLoad = { _id: inputFindProduct };
+            query = { _id: inputFindProduct };
             break;
         case '1':
-            payLoad = { name: inputFindProduct };
+            query = { name: inputFindProduct };
             break;
         case '2':
-            payLoad = { 
+            query = { 
                 price: inputFindProduct ,
                 operator: optionCompare
              };
             break;
         case '3':
-            payLoad = { 
+            query = { 
                 quantity: inputFindProduct ,
                 operator: optionCompare
              };
             break;
         case '4':
-            payLoad = { size: inputFindProduct };
+            query = { size: inputFindProduct };
             break;
         case '5':
-            payLoad = { color: inputFindProduct };
+            query = { color: inputFindProduct };
             break;
         default:
             break;
@@ -403,7 +415,7 @@ btnFindProduct.addEventListener('click', async () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(payLoad),
+            body: JSON.stringify(query),
         });
 
         if (res.status === 200) {

@@ -363,3 +363,64 @@ function AutoSlide(listImage, boxWrapper, index, width, btns) {
         index = NextSlide(listImage, boxWrapper, index, width);
     }, 3000);
 }
+
+const inputSearchValue = document.querySelector('.search-input');
+inputSearchValue?.addEventListener('change', async (e) => {
+
+    let searchResult = document.querySelector('.search-result');
+    
+
+    if(!e.target.value || e.target.value === '') {
+        searchResult.innerHTML = `
+                            <div class="search-result__item">
+                                <span>Shopee bao ship 0Đ - Đăng kí ngay!</span>
+                                <img src="./assets/image/free-ship.png" alt="" height="30px" />
+                            </div>
+                            <div class="search-result__item">
+                                <span>Không tìm thấy sản phẩm</span>
+                            </div>
+                            `;
+        return;
+    }
+    let baseUrl = 'http://localhost:9999';
+
+    const url = new URL(`${baseUrl}/products/find`);
+
+    try {
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name: e.target.value }),
+        });
+        const data = await res.json();
+        console.log(data);
+        
+       
+        searchResult.innerHTML = `
+                            <div class="search-result__item">
+                                <span>Shopee bao ship 0Đ - Đăng kí ngay!</span>
+                                <img src="./assets/image/free-ship.png" alt="" height="30px" />
+                            </div>
+                            `;
+    
+        data.forEach(product => {
+            searchResult.innerHTML += `
+                <div class="search-result__item">
+                    <a href="#">${product.name}</a>
+                </div>
+            `;
+        });
+
+
+
+        
+
+    
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+
